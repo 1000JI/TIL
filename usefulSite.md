@@ -52,3 +52,5 @@
 - [안구 운동과 눈에 좋은 음식](https://post.naver.com/viewer/postView.nhn?memberNo=132738&volumeNo=2891847&vType=VERTICAL)
 
 - [건강한 프로그래머가 되는 방법](https://m.blog.naver.com/PostView.nhn?blogId=atelierjpro&logNo=221052663169&proxyReferer=https%3A%2F%2Fwww.google.com%2F) 또는 [건강한 프로그래머 책](yes24.com/Product/Goods/13222084)
+
+- [기억력 향상 - 마인드맵](https://social.lge.co.kr/people/mindmap/)
