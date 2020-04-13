@@ -82,7 +82,7 @@ let temperatureInFahrenheit = 86
 
 switch temperatureInFahrenheit {
 case ...32:
-    print("It's very cold. Consider wearing a scarf.")
+	print("It's very cold. Consider wearing a scarf.")
 case 86...:
 	print("It's really warm. Don't forget to wear sunscreen.")
 default:
@@ -335,7 +335,7 @@ print("3 to the power of 10 is \(threeSqure))
 Q2) for 문을 이용하여 10부터 1까지 내림차순으로 출력하는 코드 구현
 ``` Swift
 for index in 0..<10 {
-    print(10 - index, terminator: " ")
+	print(10 - index, terminator: " ")
 }
 
 // OR
@@ -364,7 +364,7 @@ Q1) 2 ~ 9 사이의 숫자를 입력받아 해당 숫자에 해당하는 구구�
 ``` Swift
 print("---[resultMulti]---")
 func resultMulti(_ inputNumber: Int) {
-    var index = 1
+	var index = 1
 	
 	while index <= 9 {
 		print("\(inputNumber) * \(index) = \(inputNumber * index)")
@@ -380,7 +380,7 @@ resultMulti(5)
 ``` Swift
 func printMultiplicationTable1(for number: Int) {
 	var i = 1
-    repeat {
+	repeat {
 		print("\(number) * \(i) = \(number * i)")
 		i += 1
 	} while i <= 9
@@ -392,7 +392,7 @@ printMultiplicationTable1(for: 3)
 Q2) 자연수 하나를 입력받아 1부터 해당 숫자 사이의 모든 숫자의 합을 구해 그 합을 반환하는 함수
 ``` Swift
 func sumOfAllNumbers(to number: Int) -> Int {
-    var count = 1
+   	var count = 1
 	var sum = 0
 	
 	repeat {
@@ -418,75 +418,4 @@ sumOfAllNumbers(to: 10)
 
 
 ***
-
-### Practice
-#### Conditional Statements
-1. 학점을 입력받아 각각의 등급을 반환해주는 함수 (4.5 = A+,  4.0 = A, 3.5 = B+ ...)
-``` Swift
-func inputAndReturnGrade(grade inputData: Double) -> String {
-    switch inputData {
-	case 4.5:
-		return "A+"
-	case 4.0..<4.5:
-		 return "A"
-    case 3.5..<4.0:
-        return "B+"
-	case 3.0..<3.5:
-		return "B"
-	case 2.5..<3.0:
-		return "C+"
-	case 2.0..<2.5:
-		return "C"
-	default:
-		return "F"
-	}
-}
-
-inputAndReturnGrade(grade: 4.3)
-```
-2. 특정 달을 숫자로 입력 받아서 문자열로 반환하는 함수 (1 = "Jan" , 2 = "Feb", ...)
-``` Swift
-func returnCalendarEnglish(month: Int) -> String {
-    switch month {
-	case 1:
-		return "Jan"
-	case 2:
-		return "Feb"
-	case 3:
-		return "Mar"
-	case 4:
-		return "Apr"
-	case 5:
-		return "May"
-	case 6:
-		return "Jun"
-	case 7:
-		return "Jul"
-	case 8:
-		return "Aug"
-	case 9:
-		return "Sep"
-	case 10:
-		return "Oct"
-	case 11:
-		return "Nov"
-	case 12:
-		return "Dec"
-	default:
-		return "Error"
-	}
-}
-print(returnCalendarEnglish(month: 12))
-```
-3. 세 수를 입력받아 세 수의 곱이 양수이면 true, 그렇지 않으면 false 를 반환하는 함수((switch where clause 를 이용해 풀어볼 수 있으면 해보기))
-
-
-#### Loops
-1. 자연수 하나를 입력받아 그 수의 Factorial 을 구하는 함수
-2. 자연수 두 개를 입력받아 첫 번째 수를 두 번째 수만큼 제곱하여 반환하는 함수
-3. 자연수 하나를 입력받아 각 자리수 숫자들의 합을 반환해주는 함수
-
-#### Control Transfer
-1. 자연수 하나를 입력받아 1부터 해당 숫자 사이의 모든 숫자의 합을 구해 반환하는 함수를 만들되, 그 합이 2000 을 넘는 순간 더하기를 멈추고 바로 반환하는 함수
-2. 1 ~ 50 사이의 숫자 중에서 20 ~ 30 사이의 숫자만 제외하고 그 나머지를 모두 더해 출력하는 함수
 
