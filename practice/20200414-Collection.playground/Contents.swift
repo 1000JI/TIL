@@ -167,3 +167,9 @@ let carnivoraMimic = [
 ]
 
 print(carnivoraMimic["식육목"]!["고양이과"]!["표범"]!)
+
+/*
+ let carnivoraMimic : [String:Any] 인 경우 "식육목"은 String 이지만,
+ [] 값은 value(Any) 때문에 별도의 타입캐스팅이 필요함.
+ 하지만 생략할 경우 타입 추론이 가능하기에 출력이 가능함.
+ */
