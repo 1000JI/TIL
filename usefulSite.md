@@ -39,10 +39,20 @@
 - [SK Techx Tacademy Youtube](https://www.youtube.com/channel/UCtV98yyffjUORQRGTuLHomw/playlists)
 
 
+## Database
+
+- [SQL Query School](https://www.w3schools.com/)
+
+
+
 
 ## Helper Development
 
 - [Data Collection - DB Guide](http://www.dbguide.net/db.db?cmd=view&boardUid=186812&boardConfigUid=9&categoryUid=1457&boardIdx=152&boardStep=1)
+
+- [AWS 프리 티어](https://aws.amazon.com/ko/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc)
+
+- [AWS 클라우드 플랫폼 3사 완벽 비교](https://m.blog.naver.com/PostView.nhn?blogId=suin2_91&logNo=221541850025&proxyReferer=https:%2F%2Fwww.google.com%2F)
 
 
 
