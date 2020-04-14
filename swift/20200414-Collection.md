@@ -10,6 +10,8 @@
 	2. **Set** - _unordered_ collections of **unique** values.
 	3. **Dictionary** - _unordered collections of key-value_ associations.
 
+<img src="https://github.com/1000JI/TIL/blob/master/picture/Array_Set_Dictionary.png" width="300px" height="200px" title="Set_Array_Dictionary" alt="Smile"></img><br/>
+
 ### **Array**
 - Ordered Collection
 - Zero-based Integer Index
@@ -478,7 +480,10 @@ fastcampus["패스트캠퍼스"]!["스쿨"]![0]
 - Unordered Collection
 - Unique Value
 - Set Literal = Array Literal
-- 배열 / 딕셔너리에 비해 중요도 ↓
+- 배열 / 딕셔너리에 비해 중요도
+
+<img src="https://github.com/1000JI/TIL/blob/master/picture/Set.png" width="300px" height="200px" title="Set_Array_Dictionary" alt="Smile"></img><br/>
+
 ``` Swift
 let fruitsSet: Set<String> = ["Apple", "Orange", "Melon"]
 let numbers: Set = [1, 2, 3, 3, 3]
