@@ -141,6 +141,7 @@ print(pTest2)   // nil
 > ###### 추후 다시 공부 필요!!!!
 
 
+
 ***
 ###### 참조&강의내용: [커넥트재단](https://www.edwith.org/boostcamp_ios/), [ZeddiOS](https://zeddios.tistory.com/141)
 ###### [애플 공식문서 - 생성](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html)
