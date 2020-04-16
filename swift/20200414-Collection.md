@@ -71,6 +71,9 @@ if alphabet.contains("A") {
 
 if alphabet.contains(where: { str -> Bool in
 	// code...
+	print(str)
+	// return alphabet 배열을 모두 볼 때까지 돔(for문 같음)
+	// "E" 인 경우 "A", "B", "C", "D", "E" 모두 확인
 	return str == "A"
 }) {
 	print("contains A")
