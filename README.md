@@ -50,10 +50,20 @@ Today I Learned in Pastcampus..
 26. [Closure](https://github.com/1000JI/TIL/blob/master/swift/20200417-Closure.md)
 
 ## Practice
+1. [Basic, Type, Operation, Funtion Practice](https://github.com/1000JI/TIL/blob/master/practice/20200410-Basic-Type-Operation-Funtion.playground/Contents.swift)
+2. [Conditional, Tuples, Loops, Control Transfer Practice](https://github.com/1000JI/TIL/blob/master/practice/20200413-Conditional-Loops-Control-Transfer.playground/Contents.swift)
+3. [Collection Practice](https://github.com/1000JI/TIL/blob/master/practice/20200414-Collection.playground/Contents.swift)
+4. [Enumerations Optional Practice](https://github.com/1000JI/TIL/blob/master/practice/20200416-Optional-Enumerations.playground/Contents.swift)
+5. [Closure](https://github.com/1000JI/TIL/blob/master/practice/20200417-Closure.playground/Contents.swift)
 
 ## Review
+1. [Pretest Review](https://github.com/1000JI/TIL/blob/master/review/20200410-Pretest.md)
 
 ## Algorithm
+1. [Crane-Doll-Drawing-Game](https://github.com/1000JI/TIL/blob/master/algorithm/20200413-Crane-Doll-Drawing-Game.playground/Contents.swift)
+2. [Mock-Test](https://github.com/1000JI/TIL/blob/master/algorithm/20200414-Mock-Test.playground/Contents.swift)
+3. [GymClothes](https://github.com/1000JI/TIL/blob/master/algorithm/20200416-GymClothes.playground/Contents.swift)
+4. [KthNumber](https://github.com/1000JI/TIL/blob/master/algorithm/20200417-KthNumber.playground/Contents.swift)
 
 
 ***
