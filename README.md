@@ -48,6 +48,7 @@ Today I Learned in Pastcampus..
 24. [Collection](https://github.com/1000JI/TIL/blob/master/swift/20200414-Collection.md)
 25. [Enumerations Optional](https://github.com/1000JI/TIL/blob/master/swift/20200416-Enumerations-Optional.md)
 26. [Closure](https://github.com/1000JI/TIL/blob/master/swift/20200417-Closure.md)
+27. [OOP Basic, Property, Method](https://github.com/1000JI/TIL/blob/master/swift/20200420-OOP-Basic-Property-Method.md)
 
 ## Practice
 1. [Basic, Type, Operation, Funtion Practice](https://github.com/1000JI/TIL/blob/master/practice/20200410-Basic-Type-Operation-Funtion.playground/Contents.swift)
@@ -55,6 +56,7 @@ Today I Learned in Pastcampus..
 3. [Collection Practice](https://github.com/1000JI/TIL/blob/master/practice/20200414-Collection.playground/Contents.swift)
 4. [Enumerations Optional Practice](https://github.com/1000JI/TIL/blob/master/practice/20200416-Optional-Enumerations.playground/Contents.swift)
 5. [Closure](https://github.com/1000JI/TIL/blob/master/practice/20200417-Closure.playground/Contents.swift)
+6. [OOP Basic, Property, Method](https://github.com/1000JI/TIL/blob/master/practice/20200420-OOP-Property-Method.playground/Contents.swift)
 
 ## Review
 1. [Pretest Review](https://github.com/1000JI/TIL/blob/master/review/20200410-Pretest.md)
@@ -70,6 +72,10 @@ Today I Learned in Pastcampus..
 8. [Number-of-p-and-y-in-string](https://github.com/1000JI/TIL/blob/master/algorithm/20200419-Number-of-p-and-y-in-string.playground/Contents.swift)
 9. [Sorting-at-will-within-a-string](https://github.com/1000JI/TIL/blob/master/algorithm/20200419-Sorting-at-will-within-a-string.playground/Contents.swift)
 10. [Sum-between-two-integers](https://github.com/1000JI/TIL/blob/master/algorithm/20200419-Sum-between-two-integers.playground/Contents.swift)
+11. [Find-prime-numbers](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Find-prime-numbers.playground/Contents.swift) One more check
+12. [Finding-Kim-Seobang-in-Seoul](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Finding-Kim-Seobang-in-Seoul.playground/Contents.swift)
+13. [String-Handling-Basics](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-String-Handling-Basics.playground/Contents.swift)
+14. [String-descending](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-String-descending.playground/Contents.swift)
 
 
 ***
