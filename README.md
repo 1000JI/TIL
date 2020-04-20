@@ -64,6 +64,12 @@ Today I Learned in Pastcampus..
 2. [Mock-Test](https://github.com/1000JI/TIL/blob/master/algorithm/20200414-Mock-Test.playground/Contents.swift)
 3. [GymClothes](https://github.com/1000JI/TIL/blob/master/algorithm/20200416-GymClothes.playground/Contents.swift)
 4. [KthNumber](https://github.com/1000JI/TIL/blob/master/algorithm/20200417-KthNumber.playground/Contents.swift)
+5. [Get-the-middle-character](https://github.com/1000JI/TIL/blob/master/algorithm/20200418-Get-the-middle-character.playground/Contents.swift)
+6. [Year-Of-2016](https://github.com/1000JI/TIL/blob/master/algorithm/20200418-Year-Of-2016.playground/Contents.swift)
+7. [Dividing-Numbers-Array](https://github.com/1000JI/TIL/blob/master/algorithm/20200419-Dividing-Numbers-Array.playground/Contents.swift)
+8. [Number-of-p-and-y-in-string](https://github.com/1000JI/TIL/blob/master/algorithm/20200419-Number-of-p-and-y-in-string.playground/Contents.swift)
+9. [Sorting-at-will-within-a-string](https://github.com/1000JI/TIL/blob/master/algorithm/20200419-Sorting-at-will-within-a-string.playground/Contents.swift)
+10. [Sum-between-two-integers](https://github.com/1000JI/TIL/blob/master/algorithm/20200419-Sum-between-two-integers.playground/Contents.swift)
 
 
 ***
