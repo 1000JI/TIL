@@ -1,7 +1,7 @@
 ###### 1000JI [Resume](https://github.com/1000JI/Resume)
 
 # TIL
-Today I Learned in Pastcampus..
+Today I Learned in Fastcampus..
 
 ***
 
