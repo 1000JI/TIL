@@ -12,7 +12,8 @@ Today I Learned in Fastcampus..
 | 2      | [Swift](#Swift)        | Swift Grammar & Concept & Learning    |
 | 3      | [Practice](#Practice)  | Swift Practice & Study & Playground   |
 | 4      | [Review](#Review)      | Test Review(Pretest, etc...           |
-| 5      | [Algorithm](#Algorithm)| Algorithm Study(Programmers, etc..)   |
+| 5      | [Algorithm](#Algorithm)| Algorithm Study(Programmers, etc...)  |
+| 6      | [Etc](#Algorithm)      | Basic, Etc...                         |
 
 ***
 
@@ -20,6 +21,7 @@ Today I Learned in Fastcampus..
 1. [How to write markdown](https://github.com/1000JI/TIL/blob/master/git/20200302-how-to-write-markdown.md)
 2. [How to work with git](https://github.com/1000JI/TIL/blob/master/git/20200408-how-to-work-with-git.md)
 3. [How to Utility Setup](https://github.com/1000JI/TIL/blob/master/git/20200409-How-to-Utility-Setup.md)
+4. [Terminal, Git](https://github.com/1000JI/TIL/blob/master/git/20200407-Terminal-Git.md)
 
 ## Swift
 1. [Swift-Tutorial1](https://github.com/1000JI/TIL/blob/master/swift/20200303-Swift-Tutorial1.md)
@@ -49,6 +51,7 @@ Today I Learned in Fastcampus..
 25. [Enumerations Optional](https://github.com/1000JI/TIL/blob/master/swift/20200416-Enumerations-Optional.md)
 26. [Closure](https://github.com/1000JI/TIL/blob/master/swift/20200417-Closure.md)
 27. [OOP Basic, Property, Method](https://github.com/1000JI/TIL/blob/master/swift/20200420-OOP-Basic-Property-Method.md)
+28. [Swift Keyword](https://github.com/1000JI/TIL/blob/master/swift/20200401-Swift-Keyword.md)
 
 ## Practice
 1. [Basic, Type, Operation, Funtion Practice](https://github.com/1000JI/TIL/blob/master/practice/20200410-Basic-Type-Operation-Funtion.playground/Contents.swift)
@@ -62,6 +65,7 @@ Today I Learned in Fastcampus..
 1. [Pretest Review](https://github.com/1000JI/TIL/blob/master/review/20200410-Pretest.md)
 
 ## Algorithm
+### Level1
 1. [Crane-Doll-Drawing-Game](https://github.com/1000JI/TIL/blob/master/algorithm/20200413-Crane-Doll-Drawing-Game.playground/Contents.swift)
 2. [Mock-Test](https://github.com/1000JI/TIL/blob/master/algorithm/20200414-Mock-Test.playground/Contents.swift)
 3. [GymClothes](https://github.com/1000JI/TIL/blob/master/algorithm/20200416-GymClothes.playground/Contents.swift)
@@ -72,11 +76,20 @@ Today I Learned in Fastcampus..
 8. [Number-of-p-and-y-in-string](https://github.com/1000JI/TIL/blob/master/algorithm/20200419-Number-of-p-and-y-in-string.playground/Contents.swift)
 9. [Sorting-at-will-within-a-string](https://github.com/1000JI/TIL/blob/master/algorithm/20200419-Sorting-at-will-within-a-string.playground/Contents.swift)
 10. [Sum-between-two-integers](https://github.com/1000JI/TIL/blob/master/algorithm/20200419-Sum-between-two-integers.playground/Contents.swift)
-11. [Find-prime-numbers](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Find-prime-numbers.playground/Contents.swift) One more check
-12. [Finding-Kim-Seobang-in-Seoul](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Finding-Kim-Seobang-in-Seoul.playground/Contents.swift)
-13. [String-Handling-Basics](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-String-Handling-Basics.playground/Contents.swift)
-14. [String-descending](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-String-descending.playground/Contents.swift)
+11. [Adding digits](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Adding-digits.playground/Contents.swift)
+12. [Caesar-password](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Caesar-password.playground/Contents.swift) One more check
+13. [Create weird characters](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Create-weird-characters.playground/Contents.swift)
+14. [Find-prime-numbers](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Find-prime-numbers.playground/Contents.swift) One more check
+15. [Finding-Kim-Seobang-in-Seoul](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Finding-Kim-Seobang-in-Seoul.playground/Contents.swift)
+16. [Integer descending](https://github.com/1000JI/TIL/tree/master/algorithm/20200420-Integer-descending.playground)
+17. [Invert Arrays](https://github.com/1000JI/TIL/tree/master/algorithm/20200420-Invert-Arrays.playground)
+18. [String Handling Basics](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-String-Handling-Basics.playground/Contents.swift)
+19. [String descending](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-String-descending.playground/Contents.swift)
+20. [Sum of factors](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Sum-of-factors.playground/Contents.swift)
+21. [WaterMelonWater](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-WaterMelonWater.playground/Contents.swift)
 
+## Etc
+1. [FastCampus, Basc, Etc](https://github.com/1000JI/TIL/blob/master/etc/20200406-Basic-Etc.md)
 
 ***
 
