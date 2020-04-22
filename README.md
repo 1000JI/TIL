@@ -98,6 +98,11 @@ Today I Learned in Fastcampus..
 28. [Budget](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-budget-winnter-summer.playground/Contents.swift) Summer/Winter Coding(~2018)
 29. [square-root](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-square-root.playground/Contents.swift)
 30. [Collatz-conjecture](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-Collatz-conjecture.playground/Contents.swift)
+31. [KAKAO-Darts-Game](https://github.com/1000JI/TIL/blob/master/algorithm/20200422-KAKAO-Darts-Game.playground/Contents.swift)
+32. [KAKAO-Failure-late](https://github.com/1000JI/TIL/blob/master/algorithm/20200422-KAKAO-Failure-late.playground/Contents.swift)
+
+### Level2
+1. [Function-development](https://github.com/1000JI/TIL/blob/master/algorithm/20200422-Function-development.playground/Contents.swift)
 
 ## Etc
 1. [FastCampus, Basc, Etc](https://github.com/1000JI/TIL/blob/master/etc/20200406-Basic-Etc.md)
