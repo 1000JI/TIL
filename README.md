@@ -13,7 +13,7 @@ Today I Learned in Fastcampus..
 | 3      | [Practice](#Practice)  | Swift Practice & Study & Playground   |
 | 4      | [Review](#Review)      | Test Review(Pretest, etc...           |
 | 5      | [Algorithm](#Algorithm)| Algorithm Study(Programmers, etc...)  |
-| 6      | [Etc](#Algorithm)      | Basic, Etc...                         |
+| 6      | [Etc](#Etc)      | Basic, Etc...                         |
 
 ***
 
@@ -83,8 +83,8 @@ Today I Learned in Fastcampus..
 13. [Create weird characters](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Create-weird-characters.playground/Contents.swift)
 14. [Find-prime-numbers](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Find-prime-numbers.playground/Contents.swift) One more check
 15. [Finding-Kim-Seobang-in-Seoul](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Finding-Kim-Seobang-in-Seoul.playground/Contents.swift)
-16. [Integer descending](https://github.com/1000JI/TIL/tree/master/algorithm/20200420-Integer-descending.playground)
-17. [Invert Arrays](https://github.com/1000JI/TIL/tree/master/algorithm/20200420-Invert-Arrays.playground)
+16. [Integer descending](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Integer-descending.playground/Contents.swift)
+17. [Invert Arrays](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Invert-Arrays.playground/Contents.swift)
 18. [String Handling Basics](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-String-Handling-Basics.playground/Contents.swift)
 19. [String descending](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-String-descending.playground/Contents.swift)
 20. [Sum of factors](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Sum-of-factors.playground/Contents.swift)
