@@ -52,6 +52,7 @@ Today I Learned in Fastcampus..
 26. [Closure](https://github.com/1000JI/TIL/blob/master/swift/20200417-Closure.md)
 27. [OOP Basic, Property, Method](https://github.com/1000JI/TIL/blob/master/swift/20200420-OOP-Basic-Property-Method.md)
 28. [Swift Keyword](https://github.com/1000JI/TIL/blob/master/swift/20200401-Swift-Keyword.md)
+29. [Access Control & OOP Deep(Overloading, Overriding)[https://github.com/1000JI/TIL/blob/master/swift/20200421-Access-Control-OOP-Deep.md]
 
 ## Practice
 1. [Basic, Type, Operation, Funtion Practice](https://github.com/1000JI/TIL/blob/master/practice/20200410-Basic-Type-Operation-Funtion.playground/Contents.swift)
@@ -60,13 +61,14 @@ Today I Learned in Fastcampus..
 4. [Enumerations Optional Practice](https://github.com/1000JI/TIL/blob/master/practice/20200416-Optional-Enumerations.playground/Contents.swift)
 5. [Closure](https://github.com/1000JI/TIL/blob/master/practice/20200417-Closure.playground/Contents.swift)
 6. [OOP Basic, Property, Method](https://github.com/1000JI/TIL/blob/master/practice/20200420-OOP-Property-Method.playground/Contents.swift)
+7. [OOP Deep(Overriding & Overloading), Class](https://github.com/1000JI/TIL/blob/master/practice/20200421-OOP-Deep.playground/Contents.swift)
 
 ## Review
 1. [Pretest Review](https://github.com/1000JI/TIL/blob/master/review/20200410-Pretest.md)
 
 ## Algorithm
 ### Level1
-1. [Crane-Doll-Drawing-Game](https://github.com/1000JI/TIL/blob/master/algorithm/20200413-Crane-Doll-Drawing-Game.playground/Contents.swift)
+1. [Crane-Doll-Drawing-Game](https://github.com/1000JI/TIL/blob/master/algorithm/20200413-Crane-Doll-Drawing-Game.playground/Contents.swift) 2019 카카오 개발자 겨울 인턴십
 2. [Mock-Test](https://github.com/1000JI/TIL/blob/master/algorithm/20200414-Mock-Test.playground/Contents.swift)
 3. [GymClothes](https://github.com/1000JI/TIL/blob/master/algorithm/20200416-GymClothes.playground/Contents.swift)
 4. [KthNumber](https://github.com/1000JI/TIL/blob/master/algorithm/20200417-KthNumber.playground/Contents.swift)
@@ -87,6 +89,15 @@ Today I Learned in Fastcampus..
 19. [String descending](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-String-descending.playground/Contents.swift)
 20. [Sum of factors](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-Sum-of-factors.playground/Contents.swift)
 21. [WaterMelonWater](https://github.com/1000JI/TIL/blob/master/algorithm/20200420-WaterMelonWater.playground/Contents.swift)
+22. [Divisor Multiple](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-Divisor-Multiple.playground/Contents.swift)
+23. [Harshad Number](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-Harshad-number.playground/Contents.swift)
+24. [Hide phone number](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-Hide-phone-number.playground/Contents.swift)
+25. [Secret-map](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-KAKAO-Secret-map.playground/Contents.swift) 2018 KAKAO BLIND RECRUITME
+26. [Matrix addition](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-Matrix-addition.playground/Contents.swift)
+27. [Remove-the-smallest-number](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-Remove-the-smallest-number.playground/Contents.swift)
+28. [Budget](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-budget-winnter-summer.playground/Contents.swift) Summer/Winter Coding(~2018)
+29. [square-root](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-square-root.playground/Contents.swift)
+30. [Collatz-conjecture](https://github.com/1000JI/TIL/blob/master/algorithm/20200421-Collatz-conjecture.playground/Contents.swift)
 
 ## Etc
 1. [FastCampus, Basc, Etc](https://github.com/1000JI/TIL/blob/master/etc/20200406-Basic-Etc.md)
