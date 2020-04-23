@@ -2,12 +2,15 @@
 
 # 2020년 04월 23일(목)
 
-
+### The Main Run Loop
+<img src="https://github.com/1000JI/TIL/blob/master/picture/The_Main_Run_Loop.png?raw=true" width="400px" height="300px" title="Upload" alt="Smile"></img><br/>
 
 ## 	The App Life Cycle(생명주기)
-
 - [The App Life Cycle.pdf] 참조
 - Command + Shift + H: 홈으로 가기
+
+<img src="https://github.com/1000JI/TIL/blob/master/picture/App_Life_Cycle.png?raw=true" width="300px" height="400px" title="Upload" alt="Smile"></img>
+<img src="https://github.com/1000JI/TIL/blob/master/picture/App_Life_Cycle_Explain.png?raw=true" width="300px" height="300px" title="Upload" alt="Smile"></img><br/>
 
 ### Not running
 
@@ -53,8 +56,17 @@ func applicationWillTerminate(_ application: UIApplication) {
   // 종료되기 직전에 호출
 }
 ````
+### Execution States for app
+<img src="https://github.com/1000JI/TIL/blob/master/picture/Execution_States_for_App.png?raw=true" width="400px" height="250px" title="Upload" alt="Smile"></img><br/>
 
+### Launch Time
+<img src="https://github.com/1000JI/TIL/blob/master/picture/Launch_Time.png" width="500px" height="350px" title="Upload" alt="Smile">
 
+### Hanling alert based interruptions
+<img src="https://github.com/1000JI/TIL/blob/master/picture/Handling_alert-based_interruptions.png" width="500px" height="350px" title="Upload" alt="Smile">
+
+### The background transition cycle
+<img src="https://github.com/1000JI/TIL/blob/master/picture/The-Background-Transition-Cycle.png" width="500px" height="400px" title="Upload" alt="Smile">
 
 ***
 
