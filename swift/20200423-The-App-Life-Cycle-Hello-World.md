@@ -26,9 +26,37 @@
 
 - 백그라운드 상태에서 활동을 멈춘 상태. 빠른 재실행을 위하여 메모리에 적재된 상태이지만 실질적으로 동작하고 있지는 않음. 메모리가 부족할 때 비로소 시스템이 강제종료 하게 됨
 
+```` swift
+// SceneDelegate 삭제했을 경우
+// 1. SceneDelegate.swift 삭제
+// 2. AppDelegate.swift 에서 구현
+// 3. Appdelegate.swift 파일에 var window: UIWindows? 프로퍼티 작성
+// 4. Application Scene Manifest를 '-' 버튼 클릭하여 키 삭제
+
+func applicationDidBecomeActive(_ application: UIApplication) {
+  // active 상태가 되었을 때
+}
+
+func applicationWillResignActive(_ application: UIApplication) {
+  // inactive 상태로 전환되기직전 호출
+}
+
+func applicationDidEnterBackground(_ application: UIApplication) {
+  // 백그라운드로 갈때
+}
+
+func applicationWillEnterForeground(_ application: UIApplication) {
+  // fore그라운드로 들어갈 때
+}
+
+func applicationWillTerminate(_ application: UIApplication) {
+  // 종료되기 직전에 호출
+}
+````
 
 
 
+***
 
 ## Xcode
 
