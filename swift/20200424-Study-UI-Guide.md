@@ -19,3 +19,19 @@
   - 상위(**Super**) 뷰의 원점 (0, 0)으로 부터 width와 height 만큼 그려짐
 - **Bounds** rectangle
   - 자기 자신 원점(0, 0)부터 width와 height 만큼 그림
+  
+***
+### Positioning
+<img src="https://github.com/1000JI/TIL/blob/master/picture/Positioning.png" width="600px" height="300px" title="Upload" alt="Smile"></img><br/>
+
+***
+### Bounds Capture 1
+<img src="https://github.com/1000JI/TIL/blob/master/picture/Bounds_Capture1.png" width="600px" height="350px" title="Upload" alt="Smile"></img><br/>
+
+***
+### Frame Capture 1
+<img src="https://github.com/1000JI/TIL/blob/master/picture/Frame_Capture1.png" width="600px" height="500px" title="Upload" alt="Smile"></img><br/>
+
+***
+### Frame Capture 2
+<img src="https://github.com/1000JI/TIL/blob/master/picture/Frame_Capture2.png" width="600px" height="350px" title="Upload" alt="Smile"></img><br/>
