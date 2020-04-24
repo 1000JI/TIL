@@ -53,6 +53,10 @@ Today I Learned in Fastcampus..
 27. [OOP Basic, Property, Method](https://github.com/1000JI/TIL/blob/master/swift/20200420-OOP-Basic-Property-Method.md)
 28. [Swift Keyword](https://github.com/1000JI/TIL/blob/master/swift/20200401-Swift-Keyword.md)
 29. [Access Control & OOP Deep(Overloading, Overriding)](https://github.com/1000JI/TIL/blob/master/swift/20200421-Access-Control-OOP-Deep.md)
+30. [The App Life Cycle, Hello world](https://github.com/1000JI/TIL/blob/master/swift/20200423-The-App-Life-Cycle-Hello-World.md)
+31. [UI Guide, Frame, Bounds Study](https://github.com/1000JI/TIL/blob/master/swift/20200424-Study-UI-Guide.md)
+
+
 
 ## Practice
 1. [Basic, Type, Operation, Funtion Practice](https://github.com/1000JI/TIL/blob/master/practice/20200410-Basic-Type-Operation-Funtion.playground/Contents.swift)
@@ -62,6 +66,9 @@ Today I Learned in Fastcampus..
 5. [Closure](https://github.com/1000JI/TIL/blob/master/practice/20200417-Closure.playground/Contents.swift)
 6. [OOP Basic, Property, Method](https://github.com/1000JI/TIL/blob/master/practice/20200420-OOP-Property-Method.playground/Contents.swift)
 7. [OOP Deep(Overriding & Overloading), Class](https://github.com/1000JI/TIL/blob/master/practice/20200421-OOP-Deep.playground/Contents.swift)
+8. [Hello Word!, Algorithm, Storyboard Plus, Minus](https://github.com/1000JI/TIL/tree/master/practice/20200423_helloworld)
+9. [UI Guide, Frame, Bounds](https://github.com/1000JI/TIL/tree/master/practice/20200424-UIGuide-Frame-Bounds)
+
 
 ## Review
 1. [Pretest Review](https://github.com/1000JI/TIL/blob/master/review/20200410-Pretest.md)
@@ -103,9 +110,12 @@ Today I Learned in Fastcampus..
 
 ### Level2
 1. [Function-development](https://github.com/1000JI/TIL/blob/master/algorithm/20200422-Function-development.playground/Contents.swift)
+2. [TOP](https://github.com/1000JI/TIL/blob/master/algorithm/20200424-Algorithm-TOP.playground/Contents.swift)
+
 
 ## Etc
 1. [FastCampus, Basc, Etc](https://github.com/1000JI/TIL/blob/master/etc/20200406-Basic-Etc.md)
+2. [Useful Site](https://github.com/1000JI/TIL/blob/master/usefulSite.md)
 
 ***
 
