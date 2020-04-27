@@ -10,21 +10,83 @@ import UIKit
 
 class BViewController: UIViewController {
 
+    var bViewCount: Int = 0
+    let countLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.presentationController?.delegate = self
+        
+        view.backgroundColor = .systemIndigo
 
-        // Do any additional setup after loading the view.
+        let bCountLabel = UILabel()
+        bCountLabel.font = UIFont.boldSystemFont(ofSize: 35)
+        bCountLabel.textAlignment = .center
+        bCountLabel.textColor = .black
+        bCountLabel.center = CGPoint(x: view.center.x, y: 200)
+        bCountLabel.text = "\(bViewCount)"
+        bCountLabel.sizeToFit()
+        view.addSubview(bCountLabel)
+        
+        let moveButton = UIButton(type: .system)
+        moveButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        moveButton.setTitle("A로 이동", for: .normal)
+        moveButton.setTitleColor(.black, for: .normal)
+        moveButton.sizeToFit()
+        moveButton.center = view.center
+        moveButton.setTitleColor(.systemPink, for: .normal)
+        moveButton.addTarget(self, action: #selector(clickedMoveA(_:)), for: .touchUpInside)
+        view.addSubview(moveButton)
+    }
+    
+    @objc private func clickedMoveA(_ sender: UIButton) {
+        if let vc = self.presentingViewController as? AViewController {
+            vc.aViewCount = bViewCount + 1
+            vc.aCountLabel.text = "\(vc.aViewCount)"
+            vc.aCountLabel.sizeToFit()
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension BViewController: UIAdaptivePresentationControllerDelegate {
+    
+    
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        print("presentationControllerWillDismiss")
+
+//        if let vc = self.presentingViewController as? AViewController {
+//            vc.aViewCount = bViewCount + 1
+//            vc.aCountLabel.text = "\(vc.aViewCount)"
+//            vc.aCountLabel.sizeToFit()
+//            print("execute11")
+//        }
     }
-    */
-
+    
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("presentationControllerDidDismiss")
+        
+//        let vc = AViewController()
+//        vc.aViewCount = bViewCount + 1
+//        vc.aCountLabel.text = "\(vc.aViewCount)"
+//        vc.aCountLabel.sizeToFit()
+//        print("execute22")
+        
+        let vc = UIApplication.shared.keyWindow?.rootViewController as? AViewController
+        vc!.aViewCount = bViewCount + 1
+        vc!.aCountLabel.text = "\(vc!.aViewCount)"
+        vc!.aCountLabel.sizeToFit()
+    }
+    
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        print("presentationControllerShouldDismiss")
+        return true
+    }
+    
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        print("presentationControllerDidAttemptToDismiss")
+    }
 }

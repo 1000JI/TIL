@@ -13,6 +13,11 @@
 		AF81396D2456C52E000E2A52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF81396B2456C52E000E2A52 /* Main.storyboard */; };
 		AF81396F2456C52F000E2A52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF81396E2456C52F000E2A52 /* Assets.xcassets */; };
 		AF8139722456C52F000E2A52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF8139702456C52F000E2A52 /* LaunchScreen.storyboard */; };
+		AF81397A2456C564000E2A52 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8139792456C564000E2A52 /* OneViewController.swift */; };
+		AF81397C2456C57A000E2A52 /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF81397B2456C57A000E2A52 /* TwoViewController.swift */; };
+		AF81397E2456C589000E2A52 /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF81397D2456C589000E2A52 /* ThreeViewController.swift */; };
+		AF8139802456D860000E2A52 /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF81397F2456D860000E2A52 /* AViewController.swift */; };
+		AF8139822456DA4A000E2A52 /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8139812456DA4A000E2A52 /* BViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		AF81396E2456C52F000E2A52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF8139712456C52F000E2A52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF8139732456C52F000E2A52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF8139792456C564000E2A52 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
+		AF81397B2456C57A000E2A52 /* TwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
+		AF81397D2456C589000E2A52 /* ThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
+		AF81397F2456D860000E2A52 /* AViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
+		AF8139812456DA4A000E2A52 /* BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,11 @@
 			children = (
 				AF8139652456C52E000E2A52 /* AppDelegate.swift */,
 				AF8139672456C52E000E2A52 /* SceneDelegate.swift */,
+				AF81397F2456D860000E2A52 /* AViewController.swift */,
+				AF8139812456DA4A000E2A52 /* BViewController.swift */,
+				AF8139792456C564000E2A52 /* OneViewController.swift */,
+				AF81397B2456C57A000E2A52 /* TwoViewController.swift */,
+				AF81397D2456C589000E2A52 /* ThreeViewController.swift */,
 				AF8139692456C52E000E2A52 /* ViewController.swift */,
 				AF81396B2456C52E000E2A52 /* Main.storyboard */,
 				AF81396E2456C52F000E2A52 /* Assets.xcassets */,
@@ -138,9 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF81397C2456C57A000E2A52 /* TwoViewController.swift in Sources */,
+				AF8139822456DA4A000E2A52 /* BViewController.swift in Sources */,
 				AF81396A2456C52E000E2A52 /* ViewController.swift in Sources */,
 				AF8139662456C52E000E2A52 /* AppDelegate.swift in Sources */,
+				AF81397E2456C589000E2A52 /* ThreeViewController.swift in Sources */,
 				AF8139682456C52E000E2A52 /* SceneDelegate.swift in Sources */,
+				AF8139802456D860000E2A52 /* AViewController.swift in Sources */,
+				AF81397A2456C564000E2A52 /* OneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +313,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JWiOS.-0200427-Practice-Third-AND-Counting";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,7 +330,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JWiOS.-0200427-Practice-Third-AND-Counting";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
