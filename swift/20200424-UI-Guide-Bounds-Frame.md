@@ -17,8 +17,14 @@
   - 버튼의 상위뷰가 mainView 일지, subView 일지에 따라 만들어지는 위치가 달라짐
 - **Frame** rectangle
   - 상위(**Super**) 뷰의 원점 (0, 0)으로 부터 width와 height 만큼 그려짐
+  - 정의: **Superview(상위뷰)의 좌표시스템** 안에서 View의 위치와 크기를 나타냅니다.
+    - Frame의 핵심은 **SuperView(상위 뷰)**
 - **Bounds** rectangle
   - 자기 자신 원점(0, 0)부터 width와 height 만큼 그림
+  - Bounds를 변경하는 것은 해당 위치에서 View를 다시 그리라는 의미, Bounds는 상위뷰와 아무런 관련이 없으므로, 해당 뷰는 움직이지 않는 것 처럼 보이고, 그안에 있던 View들이 움직이는 것 처럼 보이는 것이다.
+  - **Scroll View** 에서 중요!!!
+  - 정의: View의 위치와 크기를 **자신만의 좌표시스템** 안에서 나타냅니다.
+    - Bounds의 핵심은 **자신 만의 좌표 시스템**
   
 ***
 ### Positioning
