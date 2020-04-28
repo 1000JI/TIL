@@ -68,6 +68,11 @@ public enum UIModalPresentationStyle : Int {
 ```
 
 
+### SplitView
+<img src="https://github.com/1000JI/TIL/blob/master/picture/SplitView.png" width="600px" height="500px" title="Upload" alt="Smile"></img><br/>
+
+### View LifeCycle
+<img src="https://github.com/1000JI/TIL/blob/master/picture/ViewLifeCycle.png" width="600px" height="500px" title="Upload" alt="Smile"></img><br/>
 
 ***
 
