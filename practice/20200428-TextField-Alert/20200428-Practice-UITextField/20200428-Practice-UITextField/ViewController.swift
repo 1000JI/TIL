@@ -40,8 +40,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clickedButton(_ sender: UIButton) {
-        // idTextField 키보드일때만 내려감
-//        idTextField.resignFirstResponder()
+        idTextField.resignFirstResponder()
         
         // 언제나 키보드 내려가게 하려면
         view.endEditing(true)

@@ -51,12 +51,12 @@ class ViewController: UIViewController {
         }
         
         let addAction = UIAlertAction(title: "Add Count", style: .default, handler: { _ in
-//            self.count += 1
             
             if let addCount = alert.textFields?.first {
                 guard addCount.text != "" else { return }
                 self.count += Int(addCount.text!)!
             }
+            
         })
         
         let resetAction = UIAlertAction(title: "Reset", style: .destructive, handler: { _ in
@@ -70,28 +70,6 @@ class ViewController: UIViewController {
         alert.addAction(cancelAction)
         
         self.present(alert, animated: true)
-    }
-
-    @IBAction func showAlert(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "제목", message: "메시지", preferredStyle: .actionSheet)
-        
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: { _ in
-            print("ok~~")
-        })
-        
-        let deleteAction = UIAlertAction(title: "삭제", style: .destructive, handler: { _ in
-            print("delete")
-        })
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: { _ in
-            print("no~~")
-        })
-        
-        alertController.addAction(okAction)
-        alertController.addAction(deleteAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true)
     }
     
 }
