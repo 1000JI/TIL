@@ -16,8 +16,6 @@ class BViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         self.presentationController?.delegate = self
         
         view.backgroundColor = .systemIndigo
@@ -78,8 +76,8 @@ extension BViewController: UIAdaptivePresentationControllerDelegate {
 
 //        print(presentingViewController)
 //        print(presentedViewController)
-        print("내가 띄운 뷰:", presentationController.presentedViewController)
-        print("나를 띄운 뷰:", presentationController.presentingViewController)
+//        print("내가 띄운 뷰:", presentationController.presentedViewController)
+//        print("나를 띄운 뷰:", presentationController.presentingViewController)
         
         if let vc = presentationController.presentingViewController as? AViewController {
             vc.aViewCount = bViewCount + 1
