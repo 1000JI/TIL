@@ -54,7 +54,9 @@ Today I Learned in Fastcampus..
 28. [Swift Keyword](https://github.com/1000JI/TIL/blob/master/swift/20200401-Swift-Keyword.md)
 29. [Access Control & OOP Deep(Overloading, Overriding)](https://github.com/1000JI/TIL/blob/master/swift/20200421-Access-Control-OOP-Deep.md)
 30. [The App Life Cycle, Hello world](https://github.com/1000JI/TIL/blob/master/swift/20200423-The-App-Life-Cycle-Hello-World.md)
-31. [UI Guide, Frame, Bounds Study](https://github.com/1000JI/TIL/blob/master/swift/20200424-Study-UI-Guide.md)
+31. [UI Guide, Frame, Bounds Study](https://github.com/1000JI/TIL/blob/master/swift/20200424-UI-Guide-Bounds-Frame.md)
+32. [View Controller Study & Practice](https://github.com/1000JI/TIL/blob/master/swift/20200427-UIViewController.md)
+33. [TextField And Alert Controller](https://github.com/1000JI/TIL/blob/master/swift/20200428-TextField-AlertController.md)
 
 
 
@@ -68,7 +70,8 @@ Today I Learned in Fastcampus..
 7. [OOP Deep(Overriding & Overloading), Class](https://github.com/1000JI/TIL/blob/master/practice/20200421-OOP-Deep.playground/Contents.swift)
 8. [Hello Word!, Algorithm, Storyboard Plus, Minus](https://github.com/1000JI/TIL/tree/master/practice/20200423_helloworld)
 9. [UI Guide, Frame, Bounds](https://github.com/1000JI/TIL/tree/master/practice/20200424-UIGuide-Frame-Bounds)
-
+10. [View Controller](https://github.com/1000JI/TIL/tree/master/practice/20200427-ViewController)
+11. [TextField And Alert Controller](https://github.com/1000JI/TIL/tree/master/practice/20200428-TextField-Alert)
 
 ## Review
 1. [Pretest Review](https://github.com/1000JI/TIL/blob/master/review/20200410-Pretest.md)
