@@ -245,10 +245,11 @@ override func viewDidDisappear(_ animated: Bool) {
 
 ### 중요ㅁ7ㅁ8
 
-```` swift
-presentingViewController // - 나를 띄운 ViewController
-presentedViewController // - 내가 띄운 ViewController
+* presentingViewController : **나를 띄운 ViewController**
 
+  presentedViewController : **내가 띄운 ViewController**
+
+```` swift
 // self: Next VC
 // self.presentingViewController // ViewController
 // self.presentingViewController.presentedViewController // Next VC
@@ -332,3 +333,116 @@ func presentationControllerDidAttemptToDismiss(_ presentationController: UIPrese
 1. presentationControllerDidAttemptToDismiss
 
 [참고사이트](https://milyo-codingstories.tistory.com/34)
+
+
+
+***
+
+#### 04/28 과제
+
+###### [ 과제 ]
+
+1. ViewController 데이터 전달
+2. AViewController 와 BViewController 를 만든 뒤, 각각 하나씩의 Label 생성
+3. A에서 B로 화면을 넘어갈 때는 B의 Label 값이 이전 값에서 +3 증가
+4. B에서 A로 화면을 넘어갈 때는 A의 Label 값이 이전 값에서 +1 증가
+
+- e.g. A에서 B로 갈 때 3, B에서 다시 A로 넘어올 때 4, 다시 A에서 B로 가면 7, 다시 A로 오면 8
+
+###### [ 도전 과제 ]
+
+1. 카드 스타일에서 제스처로 내릴 때는 UIAdaptivePresentationControllerDelegate 프로토콜을 사용한 별도의 작업 필요. 관련 내용을 검색해보고 presentationControllerDidDismiss 메서드를 이용해서 구현해보기
+
+###### [해결 방법]
+
+1. A ViewController(이하 'A'), B ViewController(이하 'B') 두 개로 구성하여 각 뷰에 Count 변수 생성
+2. A -> B로 이동 시 이동할 B를 가져와서 B에 있는 Count 변수를 증가시킴
+3. B가 화면 구성하면서 증가한 Count(A Count + 3)로 Label을 구성
+4. B -> A로 이동 시 ```self.presentingViewController as? AViewController``` 를 통해 A를 불러와 Count(B Count + 1)를 구성 후 Label 구성해줌(만약 Label을 빼고 싶다면 A쪽에 willAppear을 가지고 할 수 있을 것 같다)
+5. 위의 내용을 반복!!
+
+###### [도전 과제 중 문제점]
+
+* 상위 해결 방법은 **modalPresentStyle** 이 .fullscreen이거나 버튼으로만 이동했을 경우인데, .automatic(Page Sheet OR Form Sheet) 일 때, 제스처로 내리는 것은 별도의 **Delegate** 를 사용해야 한다.
+
+``` swift
+extension BViewController: UIAdaptivePresentationControllerDelegate {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.presentationController?.delegate = self
+    // 이거... 구글링하다 보니 self.navigation.present... 식으로 있는 것을 볼 수 있는데 뭔가가 업데이트 되고 나서 바꼈나보다ㅠㅠ 이걸로 시간 너무 잡아먹었다.
+  }
+}
+```
+
+* 또한, ```presentationControllerWillDismiss``` 를 사용할 경우 self.presentingViewController를 사용하면 쉽게 해결 할 수 있지만 ```presentationControllerDidDismiss``` 를 사용할 경우 제스처로 창을 닫은 상태에서 실행이 되기 때문에 **self의 주체를 찾기가 어렵다.**
+* ```presentationControllerDidDismiss``` 에서 ```let vc = AViewController()``` 식으로 불러와도 이때 A 컨트롤러는 현재 B를 부른 A를 가져오는 것이 아니라, 새로운 A를 만드는 것이기 때문에 Counting이 되지 않는다.
+* 따라서, B를 부른 A를 찾는 것이 중요한 부분이다.
+
+###### [상위 문제 해결 방법]
+
+- **첫 번째 방법**은 B를 부른 뷰가 최상위 뷰이기 때문에(하나밖에 없어서) Root ViewController를 찾는 방법이다.
+
+``` swift
+func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+  print("presentationControllerDidDismiss")
+
+  // UIApplication을 통해 최상단 rootViewController를 찾아 AViewController를 불러옴
+  let vc = UIApplication.shared.keyWindow?.rootViewController as? AViewController
+  vc!.aViewCount = bViewCount + 1
+  vc!.aCountLabel.text = "\(vc!.aViewCount)"
+  vc!.aCountLabel.sizeToFit()
+
+```
+
+- **두 번째 방법**은 ```presentationControllerDidDismiss``` 메소드를 보면 매개변수가 있는데 그 매개변수를 활용하는 방법이다.
+
+```swift
+func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+  print("presentationControllerDidDismiss")
+
+  if let vc = presentationController.presentingViewController as? AViewController {
+    vc.aViewCount = bViewCount + 1
+    vc.aCountLabel.text = "\(vc.aViewCount)"
+    vc.aCountLabel.sizeToFit()
+  }
+}
+```
+
+* 위처럼 해결 할 수 있었는데, 궁금한 부분이 생겨났다. 바로 presentingViewController와 presentedViewController인데 살펴보면
+  1. A ViewController
+     - presentingViewController : nil
+     - presentedViewController : nil
+  2. A -> B Present (현재 A View이며, self.present 이후)
+     - presentingViewController : nil
+     - presentedViewController : B ViewController
+  3. B ViewController
+     - presentingViewController : A ViewController
+     - presentedViewController : nil
+  4. B -> A Dismiss (현재 B View이며, self.dismiss 이후)
+     - presentingViewController : A ViewController
+     - presentedViewController : nil
+     - 하지만, self.dimiss에서 **completion에 출력하면 둘 다 모두 nil이 출력** 된다.
+  5. B -> A 제스처 Dismiss (현재 ```presentationControllerDidDismiss``` 메소드 위치
+     - presentingViewController : nil
+     - presentedViewController : nil
+     - DidDismiss 이므로, 이미 Dismiss가 된 후 호출 되서 현재 B는 호출하거나 호출하지 않은 상태라 nil이 출력된다.
+     - 따라서 매개변수 ```presentationController``` 를 사용해서 출력하면
+     - presentationController.presentedViewController: B ViewController
+     - presentationController.presentingViewController: A ViewController
+     - 위 처럼 나오는데 그러면... 매개변수 presentationController는 A ViewController - presentationController - B ViewController 처럼 중간에 껴있는 걸까?
+
+####### [presentationController ????]
+
+- 영어를 구글 번역하여 쓰기 때문에 약간 상이 할 수 있음
+
+- UIPresentationController 정의: 화면에서 전환 애니메이션 및 뷰 컨트롤러의 프리젠테이션을 관리하는 객체이다.
+- **UIKit은 View Controller가 표시되는 시점부터 해제 될 때까지 Presentation Controller를 사용하여 해당 View Controller에 대한 Presentation Controller의 다양한 측면을 관리**합니다. Presentation Controller는 애니메이터 객체가 제공하는 애니메이션 위에 자체 애니메이션을 추가하고 크기 변경에 응답 할 수 있으며 View Controller가 화면에 표시되는 방식의 다른 측면을 관리 할 수 있다.
+- [Presentation Process]
+  1. Presentation을 통해 일련의 애니메이션을 통해 화면에 새로운 뷰 컨트롤러를 이동하는 것을 포함한다.
+  2. 관리 단계는 새로운 뷰 컨트롤러 화면에 있는 동안 환경의 변화에 응답하는 것을 포함한다.
+  3. 일련의 애니메이션을 통해 새로운 뷰 컨트롤러로 이동하는 것을 포함한다.
+- [결론]
+  - Presentation Controller는 새로운 뷰(B ViewController)가 생성되는 시점부터 해당 View Controller를 해제할 때까지 관리한다. 따라서 제스처를 통해 Dismiss 할 때 넘어오는 매개변수 presentationController가 바로 그 역할을 하고 있다.
+  - presentationController를 띄운(PresentingViewController) 뷰는 A Controller가 되며, presentationController가 띄우고 있는(PresentedViewController) 뷰는 B Controller가 된다고 보면 될 것 같다. :)
