@@ -69,16 +69,25 @@ extension BViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         print("presentationControllerDidDismiss")
         
-//        let vc = AViewController()
-//        vc.aViewCount = bViewCount + 1
-//        vc.aCountLabel.text = "\(vc.aViewCount)"
-//        vc.aCountLabel.sizeToFit()
-//        print("execute22")
+//        let vc = UIApplication.shared.keyWindow?.rootViewController as? AViewController
+//        vc!.aViewCount = bViewCount + 1
+//        vc!.aCountLabel.text = "\(vc!.aViewCount)"
+//        vc!.aCountLabel.sizeToFit()
+
+//        print(presentingViewController)
+//        print(presentedViewController)
+        print("내가 띄운 뷰:", presentationController.presentedViewController)
+        print("나를 띄운 뷰:", presentationController.presentingViewController)
+//
         
-        let vc = UIApplication.shared.keyWindow?.rootViewController as? AViewController
-        vc!.aViewCount = bViewCount + 1
-        vc!.aCountLabel.text = "\(vc!.aViewCount)"
-        vc!.aCountLabel.sizeToFit()
+        print("내가 띄운 뷰11:", self.presentedViewController)
+        print("나를 띄운 뷰11:", self.presentingViewController)
+        
+        if let vc = presentationController.presentingViewController as? AViewController {
+            vc.aViewCount = bViewCount + 1
+            vc.aCountLabel.text = "\(vc.aViewCount)"
+            vc.aCountLabel.sizeToFit()
+        }
     }
     
     func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
