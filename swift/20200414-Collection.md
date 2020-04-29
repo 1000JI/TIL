@@ -15,6 +15,8 @@
 ### **Array**
 - Ordered Collection
 - Zero-based Integer Index
+- **인덱스는 순서대로 할당**되며, 중간 인덱스가 삭제되더라도 **인접한 다음 아이템들이 차례대로 앞으로 이동하면서 빈 인덱스를 채워 넣는다**. 따라서 배열 처음이나 중간에 있는 아이템이 삭제되어도 **실제로 사라지는건 가장 마지막 인덱스**이다.
+- <> 기호를 사용하여 배열 내부에서 사용할 아이템 타입을 지정하는 문법을 **제네릭(Generic)** 이라고 합니다. - 제네릭은 **구조체나 클래스 외부에서 객체 내부에 사용될 타입을 지정**할 수 있다는 점에서 **동적 프로그래밍 영역으로 간주**되기도 하는데, **생산성을 높여주는 문법**이다.
 ``` Swift
 // Type Annotation
 let strArray1: Array<String> = ["apple", "orange", "melon"]
@@ -27,6 +29,13 @@ let strArray4 = Array<String>(repeating: "iOS", count: 5)
 // Error
 //let strArray5 = ["apple", 3.14, 1]
 //let strArray6 = []	// Type Unknown
+
+
+// 초기화 되지 않은 배열은 아직 메모리 공간을 할당받지 않은 상태
+var cities : Array<String>
+
+// 따라서 초기화를 해주어 메모리 공간을 할당받아야 한다.
+cities = Array() // 또는 Array<String>(), cities = [String](), cities = []
 ```
 
 Q1) String, Int 타입으로 각각 자료가 없는 빈 배열을 만들어 보세요.
@@ -121,6 +130,19 @@ alphabetArray = ["A", "B", "C", "D", "E", "F"]
 alphabetArray[2...]
 alphabetArray[2...] = ["Q", "W", "E"]
 alphabetArray
+
+
+// 추가 20200429
+var alphabet = ["a", "b", "c", "d", "e"]
+alphabet[1...2] // "b", "c"
+
+alphabet[1...2] = ["1", "2", "3"]
+alphabet	// "a", "1", "2", "3", "d", "e"
+// 이런식으로 1...2 만 보면 "b", "c" 두 개만 바꿔주는 것 같지만 "b", "c" 자리에는 "1", "2"가 들어가고 추가적으로 "3"이 추가되어 들어간다.
+
+alphabet[2...4] = ["A"]
+alphabet    // "a", "1", "A", "e"
+// 위와 마찬가지로 2...4에 "A"만 넣게되면 "2", "3", d"가 없어지고 "A"로 대체된다.
 ```
 
 - Remove an Element
