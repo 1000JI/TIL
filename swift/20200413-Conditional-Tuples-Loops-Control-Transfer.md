@@ -203,7 +203,6 @@ func update(age: Int) {
 ```
 > 1...100 ~= age : ~= -> age가 1...100 안에 포함이 되는지 확인할 때 씀
 
-
 ***
 
 
@@ -226,6 +225,9 @@ var threeValues: (Int, Double, String) = (10,  100.0,  "이름")
 let numbers = threeNumbers // 1, 2, 5
 
 let (first, second, third) = threeNumbers // 1, 2, 5
+first	// 1
+second // 2
+third // 5
 
 let (_, second1, third1) = threeNumbers // _, 2, 5
 ```
@@ -416,6 +418,29 @@ sumOfAllNumbers(to: 10)
 	4. **return**: 함수를 즉시 종료하고, return type에 해당하는 자료를 반환
 	5. **throw**
 
-
 ***
+
+#### 추가(break, continue) - 20200429
+
+- break와 continue를 쓸 때 구문 레이블과 같이 쓰면 for 문을 더 쉽게 관리 할 수 있다. 예제코드만 보면 바로 이해 할 듯!
+
+``` swift
+/*
+<레이블 이름> : for <상수> in <범위> {
+	<실행할 구문>
+}
+
+break <레이블 이름>
+continue <레이블 이름>
+*/
+
+outer : for i in 1...5 {
+  inner : for j in 1...9 {
+    if (j == 3) {
+      break outer
+    }
+    print("\(i) * \(j) = \(i * j)")
+  }
+}
+```
 
