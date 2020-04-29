@@ -62,7 +62,7 @@ print("숫자 " + String(num)) // 숫자 1
 ```
 let year: Int = 2019
 ```
-	
+
 	2. Type Inference: 변수 선언 시 초기화로 사용되는 값의 타입을 통해 변수의 **타입을 추론**하여 적용하는 것
 ```
 var weight = 6.4 //Double
@@ -406,6 +406,104 @@ chooseFunction(plus: true, value: value)
 chooseFunction(plus: false, value: value)
 ```
 
+***
 
+### 추가(2020. 04. 29.)
 
+- 함수에서도 내부에서 수정된 인자 값이 외부까지 영향을 미칠 수 있는 방법이 존재하다. 바로 **inout** 이라는 키워드를 이용해서 가능하다. 대신 이때 인자로 넘겨주는 변수에 **&를 붙여줘야**한다.
+- **inout** 키워드는 값 자체를 전달하는 것이 아니라 인자값에 **할당 된 데이터가 저장되어 있는 메모리 주소를 전달** 하는 것이다. C언어 포인터 같은 느낌...?
+- 참조(Reference)에 의한 전달이라고 한다. 예외적으로 Class로 구현된 인스턴스는 inout 키워드를 사용하지 않아도 Call by Reference!!!
 
+``` swift
+var count = 3
+
+print(count)            // 3
+func addOne(_ number: inout Int) -> Int {
+    number += 1
+    return number
+}
+print(addOne(&count))   // 4
+print(count)            // 4
+```
+
+***
+
+#### 변수에 함수 할당
+
+``` swift
+func boo(age: Int, name: String) -> String {
+  return "\(name)의 나이는 \(age)세 입니다"
+}
+
+let s: (Int, String) -> String = boo(age:name:) // boo 도 상관 없음, 다만 정확한 표현은 코드에 써 놓은 것
+```
+
+- 하지만 매개변수가 다르고 이름이 같은 함수를 쓴다면 문제가 발생한다.
+
+``` swift
+func boo(age: Int) -> String {
+  return "\(age)"
+}
+
+func boo(age: Int, name: String) -> String {
+  return "\(name)의 나이는 \(age)세 입니다"
+}
+
+let t = boo // (X) 어느 것의 boo 인지 모름
+
+//--------- 해결 방법 -------------
+// 1) 타입 어노테이션을 통해 입력받을 함수의 타입을 지정
+let t1: (Int, String) -> String = boo
+
+// 2) 함수의 식별 값을 통해 입력받을 정확한 함수를 지정
+let t2 = boo(age:name:)
+```
+
+#### 함수의 반환 타입으로 함수를 사용 할 수 있음
+
+``` swift
+func plus(a: Int, b: Int) -> Int {
+  return a + b
+}
+
+func calc(_ operand: String) -> (Int, Int) -> Int {
+  switch operand {
+    case "+" :
+    	return plus
+    default :
+    	return plus
+  }
+}
+
+let c = calc("+")
+c(3, 4) // plus(3,4) = 7
+calc("+")(3, 4)
+```
+
+#### 함수의 인자 값으로 함수를 사용 할 수 있음 // 브로커(Broker)
+
+``` swift
+func incr(param: Int) -> Int {
+  return param + 1
+}
+
+func broker(base: Int, function fn: (Int) -> Int) -> Int {
+  return fn(base)
+}
+
+broker(base: 3, function: incr) // 4
+```
+
+#### defer => 지연블록
+
+``` swift
+defer {
+  sCallBack()
+}
+```
+
+- defer 블록은 작성된 위치와 순서에 상관없이 함수가 종료되기 직전에 실행된다.
+- defer 블록을 읽기 전에 함수의 실행이 종료될 경우 defer 블록은 실행되지 않는다.
+- 하나의 함수나 메소드 내에서 defer 블록을 여러 번 사용할 수 있다. 이때에는 가장 마지막에 작성된 defer 블록부터 역순으로 실행된다.
+- defer 블록을 중첩해서 사용할 수 있다. 이때에는 바깥쪽 defer 블록부터 실행되며 가장 안쪽에 있는 defer 블록은 가장 마지막에 실행된다.
+- 주로, 사용된 각종 리소스의 처리나 해제, 연결 종료 등의 구문을 처리하는 용도로 유용하게 사용된다.
