@@ -76,13 +76,14 @@ class TextInsertViewController: UIViewController, UITextFieldDelegate {
         if string == "\n" { return true }
         
         let currentCharacterCount = textField.text?.count ?? 0
-//        print("Text: ", textField.text!, "Input: ", string, "Range: ", range)
+        print("Text: ", textField.text!, "Input: ", string, "Range: ", range)
         
         if range.length + range.location > currentCharacterCount {
             return false
         }
+        print(range.length, range.location)
         
-        let newLength = currentCharacterCount + string.count - range.length
+        let newLength = currentCharacterCount + string.count - range.length // 10 + 1 - 0
         return newLength <= 10
     }
 }
