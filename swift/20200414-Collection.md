@@ -273,6 +273,15 @@ maximumValue(in: [-6, -5, -4, -3, -2, -1])
 
 // 오류
 //var dictFromLiteral = [:]
+
+// 초기화
+var capital: [String:String]
+
+// 딕셔너리의 초기화
+capital = Dictionary<String, String>()
+capital = Dictionary()
+capital = [String:String]()
+capital = [:]
 ```
 
 - Dictionary Type
