@@ -72,7 +72,7 @@ Today I Learned in Fastcampus..
 9. [UI Guide, Frame, Bounds](https://github.com/1000JI/TIL/tree/master/practice/20200424-UIGuide-Frame-Bounds)
 10. [View Controller](https://github.com/1000JI/TIL/tree/master/practice/20200427-ViewController)
 11. [TextField And Alert Controller](https://github.com/1000JI/TIL/tree/master/practice/20200428-TextField-Alert)
-12. [Alert Controller Like](https://github.com/1000JI/TIL/tree/master/practice/20200429-Practice-Alert-Controller-Alike): 알림창을 View형식으로 
+12. [Alert Controller Like](https://github.com/1000JI/TIL/tree/master/practice/20200429-Practice-Alert-Controller-Alike) => 알림창을 View형식으로 
 
 ## Review
 1. [Pretest Review](https://github.com/1000JI/TIL/blob/master/review/20200410-Pretest.md)
