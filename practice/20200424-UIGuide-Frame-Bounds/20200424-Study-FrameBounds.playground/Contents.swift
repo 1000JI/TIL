@@ -12,18 +12,24 @@ class MyViewController : UIViewController {
         
     }
     
+    var greenView = UIView()
+    var redView = UIView()
+    var blackView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let greenView = setupSuperview()
-        let redView = setupSubview(superView: greenView)
+        greenView = setupSuperview()
+        redView = setupSubview(superView: greenView)
+        blackView = setupCenterView(superView: redView)
+
 //        let orangeView = setupSubview2(superView: view)
-        let blackView = setupCenterView(superView: view)
-        blackView.center = greenView.center
+//        blackView.center = greenView.center
         
         // 위치를 바꿀 때(frame.origin)
 //        greenView.frame.origin = CGPoint(x: 0, y: 0)
 //        redView.frame.origin = CGPoint(x: 0, y: 0)
+//        greenView.bounds.origin = CGPoint(x: 50, y: 50)
         
         // 위치를 바꿀 때(bounds.origin)
 //        greenView.bounds.origin = CGPoint(x: 100, y: 100)
@@ -39,6 +45,31 @@ class MyViewController : UIViewController {
 //        print("-- orange View --")
 //        print(orangeView.frame)
 //        print(orangeView.bounds)
+        
+        let moveButton: UIButton = UIButton(type: .system)
+        moveButton.setTitle("Move", for: .normal)
+        moveButton.frame.size = CGSize(width: 200, height: 30)
+        moveButton.center = view.center
+        moveButton.addTarget(self, action: #selector(clickedMoveButton(_:)), for: .touchUpInside)
+        
+        view.addSubview(moveButton)
+    }
+    
+    @objc private func clickedMoveButton(_ sender: UIButton) {
+        var randomX: Int = Int.random(in: 0...Int(greenView.frame.size.width))
+        var randomY: Int = Int.random(in: 0...Int(greenView.frame.size.height))
+        
+        if randomX > Int(greenView.frame.size.width - redView.frame.size.width) {
+            randomX = Int(greenView.frame.size.width - redView.frame.size.width)
+        }
+        
+        if randomY > Int(greenView.frame.size.height - redView.frame.size.height) {
+            randomY = Int(greenView.frame.size.height - redView.frame.size.height)
+        }
+        
+        redView.frame.origin = CGPoint(x: randomX, y: randomY)
+        
+//        redView.frame.origin = CGPoint(x: ) - Int(redView.frame.size.width), y: Int.random(in: 1...Int(greenView.frame.size.height)) - Int(redView.frame.size.height))
     }
     
     func setupSuperview() -> UIView {
@@ -51,7 +82,13 @@ class MyViewController : UIViewController {
     
     func setupSubview(superView: UIView) -> UIView {
         let redView = UIView()
-        redView.frame = CGRect(x: 50, y: 50, width: 80, height: 80)
+        redView.frame.size = CGSize(width: 80, height: 80)
+        
+        let setWidth = redView.frame.size.width / 2
+        let setHeight = redView.frame.size.height / 2
+        
+        redView.frame.origin = CGPoint(x: superView.frame.width / 2 - setWidth, y: superView.frame.height / 2 - setHeight)
+        
         redView.backgroundColor = .red
         superView.addSubview(redView)
         return redView
@@ -67,9 +104,8 @@ class MyViewController : UIViewController {
     
     func setupCenterView(superView: UIView) -> UIView {
         let blackView = UIView()
-        blackView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        blackView.frame = CGRect(x: superView.frame.width / 2 - 25, y: superView.frame.height / 2 - 25, width: 50, height: 50)
         blackView.backgroundColor = .black
-//        blackView.center = superView.center
         superView.addSubview(blackView)
         return blackView
     }
