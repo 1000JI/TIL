@@ -76,6 +76,7 @@ Today I Learned in Fastcampus..
 
 ## Review
 1. [Pretest Review](https://github.com/1000JI/TIL/blob/master/review/20200410-Pretest.md)
+2. [First Testing](https://github.com/1000JI/TIL/tree/master/review/20200501-First-Testing)
 
 ## Algorithm
 ### Level1
