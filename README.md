@@ -57,6 +57,7 @@ Today I Learned in Fastcampus..
 31. [UI Guide, Frame, Bounds Study](https://github.com/1000JI/TIL/blob/master/swift/20200424-UI-Guide-Bounds-Frame.md)
 32. [View Controller Study & Practice](https://github.com/1000JI/TIL/blob/master/swift/20200427-UIViewController.md)
 33. [TextField And Alert Controller](https://github.com/1000JI/TIL/blob/master/swift/20200428-TextField-AlertController.md)
+34. [Type Check & Type Casting](https://github.com/1000JI/TIL/blob/master/swift/20200504-TypeCheck-TypeCasting.md)
 
 
 
@@ -72,7 +73,8 @@ Today I Learned in Fastcampus..
 9. [UI Guide, Frame, Bounds](https://github.com/1000JI/TIL/tree/master/practice/20200424-UIGuide-Frame-Bounds)
 10. [View Controller](https://github.com/1000JI/TIL/tree/master/practice/20200427-ViewController)
 11. [TextField And Alert Controller](https://github.com/1000JI/TIL/tree/master/practice/20200428-TextField-Alert)
-12. [Alert Controller Like](https://github.com/1000JI/TIL/tree/master/practice/20200429-Practice-Alert-Controller-Alike) => 알림창을 View형식으로 
+12. [Alert Controller Like](https://github.com/1000JI/TIL/tree/master/practice/20200429-Practice-Alert-Controller-Alike) => 알림창을 View형식으로
+13. [Type Casting](https://github.com/1000JI/TIL/blob/master/practice/20200504-Practice-Casting.playground/Contents.swift)
 
 ## Review
 1. [Pretest Review](https://github.com/1000JI/TIL/blob/master/review/20200410-Pretest.md)
