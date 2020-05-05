@@ -583,3 +583,93 @@ let bulldog = Bulldog()
 bulldog.bark()
 ```
 
+***
+
+## 2020. 05. 05. Class 추가(Static, Class)
+
+- **static** Method는 오버라이딩을 할 수 없다.
+- 하지만 swift에서는 **static** Method를 오버라이딩 할 수 있도록 별도의 **class** 메서드를 추가했다.
+- **클래스 내에서 static Method와 class Method는 같은 의미** 이다.
+- 즉, 클래스에 한정적으로 static 메서드를 오버라이드 가능하다.
+
+```swift
+class SwitfClass {
+  class func classMethod() {
+    print("Switf Class Method")
+  }
+  class func staticMethod() {
+    print("Switf Static Method")
+  }
+}
+
+class OverrideSwiftClass: SwitfClass {
+  override class func classMethod() {
+    print("override Switf Class Method")
+  }
+  override static func staticMethod() {
+    print("override Switf Static Method")
+  }
+}
+
+SwitfClass.classMethod()
+SwitfClass.staticMethod()
+
+OverrideSwiftClass.classMethod()
+OverrideSwiftClass.staticMethod()
+```
+
+***
+
+## 2020. 05. 05. Optional 추가
+
+```swift
+class Person {
+    var name: String
+    var home: Apartment?
+    init(name: String) {
+        self.name = name
+    }
+}
+class Apartment {
+    var buildingNumber: String
+    var roomNumber: String
+    var `guard`: Person?
+    var owner: Person?
+    init(dong: String, ho: String) {
+        buildingNumber = dong
+        roomNumber = ho
+    }
+}
+
+let yagom: Person? = Person(name: "yagom")
+
+yagom?.home?.guard?.name = "슈퍼맨"
+let guardName: String? = yagom?.home?.guard?.name
+print(yagom?.home?.guard?.name)
+
+let name = guardName ?? "경비원"
+print(name)
+```
+
+- 위 코드에서 의문점이 생겼다. ```yagom?.home?.guard?.name = "슈퍼맨"``` 을 하고 난 뒤, guardName에 값을 넣어주는데, nil로 들어가는 것이다. 분명 위에서 "슈퍼맨"이라는 값을 넣어주는데 왜 nil이란 값이 들어갈까?
+
+### 해결
+
+- yagom?.home?은 Apartment로 선언되어있는데, Apartment에 생성을 안해줘서 비어있는 상태이다. 따라서 ```yagom?.home?.guard?.name``` 에 값을 넣어주려고 했다면, home에 Apartment 인스턴스를 생성했어야 한다.
+- 생성되어 있지 못해 저장을 못하다 보니 nil이란 값이 반환 된것이다. 
+- 따라서 아래와 같은 코드로 구현 한다면 가능하다.
+
+``` swift
+let yagom: Person? = Person(name: "yagom")
+print(yagom?.home)
+
+yagom?.home = Apartment(dong: "a", ho: "101")
+print(yagom?.home?.guard?.name) // nil
+
+yagom?.home?.guard?.name = "슈퍼맨"
+print(yagom?.home?.guard?.name)  // nil
+
+yagom?.home?.guard = Person(name: "슈퍼맨")
+print(yagom?.home?.guard?.name)  // 슈퍼맨
+```
+
