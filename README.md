@@ -126,7 +126,7 @@ Today I Learned in Fastcampus..
 ## Etc
 1. [FastCampus, Basc, Etc](https://github.com/1000JI/TIL/blob/master/etc/20200406-Basic-Etc.md)
 2. [Useful Site](https://github.com/1000JI/TIL/blob/master/usefulSite.md)
-
+3. [Boostcourse CERTIFICATE of LECTURE](https://github.com/1000JI/TIL/blob/master/picture/certificate_A20200506-013081.pdf) [부스트코스] iOS 프로그래밍을 위한 스위프트 기초 수료증
 ***
 
 ## Category
