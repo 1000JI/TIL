@@ -31,7 +31,9 @@ class ViewController: UIViewController {
                 count += intValue
             }
         }
+        
     }
+    
     
     /*
      prepare(화면 전환에 따른 사전 작업하는 메서드)
@@ -83,6 +85,10 @@ class ViewController: UIViewController {
             }
         }
         return true
+    }
+    
+    @IBAction private func performManualSegue(_ sender: Any) {
+        performSegue(withIdentifier: "FirstToSecond", sender: sender)
     }
 }
 
