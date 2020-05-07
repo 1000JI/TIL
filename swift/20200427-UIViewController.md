@@ -469,7 +469,12 @@ func presentationControllerDidDismiss(_ presentationController: UIPresentationCo
   - 자식뷰는 (subView), 부모뷰는 (superView)
   - 참고사이트: [Creating and Managing a View Hierarchy](https://developer.apple.com/library/archive/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/CreatingViews/CreatingViews.html#//apple_ref/doc/uid/TP40009503-CH5-SW47)
 
-#### [ 뷰 계층의 생성과 관리 ]]
+#### [ 뷰 계층의 생성과 관리 ]
+
+- 뷰 계층 만드는 방법(코드)
+  - 서브 뷰를 부모 뷰에 추가하기 위해, 부모 뷰에서 ```addSubView(_:)``` 메서드를 호출한다. 이 메서드는 **해당 서브 뷰를 서브 뷰 목록의 마지막에 추가**한다.
+  - 부모 뷰의 서브 뷰를 제거하기 위해서는 서브 뷰의 ```removeFromSuperView()``` 메서드를 호출한다.
+  - 이 외에도 서브 뷰를 부모 뷰 목록의 중간에 삽입하기 위해 ```ìnsertSubview(_:at:)```, 또는 부모 뷰 내에 이미 존재하는 서브 뷰를 정렬하기 위해 ```bringSubView(toFront:)```, ```sendSubView(toBack:)`` 등의 메서드들을 호출 할 수 있다.
 
 
 

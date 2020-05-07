@@ -41,3 +41,24 @@
 ***
 ### Frame Capture 2
 <img src="https://github.com/1000JI/TIL/blob/master/picture/Frame_Capture2.png" width="600px" height="350px" title="Upload" alt="Smile"></img><br/>
+
+***
+
+## 2020. 05. 07. Addition Contents
+
+- 뷰의 프레임(frame)과 바운드(bounds)는 **CGRect** 라는 구조체를 통해서 표현된다.
+- **CGRect** 는 사각형의 크기와 위치에 대한 정보를 담고 있으며, **origin** 프로퍼티는 CGPoint 타입으로 사각형의 시작점을 나타내고, **size** 프로퍼티는 CGSize 타입으로 사각형의 높이와 너비를 나타낸다.
+- **CGPoint** 는 좌표를 표현 할 수 있는 x와 y를 갖고 있다.
+- **CGSize** 는 위치와 높이의 값인 width와 height를 갖고 있다.
+- x, y와 width, height는 모두 부동소수점 타입인 CGFloat으로 표현된다.
+
+![lastImage](https://cphinf.pstatic.net/mooc/20180102_144/1514826882430XmMnB_PNG/65_21.png)
+
+
+
+***
+
+[애플 공식 문서 - Windows and View](https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html)
+
+[애플 공식 문서 - Creating and Managing a View Hierarchy](https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/CreatingViews/CreatingViews.html#//apple_ref/doc/uid/TP40009503-CH5-SW47)
+
