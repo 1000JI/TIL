@@ -458,5 +458,18 @@ func presentationControllerDidDismiss(_ presentationController: UIPresentationCo
 
 #### [ 뷰의 기본적인 역할 ]
 
-- iOS에서 화면에 애플리케이션의 콘텐츠를 나타내기 위해 윈도우와 뷰를 사용한다. 윈도우는 그 자체로 콘텐츠를 표현할 수 없지만 애플리케이션의 뷰를 위한 컨테이너 역할을 한다.
-- 
+- iOS에서 화면에 애플리케이션의 콘텐츠를 나타내기 위해 윈도우와 뷰를 사용한다. **윈도우**는 그 자체로 콘텐츠를 표현할 수 없지만 ***애플리케이션의 뷰를 위한 컨테이너 역할***을 한다.
+- 뷰는 UIView 클래스 또는 UIView 클래스의 하위클래스(Subclass)의 인스턴스로 윈도우의 한 영역에서 콘텐츠를 보여준다. 뷰가 나타낼 수 있는 콘텐츠는 이미지, 문자 같이 다양하게 나타낼 수 있으며, 또 다른 뷰를 관리하고 구성하기 위해서도 사용된다.
+- 뷰는 제스처 인식기(gestrue recognizer)를 사용하거나 직접 터치 이벤트츨 처리 할 수 있다. 또한 뷰 계층(view hierarchy)구조에서 부모뷰(parent view)는 자식뷰(child view)의 위치와 크기를 관리한다.
+
+#### [ 뷰 계층(View hierarchy) ]
+
+- 뷰 계층구조와 서브뷰 관리
+  - 뷰는 자신의 콘텐츠를 보여주는 것과 더불어, 다른 뷰를 위한 컨테이너로써의 역할도 한다. 하나의 뷰가 다른 뷰를 포함할 때, 두 뷰 사이에 부모-자식 관계가 생성된다.
+  - 자식뷰는 (subView), 부모뷰는 (superView)
+  - 참고사이트: [Creating and Managing a View Hierarchy](https://developer.apple.com/library/archive/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/CreatingViews/CreatingViews.html#//apple_ref/doc/uid/TP40009503-CH5-SW47)
+
+#### [ 뷰 계층의 생성과 관리 ]]
+
+
+
