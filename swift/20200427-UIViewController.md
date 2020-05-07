@@ -451,3 +451,12 @@ func presentationControllerDidDismiss(_ presentationController: UIPresentationCo
 - [결론]
   - Presentation Controller는 새로운 뷰(B ViewController)가 생성되는 시점부터 해당 View Controller를 해제할 때까지 관리한다. 따라서 제스처를 통해 Dismiss 할 때 넘어오는 매개변수 presentationController가 바로 그 역할을 하고 있다.
   - presentationController를 띄운(PresentingViewController) 뷰는 A Controller가 되며, presentationController가 띄우고 있는(PresentedViewController) 뷰는 B Controller가 된다고 보면 될 것 같다. :)
+
+***
+
+## 2020. 05. 07. View Contents Addition
+
+#### [ 뷰의 기본적인 역할 ]
+
+- iOS에서 화면에 애플리케이션의 콘텐츠를 나타내기 위해 윈도우와 뷰를 사용한다. 윈도우는 그 자체로 콘텐츠를 표현할 수 없지만 애플리케이션의 뷰를 위한 컨테이너 역할을 한다.
+- 
