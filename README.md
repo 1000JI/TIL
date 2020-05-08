@@ -58,6 +58,14 @@ Today I Learned in Fastcampus..
 32. [View Controller Study & Practice](https://github.com/1000JI/TIL/blob/master/swift/20200427-UIViewController.md)
 33. [TextField And Alert Controller](https://github.com/1000JI/TIL/blob/master/swift/20200428-TextField-AlertController.md)
 34. [Type Check & Type Casting](https://github.com/1000JI/TIL/blob/master/swift/20200504-TypeCheck-TypeCasting.md)
+35. [Button, Label, Slider Of Method](https://github.com/1000JI/TIL/blob/master/swift/20200505-Button_Label_Slider-Of-Method_Property.md)
+36. [Kinds of Control Event](https://github.com/1000JI/TIL/blob/master/swift/20200505-Control-Event-Kinds.md)
+37. [do try ~ catch(Error)](https://github.com/1000JI/TIL/blob/master/swift/20200505-do-try-catch-Error.md)
+38. [AVFoundation - AVAudioPlayer](https://github.com/1000JI/TIL/blob/master/swift/20200506-AVFoundation-AVAudioPlayer-Timer.md)
+39. [Cocoatouch, UIKit, Foundation Framework](https://github.com/1000JI/TIL/blob/master/swift/20200506-Cocoatouch-UIKit-Foundation-Framework.md)
+40. [UI Autolayout Code](https://github.com/1000JI/TIL/blob/master/swift/20200506-UI-Autolayout-Code.md)
+41. [UI Autolayout Interface Builder](https://github.com/1000JI/TIL/blob/master/swift/20200507-UI-Autolayout-Interface-Builder.md)
+42. [Storyboard Segue Of Action Segue, Menual Segue](https://github.com/1000JI/TIL/blob/master/swift/20200507-Storyboard-Segue-ActionAndMenual.md)
 
 
 
@@ -75,6 +83,9 @@ Today I Learned in Fastcampus..
 11. [TextField And Alert Controller](https://github.com/1000JI/TIL/tree/master/practice/20200428-TextField-Alert)
 12. [Alert Controller Like](https://github.com/1000JI/TIL/tree/master/practice/20200429-Practice-Alert-Controller-Alike) => 알림창을 View형식으로
 13. [Type Casting](https://github.com/1000JI/TIL/blob/master/practice/20200504-Practice-Casting.playground/Contents.swift)
+14. [Storyboard Segue](https://github.com/1000JI/TIL/tree/master/practice/20200507-Practice-Storyboard-Segue)
+15. [Segue Animal Count](https://github.com/1000JI/TIL/tree/master/practice/20200507-Practice-Animal-Count) Storyboard( Action Segue, Menual Segue)
+
 
 ## Review
 1. [Pretest Review](https://github.com/1000JI/TIL/blob/master/review/20200410-Pretest.md)
