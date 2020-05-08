@@ -13,18 +13,23 @@ class CViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemOrange
+        
+        self.title = "C ViewController"
+        
+        let nextBarButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(clickedNextView(_:)))
+        
+        self.navigationItem.rightBarButtonItem = nextBarButton
+        
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc private func clickedNextView(_ sender: Any) {
+        let vc = UIViewController()
+        
+        vc.view.backgroundColor = .systemGray
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    */
 
 }

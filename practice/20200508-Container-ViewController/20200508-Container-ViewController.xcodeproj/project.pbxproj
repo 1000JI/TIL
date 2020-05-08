@@ -13,6 +13,10 @@
 		AFF833512465138E00C7D6B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF8334F2465138E00C7D6B6 /* Main.storyboard */; };
 		AFF833532465138F00C7D6B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFF833522465138F00C7D6B6 /* Assets.xcassets */; };
 		AFF833562465138F00C7D6B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF833542465138F00C7D6B6 /* LaunchScreen.storyboard */; };
+		AFF8335E24651C8400C7D6B6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF8335D24651C8400C7D6B6 /* SecondViewController.swift */; };
+		AFF833602465283A00C7D6B6 /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF8335F2465283A00C7D6B6 /* AViewController.swift */; };
+		AFF833622465284100C7D6B6 /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF833612465284100C7D6B6 /* BViewController.swift */; };
+		AFF833642465284600C7D6B6 /* CViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF833632465284600C7D6B6 /* CViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		AFF833522465138F00C7D6B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFF833552465138F00C7D6B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFF833572465138F00C7D6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFF8335D24651C8400C7D6B6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		AFF8335F2465283A00C7D6B6 /* AViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
+		AFF833612465284100C7D6B6 /* BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BViewController.swift; sourceTree = "<group>"; };
+		AFF833632465284600C7D6B6 /* CViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,10 @@
 				AFF8334B2465138E00C7D6B6 /* SceneDelegate.swift */,
 				AFF8334D2465138E00C7D6B6 /* ViewController.swift */,
 				AFF8334F2465138E00C7D6B6 /* Main.storyboard */,
+				AFF8335F2465283A00C7D6B6 /* AViewController.swift */,
+				AFF833612465284100C7D6B6 /* BViewController.swift */,
+				AFF833632465284600C7D6B6 /* CViewController.swift */,
+				AFF8335D24651C8400C7D6B6 /* SecondViewController.swift */,
 				AFF833522465138F00C7D6B6 /* Assets.xcassets */,
 				AFF833542465138F00C7D6B6 /* LaunchScreen.storyboard */,
 				AFF833572465138F00C7D6B6 /* Info.plist */,
@@ -138,9 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFF8335E24651C8400C7D6B6 /* SecondViewController.swift in Sources */,
+				AFF833622465284100C7D6B6 /* BViewController.swift in Sources */,
+				AFF833642465284600C7D6B6 /* CViewController.swift in Sources */,
 				AFF8334E2465138E00C7D6B6 /* ViewController.swift in Sources */,
 				AFF8334A2465138E00C7D6B6 /* AppDelegate.swift in Sources */,
 				AFF8334C2465138E00C7D6B6 /* SceneDelegate.swift in Sources */,
+				AFF833602465283A00C7D6B6 /* AViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +309,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JWiOS.-0200508-Container-ViewController";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,7 +326,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JWiOS.-0200508-Container-ViewController";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
