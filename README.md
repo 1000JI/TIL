@@ -66,6 +66,10 @@ Today I Learned in Fastcampus..
 40. [UI Autolayout Code](https://github.com/1000JI/TIL/blob/master/swift/20200506-UI-Autolayout-Code.md)
 41. [UI Autolayout Interface Builder](https://github.com/1000JI/TIL/blob/master/swift/20200507-UI-Autolayout-Interface-Builder.md)
 42. [Storyboard Segue Of Action Segue, Menual Segue](https://github.com/1000JI/TIL/blob/master/swift/20200507-Storyboard-Segue-ActionAndMenual.md)
+43. [ContainerView, UserDefaults, Singleton](https://github.com/1000JI/TIL/blob/master/swift/20200508-ContainerView-UserDefault-Singleton.md)
+44. [MVC Design Pattern](https://github.com/1000JI/TIL/blob/master/swift/20200508-MVC-Design-Pattern.md)
+45. [Programming Design Pattern](https://github.com/1000JI/TIL/blob/master/swift/20200508-Programming-Design-Pattern.md)
+46. [ARC, Struct](https://github.com/1000JI/TIL/blob/master/swift/20200511-ARC-Struct.md)
 
 
 
@@ -85,6 +89,8 @@ Today I Learned in Fastcampus..
 13. [Type Casting](https://github.com/1000JI/TIL/blob/master/practice/20200504-Practice-Casting.playground/Contents.swift)
 14. [Storyboard Segue](https://github.com/1000JI/TIL/tree/master/practice/20200507-Practice-Storyboard-Segue)
 15. [Segue Animal Count](https://github.com/1000JI/TIL/tree/master/practice/20200507-Practice-Animal-Count) Storyboard( Action Segue, Menual Segue)
+16. [Container ViewController](https://github.com/1000JI/TIL/tree/master/practice/20200508-Container-ViewController)
+17. [UserDefaults](https://github.com/1000JI/TIL/tree/master/practice/20200508-UserDefaults)
 
 
 ## Review
@@ -135,7 +141,7 @@ Today I Learned in Fastcampus..
 
 
 ## Etc
-1. [FastCampus, Basc, Etc](https://github.com/1000JI/TIL/blob/master/etc/20200406-Basic-Etc.md)
+1. [FastCampus, Basic, Etc](https://github.com/1000JI/TIL/blob/master/etc/20200406-Basic-Etc.md)
 2. [Useful Site](https://github.com/1000JI/TIL/blob/master/usefulSite.md)
 3. [Boostcourse CERTIFICATE of LECTURE](https://github.com/1000JI/TIL/blob/master/picture/certificate_A20200506-013081.pdf) [부스트코스] iOS 프로그래밍을 위한 스위프트 기초 수료증
 ***
