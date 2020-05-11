@@ -30,7 +30,6 @@ final class ViewController: UIViewController {
     
     @IBAction func loadData(_ button: UIButton) {
         if let dateValue = myUserDefault.object(forKey: "dateValue") as? Date {
-//            datePicker.date = dateValue
             datePicker.setDate(dateValue, animated: true)
         }
         
