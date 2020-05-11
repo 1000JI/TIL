@@ -23,7 +23,4 @@ class SecondViewController: UIViewController {
         
 //        navigationController?.popViewController(animated: true)
     }
-    
-    
-
 }

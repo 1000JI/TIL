@@ -16,6 +16,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // let barButton으로 구성하면 버튼을 눌러도 사용되지 않는다. 왜냐하면 아직 self가 구성되어지기 전에 barButtonItem을 구성하기 때문이다. 따라서 lazy를 붙여서 self 구성 후 barButtonItem을 사용할 수 있도록 lazy을 붙여줘야 한다
+    
     lazy var barButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(pushViewController(_:)))
     
     override func viewDidLoad() {
@@ -39,7 +40,8 @@ class ViewController: UIViewController {
     
     @objc private func pushViewController(_ sender: Any) {
         let secondVC = SecondViewController()
-        navigationController?.pushViewController(secondVC, animated: true)
+//        navigationController?.pushViewController(secondVC, animated: true)
+        show(secondVC, sender: sender)
     }
 
 }
