@@ -7,9 +7,13 @@
 
 ### 델리게이션 디자인 패턴(Delegation Design Pattern)
 
-델리게이션 디자인 패턴은 **하나의 객체가 다른 객체를 대신해 동작 또는 조정할 수 있는 기능**을 제공한다.
+델리게이션 디자인 패턴은 **하나의 객체가 다른 객체를 대신해 동작 또는 조정할 수 있는 기능**을 제공한다. 즉 **특정 로직을 내가 아닌 다른 객체가 대신 구현하도록 위임하는 형태의 디자인 패턴**이라고 볼 수 있다.
 
 - 델리게이션 디자인 패턴은 Foundation, UIKit, AppKit 그리고 Cocoa Touch 등 애플의 프레임워크에서 광범위하게 활용하고 있다.
+- **요청하는 객체**와 **요청에 응답할 객체**로 나누어 작성
+  - 뷰가 받은 이벤트나 상태를 뷰 컨트롤러에게 전달하여 처리(**View -> ViewController**)
+  - 뷰 구성에 필요한 정보를 뷰 컨트롤러가 결정(**View <- ViewController**)
+  - 주요 코드는 숨기고 특정 상황에 대해서만 커스터마이징 할 수 있도록 제공
 - **주로 프레임워크 객체가 위임을 요청**하며, (주로 애플리케이션 프로그래머가 작성하는) **커스텀 컨트롤러 객체가 위임을 받아 특정 이벤트에 대한 기능을 구현**한다.
 - 델리게이션 디자인 패턴은 커스텀 컨트롤러에서 **세부 동작을 구현함으로써 동일한 동작에 대해 다양한 대응**을 할 수 있게 해준다.
 - MusicPlayer(AVAudioPlayer)와 UIImagePickerController의 [Delegate 예제](https://www.edwith.org/boostcourse-ios/lecture/16883/)
@@ -30,6 +34,82 @@ func textFieldShouldClear(UITextField)
 func textFieldShouldReturn(UITextField)
 ```
 
+#### CustomView Delegate Example
+
+```swift
+// CustomView.swift
+// 1. 프로토콜 정의
+protocol CustomViewDelegate: class {
+    func colorForBackground(_ newColor: UIColor?) -> UIColor
+}
+
+final class CustomView: UIView {
+    /*
+     2. delegate 프로퍼티 선언
+     - 일반적으로 delegate라고 명명
+     - 타입은 정의한 프로토콜과 동일
+     - optional
+     - weak : 순환 참조 때문에 weak으로 선언해야 한다
+     */
+    weak var delegate: CustomViewDelegate?
+    
+    override var backgroundColor: UIColor? {
+        get { super.backgroundColor }
+        set {
+            /*
+             3. 필요한 곳에서 delegate 객체의 메서드 실행
+             - delegate에 할당된 객체는 없을 수 있음(nil)
+             - nil이 아니면 메서드 호출에 응답하여 어떤 로직(그게 무엇이 될지는 알 수 없음)을 수행
+             - 반환되는 값이 있을 경우 그 결과를 받아서 활용
+             */
+            let newColor = delegate?.colorForBackground(newValue)
+            
+            super.backgroundColor = newColor
+            print("새로 변경될 색은 :", newColor!)
+        }
+    }
+}
+
+
+//-------------------------------------------------
+// ViewController.swift
+// 사용할 delegate(CustomViewDelegate)를 추가해줘야 한다.
+// 1. delegate 프로토콜 채택
+class ViewController: UIViewController, CustomViewDelegate {
+
+    @IBOutlet var customView: CustomView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        /*
+         2. delegate 프로퍼티를 소유한 객체에게 위임받아 처리할 메서드를 구현한 객체 할당(보통 self)
+         - customView.delegate에 ViewController(주소)를 전달해줌
+         - 이 부분이 중요함
+         - 프로토콜을 채택하지 않은 경우 에러 메시지 발생
+         */
+        customView.delegate = self
+        
+        customView.backgroundColor = .systemRed
+        customView.backgroundColor = .systemGreen
+        customView.backgroundColor = nil
+    }
+    
+    /*
+     3. 채택한 프로토콜의 메서드 구현
+     - CustomViewDelegate의 colorForBackground 구현 부분
+     - 옵셔널 메서드인 경우 미구현 가능
+     - 이 메서드가 언제 호출될 지는 결정할 수 없으며, 그 시점은 위임하는 객체에 달려있음
+     */
+    func colorForBackground(_ newColor: UIColor?) -> UIColor {
+        guard let color = newColor else { return .systemGray }
+        return color == .systemGreen ? .systemBlue : color
+    }
+}
+```
+
+
+
 ### 데이터소스(DataSource)
 
 - 델리게이트와 매우 비슷한 역할을 한다.
@@ -46,6 +126,48 @@ func textFieldShouldReturn(UITextField)
 ***
 
 ## Custom View
+
+```swift
+// CustomView.swift
+final class CustomView: UIView {
+    weak var delegate: CustomViewDelegate?
+    
+    override var backgroundColor: UIColor? {
+        get { super.backgroundColor }
+        set {
+            super.backgroundColor = newValue ?? .systemGray
+            if newValue == .systemGreen {
+                super.backgroundColor = .systemBlue
+            }
+            print("새로 변경될 색은 :", super.backgroundColor)
+        }
+    }
+}
+
+// ViewController.swift
+class ViewController: UIViewController {
+    @IBOutlet var customView: CustomView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        changeBackgroundColor()
+        
+        // 1. 바꿀 때 마다 직접 입력
+        // 2. 뷰컨트롤러에 메소드 작성
+        // 3. 커스텀 뷰 구현
+//        customView.backgroundColor = .systemRed
+//        customView.backgroundColor = .systemGreen
+        customView.backgroundColor = nil
+    }
+
+    private func changeBackgroundColor() {
+        let colors: [UIColor] = [.systemBlue, .systemRed, .systemGreen, .systemYellow]
+        customView.backgroundColor = colors.randomElement()!
+        print(customView.backgroundColor)
+    }
+}
+```
 
 
 
