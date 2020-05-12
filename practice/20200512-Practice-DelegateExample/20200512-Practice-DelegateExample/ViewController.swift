@@ -13,6 +13,7 @@ import UIKit
 class ViewController: UIViewController, CustomViewDelegate {
 
     @IBOutlet var customView: CustomView!
+    @IBOutlet private weak var textField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +41,22 @@ class ViewController: UIViewController, CustomViewDelegate {
         guard let color = newColor else { return .systemGray }
         return color == .systemGreen ? .systemBlue : color
     }
-
-    private func changeBackgroundColor() {
-        let colors: [UIColor] = [.systemBlue, .systemRed, .systemGreen, .systemYellow]
-        customView.backgroundColor = colors.randomElement()!
-        print(customView.backgroundColor)
-    }
 }
     
+// MARK: - UITextFieldDelgate
+extension ViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        switch text {
+        case "red": customView.backgroundColor = .red
+        case "blue": customView.backgroundColor = .blue
+        case "black": customView.backgroundColor = .black
+        default: customView.backgroundColor = .gray
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

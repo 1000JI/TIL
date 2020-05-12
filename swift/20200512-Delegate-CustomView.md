@@ -63,9 +63,10 @@ final class CustomView: UIView {
              - 반환되는 값이 있을 경우 그 결과를 받아서 활용
              */
             let newColor = delegate?.colorForBackground(newValue)
+            let applyColor = newColor ?? newValue ?? .systemGray
             
-            super.backgroundColor = newColor
-            print("새로 변경될 색은 :", newColor!)
+            super.backgroundColor = applyColor
+            print("새로 변경될 색은 :", applyColor)
         }
     }
 }
@@ -165,6 +166,143 @@ class ViewController: UIViewController {
         let colors: [UIColor] = [.systemBlue, .systemRed, .systemGreen, .systemYellow]
         customView.backgroundColor = colors.randomElement()!
         print(customView.backgroundColor)
+    }
+}
+```
+
+***
+
+## Delegate 과제
+
+Delegate 를 이용하여 FirstVC의 TextField 에 입력한 값을 SecondVC 의 Label에 표시하기
+
+1. delegate 프로토콜과 프로퍼티를 firstVC 에 정의하는 방법으로 구현(e.g. class FirstVC { weak var delegate: ~~~ })
+
+``` swift
+// FirstViewController.swift
+class FirstViewController: UIViewController, UITextFieldDelegate {
+    weak var delegate: RiffleDelegate?
+    
+    let textField = UITextField()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.view.backgroundColor = .systemTeal
+        textField.frame.size = CGSize(width: 200, height: 50)
+        textField.center = view.center
+        textField.backgroundColor = .white
+        textField.delegate = self
+        
+        self.view.addSubview(textField)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let secondVC = SecondViewController()
+        
+        delegate = secondVC
+        delegate?.nextViewNextRiffle(textField.text ?? "")
+        
+        self.present(secondVC, animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+//================================================//
+// SecondViewController
+class SecondViewController: UIViewController {
+
+    let viewLabel = UILabel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .white
+        
+        viewLabel.frame.size = CGSize(width: 200, height: 50)
+        viewLabel.center = view.center
+        viewLabel.backgroundColor = .systemFill
+        viewLabel.font = .boldSystemFont(ofSize: 25)
+        
+        view.addSubview(viewLabel)
+    }
+}
+
+extension SecondViewController: RiffleDelegate {
+    func nextViewNextRiffle(_ inputText: String) {
+        viewLabel.text = inputText
+    }
+}
+```
+
+
+
+2. delegate 프로토콜과 프로퍼티를 secondVC 에 정의하는 방법으로 구현(e.g. class SecondVC { weak var delegate: ~~~ })
+
+```swift
+// ThirdViewController.swift
+class ThirdViewController: UIViewController {
+
+    let textField = UITextField()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.view.backgroundColor = .systemTeal
+        textField.frame.size = CGSize(width: 200, height: 50)
+        textField.center = view.center
+        textField.backgroundColor = .white
+        textField.delegate = self
+        
+        self.view.addSubview(textField)
+    }
+}
+
+extension ThirdViewController: UITextFieldDelegate, TextSendDelegate {
+    func sendTextFunction() -> String {
+        return textField.text ?? ""
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let fourthVC = FourthViewController()
+        fourthVC.delegate = self
+        present(fourthVC, animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+//================================================//
+// FourthViewController.swift
+protocol TextSendDelegate: class {
+    func sendTextFunction() -> String
+}
+
+class FourthViewController: UIViewController {
+    weak var delegate: TextSendDelegate?
+
+    let viewLabel = UILabel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .white
+
+        viewLabel.frame.size = CGSize(width: 200, height: 50)
+        viewLabel.center = view.center
+        viewLabel.backgroundColor = .systemFill
+        viewLabel.font = .boldSystemFont(ofSize: 25)
+        
+        view.addSubview(viewLabel)
+        
+        viewLabel.text = delegate?.sendTextFunction()
     }
 }
 ```

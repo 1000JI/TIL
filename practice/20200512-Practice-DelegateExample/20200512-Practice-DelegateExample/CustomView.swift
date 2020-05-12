@@ -33,9 +33,10 @@ final class CustomView: UIView {
              - 반환되는 값이 있을 경우 그 결과를 받아서 활용
              */
             let newColor = delegate?.colorForBackground(newValue)
+            let applyColor = newColor ?? newValue ?? .systemGray
             
-            super.backgroundColor = newColor
-            print("새로 변경될 색은 :", newColor!)
+            super.backgroundColor = applyColor
+            print("새로 변경될 색은 :", applyColor)
         }
     }
 }
