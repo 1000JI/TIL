@@ -2,6 +2,30 @@
 
 ## ContainerView(Navigation Controller)
 
+#### Navigation Interface란?
+
+- 네비게이션 인터페이스는 **주로 계층적 구조의 화면전환**을 위해 사용되는 **드릴 다운 인터페이스**(**drill-down interface**)이다.
+
+#### Navigation Controller
+
+- 컨테이너 뷰 컨트롤러로써 **네비게이션 스택(navigation stack)을 사용하여 다른 뷰 컨트롤러를 관리**한다. 여기서 네이게이션 스택에 담겨서 콘텐츠를 보여주게 되는 뷰 컨트롤러들을 **컨텐트 뷰 컨트롤러**(**content view controller**)라고 한다.
+
+- 네비게이션 컨트롤러는 **두 개의 뷰를 화면에 표시**하는데 하나는 스택**뷰에 포함 된 최상위 컨텐트 뷰 컨트롤러의 콘텐츠를 나타내는 뷰**와 **네비게이션 컨트롤러가 직접 관리하는 뷰**(**네비게이션 바 또는 툴바**)가 있다.
+- 네비게이션 **인터페이스의 변화에 따른 특정 액션을 동작하도록** 하기 위해 **네비게이션 델리게이트 객체를 사용**할 수 있다.
+
+#### Navigation Stack
+
+- 네비게이션 컨트롤러에 의해 관리되며, 뷰 컨트롤러를 담을 수 있는 배열과도 같다.
+- **가장 하위에 있는 뷰 컨트롤러**는 **루트 뷰 컨트롤러**(**root view controller**)가 되며, <u>스택에서 팝(pop)되지</u> 않는다.
+- **스택의 가장 상위에 있는 뷰 컨트롤러**는 최상위 뷰 컨트롤러로 <u>화면에 보이게 된다</u>.
+- 스택은 push 또는 pop을 통하여 아이템을 관리한다.
+
+#### UINavigation Controller 클래스
+
+
+
+#### Navigation Code 구현
+
 - Navigation Controller는 UI ViewController 생성 뒤 감싸주는 형식으로 진행을 해야한다.
 
 ``` swift
@@ -334,3 +358,6 @@ User.shared.friends
 User.shared.blocks
 ```
 
+***
+
+[도움 사이트 - 부스트코스](https://www.edwith.org/boostcourse-ios/lecture/16857/)
