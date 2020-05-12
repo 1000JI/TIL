@@ -22,6 +22,68 @@
 
 #### UINavigation Controller 클래스
 
+- 네비게이션 컨트롤러의 생성
+
+``` swift
+// 내비게이션 컨트롤러의 인스턴스를 생성하는 메서드입니다.
+// 매개변수로 내비게이션 스택의 가장 아래에 있는 루트 뷰 컨트롤러가 될 뷰 컨트롤러를 넘겨줍니다.
+init(rootViewController: UIViewController)
+```
+
+- 네비게이션 스택의 뷰 컨트롤러에 대한 접근
+
+``` swift
+// 내비게이션 스택에 있는 최상위 뷰 컨트롤러에 접근하기 위한 프로퍼티입니다.
+var topViewController: UIViewController?
+
+// 현재 내비게이션 인터페이스에서 보이는 뷰와 관련된 뷰 컨트롤러에 접근하기 위한 프로퍼티입니다.
+var visibleViewController: UIViewController?
+
+// 내비게이션 스택에 특정 뷰 컨트롤러에 접근하기 위한 프로퍼티입니다.(루트 뷰 컨트롤러의 인덱스는 0 입니다.)
+var viewController: [UIViewController]
+```
+
+* 네비게이션 스택의 Push와 Pop에 관한 메서드
+
+``` swift
+// 내비게이션 스택에 뷰 컨트롤러를 푸시합니다.
+// 푸시 된 뷰 컨트롤러는 최상위 뷰 컨트롤러로 화면에 표시됩니다.
+func pushViewController(UIViewController, animated: Bool)
+
+// 내비게이션 스택에 있는 최상위 뷰 컨트롤러를 팝합니다.
+// 최상위 뷰 컨트롤러 아래에 있던 뷰 컨트롤러의 콘텐츠가 화면에 표시됩니다.
+func popViewController(animated: Bool) -> UIViewController?
+
+// 내비게이션 스택에서 루트 뷰 컨트롤러를 제외한 모든 뷰 컨트롤러를 팝합니다.
+// 루트 뷰 컨트롤러가 최상위 뷰 컨트롤러가 됩니다.
+// 삭제된 모든 뷰 컨트롤러의 배열이 반환됩니다.
+func popToRootViewController(animated: Bool) -> [UIViewController]?
+
+// 특정 뷰 컨트롤러가 내비게이션 스택에 최상위 뷰 컨트롤러가 되기 전까지 상위에 있는 뷰 컨트롤러들을 팝합니다.
+func popToViewController(_ viewController: UIViewController, 
+		animated: Bool) -> [UIViewController]?
+```
+
+- 코드 작성을 통해 네비게이션 인터페이스 구성하기
+
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  // Override point for customization after application launch.
+
+  // 루트 뷰 컨트롤러가 될 뷰 컨트롤러를 생성합니다.
+  let rootViewController = UIViewController()
+  // 위에서 생성한 뷰 컨트롤러로 내비게이션 컨트롤러를 생성합니다.
+  let navigationController = UINavigationController(rootViewController: rootViewController)
+
+  self.window = UIWindow(frame: UIScreen.main.bounds)
+  // 윈도우의 루트 뷰 컨트롤러로 내비게이션 컨트롤러를 설정합니다.
+  self.window?.rootViewController = navigationController
+  self.window?.makeKeyAndVisible()
+
+  return true
+}
+```
+
 
 
 #### Navigation Code 구현
@@ -361,3 +423,14 @@ User.shared.blocks
 ***
 
 [도움 사이트 - 부스트코스](https://www.edwith.org/boostcourse-ios/lecture/16857/)
+
+[애플 공식 문서 - Navigation - App Architecture](https://developer.apple.com/ios/human-interface-guidelines/app-architecture/navigation/)
+
+[애플 공식 문서 - Navigation Controllers](https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/NavigationControllers.html)
+
+[애플 공식 문서 - UINavigationBar - UIKit](https://developer.apple.com/documentation/uikit/uinavigationbar)
+
+[애플 공식 문서 - UINavigationController - UIKit](https://developer.apple.com/documentation/uikit/uinavigationcontroller)
+
+
+
