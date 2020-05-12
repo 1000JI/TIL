@@ -2,6 +2,8 @@
 
 
 
+[Modal(모달, 화면전환)](https://www.edwith.org/boostcourse-ios/lecture/16880/) 도움사이트
+
 ## UIViewController
 
 - 앱 구조의 뼈대: 모든 앱에 반드시 하나 이상, 대부분 많은 수의 View Controller로 구성
@@ -225,24 +227,51 @@ view.sizeToFit() // 이것은 마지막으로 해야 함. 그게 아니면 사�
 ### View Lifecycle
 
 ``` swift
+override func viewDidLoad() {
+  super.viewDidLoad()
+  /*
+  뷰 계층이 메모리에 로드된 직후 호출되는 메서드
+  뷰의 추가적인 초기화 작업을 하기 좋은 시점
+  메모리에 처음 로딩 될때 1회 호출되는 메서드로, 메모리 경고로 뷰가 사라지지 않는 이상 다시 호출되지 않음
+  */
+}
+
 override func viewWillAppear(_ animated: Bool) {
   super.viewWillAppear(animated)
   print("\n---------- [ viewWillAppear - view vc ] ----------\n")
+  /*
+  뷰가 뷰 계층에 추가되고 화면이 표시되기 직전에 호출되는 메서드
+  뷰의 추가적인 초기화 작업을 하기 좋은 시점
+  다른 뷰로 이동했다가 되돌아오면 재호출되는 메서드로, 화면이 나타날때마다 수행해야하는 작업을 하기 좋은 시점
+  */
 }
 
 override func viewDidAppear(_ animated: Bool) {
   super.viewDidAppear(animated)
   print("\n---------- [ viewDidAppear - view vc ] ----------\n")
+  /*
+  뷰가 뷰 계층에 추가되어 화면이 표시되면 호출되는 메서드
+  뷰를 나타내는 것과 관련된 추가적인 작업을 하기 좋은 시점
+  */
 }
 
 override func viewWillDisappear(_ animated: Bool) {
   super.viewWillDisappear(animated)
   print("\n---------- [ viewWillDisappear - view vc ] ----------\n")
+  /*
+  뷰가 뷰 계층에서 사라지기 직전에 호출되는 메서드
+  뷰가 생성된 뒤 발생한 변화를 이전상태로 되돌리기 좋은 시점
+  */
 }
 
 override func viewDidDisappear(_ animated: Bool) {
   super.viewDidDisappear(animated)
   print("\n---------- [ viewDidDisappear - view vc ] ----------\n")
+  /*
+  뷰가 뷰 계층에서 사라진 후 호출되는 메서드
+  뷰를 숨기는 것과 관련된 추가적인 작업을 하기 좋은 시점
+  시간이 오래 걸리는 작업은 하지 않는 것이 좋음
+  */
 }
 ```
 
@@ -477,4 +506,30 @@ func presentationControllerDidDismiss(_ presentationController: UIPresentationCo
   - 이 외에도 서브 뷰를 부모 뷰 목록의 중간에 삽입하기 위해 ```ìnsertSubview(_:at:)```, 또는 부모 뷰 내에 이미 존재하는 서브 뷰를 정렬하기 위해 ```bringSubView(toFront:)```, ```sendSubView(toBack:)`` 등의 메서드들을 호출 할 수 있다.
 
 
+
+***
+
+## 2020. 05. 12. View Layout Change Method
+
+```swift
+func viewWillLayoutSubviews()
+/*
+  뷰가 서브뷰의 레이아웃을 변경하기 직전에 호출되는 메서드
+	서브뷰의 레이아웃을 변경하기 전에 수행할 작업을 하기 좋은 시점
+*/
+
+func viewDidLayoutSubviews()
+/*
+  서브뷰의 레이아웃이 변경된 후 호출되는 메서드
+  서브뷰의 레이아웃을 변경 한 후 추가적인 작업을 수행하기 좋은 시점
+*/
+
+/*
+viewDidLoad -> viewWillAppear -> viewWillLayoutSubviews -> viewDidLayoutSubviews -> viewDidAppear
+*/
+```
+
+[애플 공식 문서 - UIViewController 클래스 소개 문서](https://developer.apple.com/documentation/uikit/uiviewcontroller)
+
+[애플 공식 문서 - UIViewController - UIKit](https://developer.apple.com/documentation/uikit/uiviewcontroller)
 

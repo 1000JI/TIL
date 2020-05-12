@@ -153,5 +153,7 @@
 
 [출처 - 부스트코스](https://www.edwith.org/boostcourse-ios/lecture/16873/)
 
+[StackView 관련 내용](https://www.edwith.org/boostcourse-ios/lecture/16884/)
+
 
 

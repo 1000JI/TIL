@@ -94,5 +94,32 @@ UIControl.Event.editingDidEndOnExit
 
 ***
 
+## Target-Action Design Pattern
 
+- Target-Action 디자인 패턴은 iOS 환경에서 많이 사용하는 디자인 패턴 중 하나이다.
+- 객체는 이벤트가 발생할 때 다른 객체에 메시지를 보내는 데 필요한 정보를 포함한다.
+- 액션은 특정 이벤트가 발생했을 때 호출할 메서드를 의미한다. 그리고 타켓은 액션이 호출될 객체를 의미한다.
+- 이벤트 발생 시 전송된 메시지를 액션 메시지라고 하고, 타겟은 프레임워크 객체를 포함한 모든 객체가 될 수 있으나, 보통 컨트롤러가 되는 경우가 일반적이다.
+
+### 액션 메서드
+
+``` swift
+// 프로그래밍 방식
+@objc func doSomething(_ sender: Any) {
+	// @objc는 Swift 클래스를 사용하는 Objective-C 코드가 있거나 Objective-C유형의 메서드를 사용하는 경우 필요
+}
+
+// 인터페이스 빌더
+@IBAction func doSomething(_ sender: Any) { 
+
+}
+
+/*
+  아직까지 애플의 프레임워크는 Objective-C 언어로 작성된 코드가 많기 때문에 스위프트 언어로 작성한 코드에서는 Objective-C 코드와 호환하기 위해서 @objc라고 표시해주어야 합니다. 스위프트 언어 4버전 이전의 컴파일러는 @objc를 자동으로 만들어 주었습니다. 하지만 이러한 방식은 자원 비용이 많이 들어 스위프트 4에서는 명시적으로 작성해야 합니다.
+*/
+```
+
+[애플 공식 문서 - Target-Action](https://developer.apple.com/library/content/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html)
+
+[도움 사이트 - 부스트코스](https://www.edwith.org/boostcourse-ios/lecture/16854/)
 

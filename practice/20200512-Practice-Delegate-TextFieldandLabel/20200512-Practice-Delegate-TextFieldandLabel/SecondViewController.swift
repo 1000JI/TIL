@@ -23,6 +23,11 @@ class SecondViewController: UIViewController {
         viewLabel.font = .boldSystemFont(ofSize: 25)
         
         view.addSubview(viewLabel)
+        
+        
+//        if let firstVC = self.presentingViewController as? FirstViewController {
+//            firstVC.delegate = self
+//        }
     }
 }
 

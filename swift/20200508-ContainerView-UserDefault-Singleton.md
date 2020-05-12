@@ -278,6 +278,8 @@ class SecondViewController: UIViewController {
 
 ## Singleton(Swift-Design Pattern)
 
+Singleton은 **'특정 클래스의 인스턴스가 오직 하나임을 보장하는 객체'**를 의미한다. 애플리케이션이 요청한 횟수와는 관계없이 이미 생성된 같은 인스턴스를 반환한다. 즉, 애플리케이션 내에서 특정 클래스의 인스턴스가 딱 하나만 있기 때문에 다른 인스턴스들이 공유해서 사용할 수 있다.
+
 - 특정 클래스의 인스턴스에 접근할 때 항상 동일한 인스턴스만을 반환하도록 하는 설계 패턴
 - 한 번 생성된 이후에는 프로그램이 종료될 때까지 항상 메모리에 상주
 - 애플리케이션에서 유일하게 하나만 필요한 객체에 사용
@@ -290,6 +292,31 @@ class SecondViewController: UIViewController {
   - 어디서든 접근이 가능하고 누구든지 상태를 변경할 수 있기 때문에 사용하는 시점에 우리는 싱글톤 객체의 상태를 예측하기 힘들 수 있다. 이렇게 예측이 불가능하기 때문에 싱글톤 객체의 생명 주기를 관리하는 것도 어려워진다. 만일 싱글톤 객체가 옵셔널한 프로퍼티를 갖게 된다면 사용하는 시점에 더욱이 그 상태를 예측하기 힘들 것이다.
 - **Singletons hinder unit testing**
   - 싱글톤 객체를 사용하는 객체들은 싱글톤 객체에 강한 의존성을 갖고 있기 때문에 이 둘은 강하게 묶여있고 그렇기 때문에 싱글톤 객체를 포함하는 객체를 테스트하기 위해선 싱글톤 객체를 온전히 구현해주어야 한다.
+
+#### Cocoa 프레임워크에서의 Singleton 디자인 패턴
+
+Singleton 인스턴스를 반환하는 팩토리 메서드나 프로퍼티는 일반적으로 **shared**라는 이름을 사용한다.
+
+- [FileManager](https://developer.apple.com/documentation/foundation/filemanager)
+  - 애플리케이션 파일 시스템을 관리하는 클래스입니다.
+  - FileManager.default
+- [URLSession](https://developer.apple.com/documentation/foundation/urlsession)
+  - URL 세션을 관리하는 클래스입니다.
+  - URLSession.shared
+- [NotificationCenter](https://developer.apple.com/documentation/foundation/notificationcenter)
+  - 등록된 알림의 정보를 사용할 수 있게 해주는 클래스입니다.
+  - NotificationCenter.default
+- [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults)
+  - Key-Value 형태로 간단한 데이터를 저장하고 관리할 수 있는 인터페이스를 제공하는 데이터베이스 클래스입니다.
+  - UserDefaults.standard
+- [UIApplication](https://developer.apple.com/documentation/uikit/uiapplication)
+  - iOS에서 실행되는 중앙제어 애플리케이션 객체입니다.
+  - UIApplication.shared
+
+#### Singleton 주의할 점
+
+- Singleton 디자인 패턴은 애플리케이션 내의 특정 클래스의 인스턴스가 하나만 존재하기 때문에 객체가 불필요하게 여러 개 만들어질 필요가 없는 경우에 많이 사용한다.
+- 하지만 멀티 스레드 환경에서 동시에 싱글턴 객체를 참조할 경우 원치 않는 결과를 가져올 수 있다.
 
 #### iOS 싱글톤 사용 예
 
@@ -431,6 +458,8 @@ User.shared.blocks
 [애플 공식 문서 - UINavigationBar - UIKit](https://developer.apple.com/documentation/uikit/uinavigationbar)
 
 [애플 공식 문서 - UINavigationController - UIKit](https://developer.apple.com/documentation/uikit/uinavigationcontroller)
+
+[애플 공식 문서 - Singleton](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Singleton.html)
 
 
 

@@ -44,6 +44,10 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         delegate?.nextViewNextRiffle(textField.text ?? "")
         
         self.present(secondVC, animated: true)
+        
+//        self.present(secondVC, animated: true, completion: {
+//            self.delegate?.nextViewNextRiffle(textField.text ?? "")
+//        })
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
