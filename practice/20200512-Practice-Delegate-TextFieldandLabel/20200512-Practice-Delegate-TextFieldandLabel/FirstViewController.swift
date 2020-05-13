@@ -43,11 +43,12 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         delegate = secondVC
         delegate?.nextViewNextRiffle(textField.text ?? "")
         
-        self.present(secondVC, animated: true)
+//        secondVC.view.backgroundColor = .white
+        secondVC.modalPresentationStyle = .fullScreen
         
-//        self.present(secondVC, animated: true, completion: {
-//            self.delegate?.nextViewNextRiffle(textField.text ?? "")
-//        })
+//        self.present(secondVC, animated: true)
+        
+        self.present(secondVC, animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
