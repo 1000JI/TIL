@@ -1,4 +1,4 @@
-###### 1000JI [Resume](https://github.com/1000JI/Resume)
+###### 1000JI [My Notion](https://www.notion.so/jiwooni/1000JI-s-Home-b267c5c5518c43e99cb667d03440ccc0)
 
 # TIL
 Today I Learned in Fastcampus..
