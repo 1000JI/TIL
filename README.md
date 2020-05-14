@@ -5,7 +5,7 @@ Today I Learned in Fastcampus..
 
 ***
 
-# Study List
+# Study List(~2020. 05. 12.)
 | Number | Study Category | Explanation                           |
 | :----: | :--------------------- | :------------------------------------ |
 | 1      | [Git](#Git)            | Git & Github Study Contents, etc...   |
@@ -14,6 +14,8 @@ Today I Learned in Fastcampus..
 | 4      | [Review](#Review)      | Test Review(Pretest, etc...           |
 | 5      | [Algorithm](#Algorithm)| Algorithm Study(Programmers, etc...)  |
 | 6      | [Etc](#Etc)      | Basic, Etc...                         |
+
+## 이후 날짜의 Study 내용들은 [My Notion](https://www.notion.so/jiwooni/1000JI-s-Home-b267c5c5518c43e99cb667d03440ccc0)으로 업로드
 
 ***
 
