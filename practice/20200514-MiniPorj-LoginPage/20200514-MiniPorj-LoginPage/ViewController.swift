@@ -45,14 +45,12 @@ class ViewController: UIViewController {
         
         emailTextField.placeholder = "이메일을 입력하세요"
         emailTextField.font = .boldSystemFont(ofSize: 18)
-        emailTextField.borderStyle = .none
         emailTextField.delegate = self
         addTextFieldUnderLine(emailTextField)
         
         passwordTextField.placeholder = "비밀번호를 입력하세요"
         passwordTextField.font = .systemFont(ofSize: 18)
         passwordTextField.isSecureTextEntry = true
-        passwordTextField.borderStyle = .none
         passwordTextField.delegate = self
         addTextFieldUnderLine(passwordTextField)
         
@@ -87,6 +85,8 @@ class ViewController: UIViewController {
     
     // MARK: View UnderLine 그리기
     private func addTextFieldUnderLine(_ textField: UITextField) {
+        textField.borderStyle = .none
+        
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0.0, y: textField.frame.height - 1, width: textField.frame.width, height: 1.0)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
@@ -103,7 +103,7 @@ class ViewController: UIViewController {
         } else {
             if let loginList = userDefaults.dictionary(forKey: UserInfo.joinList) {
                 if loginList.keys.contains(emailTextField.text!) && loginList.values.contains(where: { (password) -> Bool in
-                    password as! String == self.passwordTextField.text!
+                    (password as! String) == (self.passwordTextField.text!)
                 }) {
                     userDefaults.set(emailTextField.text!, forKey: UserInfo.loginID)
                     
@@ -159,6 +159,7 @@ extension ViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: - Keyboard가 올라왔을 때 위로 같이 올라가기 위한
 extension ViewController {
     private func addKeyboardNotification() {
         NotificationCenter.default.addObserver(
@@ -203,7 +204,7 @@ extension ViewController {
     }
     
     @objc private func keyboardWillHide(_ notification: Notification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+        if let _: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             if isKeyboardUP {
                 print("isKeyboardUP+")
                 

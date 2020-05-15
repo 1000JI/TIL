@@ -53,10 +53,6 @@ class MainViewController: UIViewController {
     
     @objc func clickedLogout(_ sender: UIButton) {
         userDefaults.set(nil, forKey: UserInfo.loginID)
-
-//        let alert = UIAlertController(title: "\(self.presentingViewController as? ViewController)", message: "", preferredStyle: .alert)
-//
-//        present(alert, animated: true)
         
         if let _ = self.presentingViewController as? ViewController {
             self.dismiss(animated: true, completion: nil)
