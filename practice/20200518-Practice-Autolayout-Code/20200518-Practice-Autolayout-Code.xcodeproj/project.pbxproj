@@ -13,6 +13,7 @@
 		AF3728EF24721C1200CB045D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3728ED24721C1200CB045D /* Main.storyboard */; };
 		AF3728F124721C1300CB045D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3728F024721C1300CB045D /* Assets.xcassets */; };
 		AF3728F424721C1300CB045D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3728F224721C1300CB045D /* LaunchScreen.storyboard */; };
+		AF3728FC247258FD00CB045D /* AutolayoutAnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3728FB247258FD00CB045D /* AutolayoutAnchorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AF3728F024721C1300CB045D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF3728F324721C1300CB045D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF3728F524721C1300CB045D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF3728FB247258FD00CB045D /* AutolayoutAnchorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutolayoutAnchorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				AF3728E724721C1200CB045D /* AppDelegate.swift */,
 				AF3728E924721C1200CB045D /* SceneDelegate.swift */,
 				AF3728EB24721C1200CB045D /* ViewController.swift */,
+				AF3728FB247258FD00CB045D /* AutolayoutAnchorViewController.swift */,
 				AF3728ED24721C1200CB045D /* Main.storyboard */,
 				AF3728F024721C1300CB045D /* Assets.xcassets */,
 				AF3728F224721C1300CB045D /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF3728FC247258FD00CB045D /* AutolayoutAnchorViewController.swift in Sources */,
 				AF3728EC24721C1200CB045D /* ViewController.swift in Sources */,
 				AF3728E824721C1200CB045D /* AppDelegate.swift in Sources */,
 				AF3728EA24721C1200CB045D /* SceneDelegate.swift in Sources */,
