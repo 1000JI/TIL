@@ -40,21 +40,21 @@ class ViewController: UIViewController {
 //        }
         
         // 2번 방법
-//        UIView.animate(withDuration: 1, animations: {
-//            self.blueViewConstraintYUp.priority = UILayoutPriority(998)
-//            self.view.layoutIfNeeded()
-//        }) { (_) in
-//            UIView.animate(withDuration: 1) {
-//                self.blueViewConstraintYUp.priority = UILayoutPriority(1000)
-//                self.view.layoutIfNeeded()
-//            }
-//        }
+        UIView.animate(withDuration: 1, animations: {
+            self.blueViewConstraintYUp.priority = UILayoutPriority(998)
+            self.view.layoutIfNeeded()
+        }) { (_) in
+            UIView.animate(withDuration: 1) {
+                self.blueViewConstraintYUp.priority = UILayoutPriority(1000)
+                self.view.layoutIfNeeded()
+            }
+        }
         
         // 3번 방법
-        UIView.animate(withDuration: 1) {
-            self.blueViewConstraintYUp.isActive = !self.blueViewConstraintYUp.isActive
-            self.view.layoutIfNeeded()
-        }
+//        UIView.animate(withDuration: 1) {
+//            self.blueViewConstraintYUp.isActive = !self.blueViewConstraintYUp.isActive
+//            self.view.layoutIfNeeded()
+//        }
     }
     
     let blueView: UIView = {
@@ -67,11 +67,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setLayoutSetting()
-//        self.testViewCenterYConstraint.constant = 200
-//        self.view.layoutIfNeeded()
-//        installed true / false
-//        isActive 가 false되면 사라짐 week으로 되어있으면
-        // isActive, 우선순위, 등등...
     }
     
     private func setLayoutSetting() {
