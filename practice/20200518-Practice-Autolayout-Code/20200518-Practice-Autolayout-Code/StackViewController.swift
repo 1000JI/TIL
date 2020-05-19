@@ -55,10 +55,5 @@ class StackViewController: UIViewController {
         stackView.addArrangedSubview(redView)
         stackView.addArrangedSubview(blueView)
         stackView.addArrangedSubview(yellowView)
-        
-//        stackView.arrangedSubviews.forEach{ $0.translatesAutoresizingMaskIntoConstraints = false }
-//        stackView.arrangedSubviews[0].widthAnchor.constraint(equalToConstant: 30).isActive = true
-//        stackView.arrangedSubviews[0].heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
     }
 }
