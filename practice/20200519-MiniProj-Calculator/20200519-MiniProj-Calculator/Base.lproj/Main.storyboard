@@ -187,7 +187,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="0" textAlignment="right" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS2-W5-b8q" userLabel="DisplayLabel">
-                                <rect key="frame" x="20" y="306" width="374" height="137"/>
+                                <rect key="frame" x="20" y="371" width="374" height="72"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -207,7 +207,6 @@
                             <constraint firstItem="TS2-W5-b8q" firstAttribute="top" relation="greaterThanOrEqual" secondItem="rlh-Dn-Ex0" secondAttribute="bottom" id="JrV-HY-eTy"/>
                             <constraint firstItem="rlh-Dn-Ex0" firstAttribute="top" secondItem="yfb-OU-JZf" secondAttribute="top" constant="20" id="PHo-Cf-IyC"/>
                             <constraint firstItem="yfb-OU-JZf" firstAttribute="trailing" secondItem="ZWV-XE-6U4" secondAttribute="trailing" constant="10" id="R0H-s2-bQQ"/>
-                            <constraint firstItem="TS2-W5-b8q" firstAttribute="top" secondItem="rlh-Dn-Ex0" secondAttribute="bottom" priority="500" constant="200" id="VKB-YJ-Y2H"/>
                             <constraint firstItem="rlh-Dn-Ex0" firstAttribute="leading" secondItem="9YS-o2-jEk" secondAttribute="leadingMargin" id="bSf-4F-eQ5"/>
                             <constraint firstItem="yfb-OU-JZf" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="rlh-Dn-Ex0" secondAttribute="trailing" priority="1" id="hTv-8q-Slx"/>
                             <constraint firstItem="rlh-Dn-Ex0" firstAttribute="centerY" secondItem="9YS-o2-jEk" secondAttribute="centerY" id="p8U-u8-o63"/>

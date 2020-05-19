@@ -196,9 +196,7 @@ class CalcController: UIViewController {
         isCalcSecond = true
         
         if firstString.count == 0 { firstString = "0" }
-    }
-    
-    // 부호 Push하는데 기존에 부호가 있으면 pop 후 push
+    }// 부호 Push하는데 기존에 부호가 있으면 pop 후 push
     private func signArrayPush(_ sign: String) {
         if signArray.count > 0 {
             let _ = signArray.popLast()
