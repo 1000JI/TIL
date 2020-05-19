@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF1308B82472B7BD006BB640 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1308B72472B7BD006BB640 /* StackViewController.swift */; };
 		AF3728E824721C1200CB045D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3728E724721C1200CB045D /* AppDelegate.swift */; };
 		AF3728EA24721C1200CB045D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3728E924721C1200CB045D /* SceneDelegate.swift */; };
 		AF3728EC24721C1200CB045D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3728EB24721C1200CB045D /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF1308B72472B7BD006BB640 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		AF3728E424721C1200CB045D /* 20200518-Practice-Autolayout-Code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "20200518-Practice-Autolayout-Code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF3728E724721C1200CB045D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF3728E924721C1200CB045D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				AF3728E724721C1200CB045D /* AppDelegate.swift */,
 				AF3728E924721C1200CB045D /* SceneDelegate.swift */,
 				AF3728EB24721C1200CB045D /* ViewController.swift */,
+				AF1308B72472B7BD006BB640 /* StackViewController.swift */,
 				AF3728FB247258FD00CB045D /* AutolayoutAnchorViewController.swift */,
 				AF3728ED24721C1200CB045D /* Main.storyboard */,
 				AF3728F024721C1300CB045D /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			files = (
 				AF3728FC247258FD00CB045D /* AutolayoutAnchorViewController.swift in Sources */,
 				AF3728EC24721C1200CB045D /* ViewController.swift in Sources */,
+				AF1308B82472B7BD006BB640 /* StackViewController.swift in Sources */,
 				AF3728E824721C1200CB045D /* AppDelegate.swift in Sources */,
 				AF3728EA24721C1200CB045D /* SceneDelegate.swift in Sources */,
 			);

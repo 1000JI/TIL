@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     // 1번 방법
     var blueViewConstraintY: NSLayoutConstraint!
     
