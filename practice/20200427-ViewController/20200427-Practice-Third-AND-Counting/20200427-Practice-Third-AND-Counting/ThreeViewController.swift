@@ -43,7 +43,8 @@ class ThreeViewController: UIViewController {
     }
     
     @objc private func clickedReturnA(_ sender: UIButton) {
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+//        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     @objc private func clickedReturnB(_ sender: UIButton) {
