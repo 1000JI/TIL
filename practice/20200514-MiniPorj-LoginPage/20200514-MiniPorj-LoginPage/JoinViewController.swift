@@ -99,17 +99,6 @@ class JoinViewController: UIViewController {
         super.viewDidLoad()
 
         viewSetting()
-        
-//        var dict = ["test":"test", "test1":"test1"]
-//        userDefaults.set(dict, forKey: "joinMember")
-//
-//        dict["test3"] = "test3"
-//
-//        print(userDefaults.dictionary(forKey: "joinMember"))
-//
-//        for (key, value) in dict {
-//            print(key, value)
-//        }
     }
     
     @objc private func clickedSignUP(_ sender: UIButton) {
