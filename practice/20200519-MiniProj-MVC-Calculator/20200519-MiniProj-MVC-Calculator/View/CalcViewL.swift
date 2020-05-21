@@ -105,16 +105,6 @@ class CalcView: UIView {
         ])
     }
     
-    func buttonLayoutSetting() {
-        for rowKeyPad in keypadStackView.arrangedSubviews {
-            if let rowStackView = rowKeyPad as? UIStackView {
-                for button in rowStackView.arrangedSubviews {
-                    button.layer.cornerRadius = button.frame.size.width / 2
-                }
-            }
-        }
-    }
-    
     // MARK: - View 생성
     // MARK: titleLabel 생성
     private var titleLabel: UILabel = {
@@ -132,6 +122,7 @@ class CalcView: UIView {
         let label = UILabel()
         label.text = "0"
         label.font = .boldSystemFont(ofSize: 60)
+        label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .right
         label.textColor = .white
         label.backgroundColor = .clear

@@ -99,9 +99,11 @@ class CalcClass {
         isNumberTyping = true
 
         if isInputMode {
+            guard firstNumber.count < 13 else { return firstNumber }
             firstNumber.append(number)
             return firstNumber
         } else {
+            guard secondNumber.count < 13 else { return secondNumber }
             secondNumber.append(number)
             return secondNumber
         }

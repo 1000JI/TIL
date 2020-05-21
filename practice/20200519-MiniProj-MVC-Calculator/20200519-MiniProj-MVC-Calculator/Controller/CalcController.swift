@@ -19,6 +19,8 @@ class CalcController: UIViewController {
         
         calcView.delegate = self
         controllerLayoutSetting()
+        
+        
     }
     
     private func controllerLayoutSetting() {
@@ -32,11 +34,6 @@ class CalcController: UIViewController {
             calcView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
             calcView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
         ])
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        calcView.buttonLayoutSetting()
     }
 }
 
