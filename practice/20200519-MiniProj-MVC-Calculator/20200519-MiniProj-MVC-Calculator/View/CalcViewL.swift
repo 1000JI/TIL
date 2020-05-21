@@ -21,12 +21,12 @@ class MyButton: UIButton {
 }
 
 protocol CalcViewDelegate: class {
-    func addTargetSetting(_ button: UIButton)
+    func clickedButtonEvent(_ inputText: String) -> String
 }
 
 class CalcView: UIView {
     
-    var delegate: CalcViewDelegate?
+    weak var delegate: CalcViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,7 +76,8 @@ class CalcView: UIView {
                     }
                 }
                 button.titleLabel?.font = .boldSystemFont(ofSize: 40)
-                delegate?.addTargetSetting(button)
+                button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+//                delegate?.addTargetSetting(button)
                 
                 button.translatesAutoresizingMaskIntoConstraints = false
                 button.widthAnchor.constraint(equalTo: button.heightAnchor, multiplier: 1).isActive = true
@@ -160,4 +161,33 @@ class CalcView: UIView {
         ["7", "8", "9", "×"],
         ["0", "AC", "=", "÷"]
     ]
+    
+    // MARK: - Formatter
+    lazy var formatter: Formatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal    // 천 단위로 콤마(,)
+        formatter.minimumFractionDigits = 0    // 최소 소수점 단위
+        formatter.maximumFractionDigits = 3    // 최대 소수점 단위
+        //        let numString = formatter.string(from: number as NSNumber)
+        //        print(numString)
+        return formatter
+    }()
+    
+    // MARK: Result String
+    private var resultString = "" {
+        didSet {
+            if let doubleValue = Double(resultString) {
+                resultLabel.text = formatter.string(for: doubleValue as NSNumber)
+            }
+        }
+    }
+    
+    // MARK: Button Action
+    @objc func buttonAction(_ sender: UIButton) {
+        if let nonNilInputText = sender.titleLabel?.text {
+            if let resultValue = delegate?.clickedButtonEvent(nonNilInputText) {
+                resultString = resultValue
+            }
+        }
+    }
 }

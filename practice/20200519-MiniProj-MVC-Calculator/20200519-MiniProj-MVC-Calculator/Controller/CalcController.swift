@@ -12,12 +12,12 @@ import UIKit
 class CalcController: UIViewController {
     
     private let calcView = CalcView()
+    private let calcProcess = CalcClass()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         calcView.delegate = self
-        
         controllerLayoutSetting()
     }
     
@@ -41,12 +41,7 @@ class CalcController: UIViewController {
 }
 
 extension CalcController: CalcViewDelegate {
-    func addTargetSetting(_ button: UIButton) {
-        button.addTarget(self, action: #selector(clickedButtonEvent(_:)), for: .touchUpInside)
+    func clickedButtonEvent(_ inputText: String) -> String {
+        return calcProcess.calcProcess(inputText)
     }
-    
-    @objc private func clickedButtonEvent(_ sender: UIButton) {
-        print(sender.titleLabel?.text)
-    }
-    
 }

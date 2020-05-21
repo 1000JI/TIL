@@ -199,7 +199,7 @@ class CalcController: UIViewController {
     }// 부호 Push하는데 기존에 부호가 있으면 pop 후 push
     private func signArrayPush(_ sign: String) {
         if signArray.count > 0 {
-            let _ = signArray.popLast()
+            _ = signArray.popLast()
         }
         signArray.append(sign)
     }
