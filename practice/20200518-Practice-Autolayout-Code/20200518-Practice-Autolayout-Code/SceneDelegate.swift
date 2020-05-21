@@ -22,9 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        window?.rootViewController = storyboard.instantiateViewController(identifier: "ViewController")
         
-//        window?.rootViewController = AutolayoutAnchorViewController()
+        window?.rootViewController = AutolayoutAnchorViewController()
         
-        window?.rootViewController = StackViewController()
+//        window?.rootViewController = StackViewController()
         
         window?.frame = UIScreen.main.bounds
         window?.makeKeyAndVisible()

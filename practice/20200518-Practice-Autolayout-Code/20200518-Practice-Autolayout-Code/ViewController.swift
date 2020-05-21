@@ -28,26 +28,26 @@ class ViewController: UIViewController {
     
     @objc func clickedButton(_ sender: UIButton) {
         // 1번 방법
+        UIView.animate(withDuration: 1, animations: {
+            self.blueViewConstraintY.constant += 300
+//            self.view.layoutIfNeeded()
+        }) { (_) in
+            UIView.animate(withDuration: 1) {
+//                self.blueViewConstraintY.constant -= 300
+//                self.view.layoutIfNeeded()
+            }
+        }
+        
+        // 2번 방법
 //        UIView.animate(withDuration: 1, animations: {
-//            self.blueViewConstraintY.constant += 300
+//            self.blueViewConstraintYUp.priority = UILayoutPriority(998)
 //            self.view.layoutIfNeeded()
 //        }) { (_) in
 //            UIView.animate(withDuration: 1) {
-//                self.blueViewConstraintY.constant -= 300
+//                self.blueViewConstraintYUp.priority = UILayoutPriority(1000)
 //                self.view.layoutIfNeeded()
 //            }
 //        }
-        
-        // 2번 방법
-        UIView.animate(withDuration: 1, animations: {
-            self.blueViewConstraintYUp.priority = UILayoutPriority(998)
-            self.view.layoutIfNeeded()
-        }) { (_) in
-            UIView.animate(withDuration: 1) {
-                self.blueViewConstraintYUp.priority = UILayoutPriority(1000)
-                self.view.layoutIfNeeded()
-            }
-        }
         
         // 3번 방법
 //        UIView.animate(withDuration: 1) {
@@ -93,17 +93,17 @@ class ViewController: UIViewController {
         ])
         
         // 1번 방법
-//        blueViewConstraintY = blueView.topAnchor.constraint(equalTo: moveButton.bottomAnchor, constant: 20)
-//        blueViewConstraintY.isActive = true
+        blueViewConstraintY = blueView.topAnchor.constraint(equalTo: moveButton.bottomAnchor, constant: 20)
+        blueViewConstraintY.isActive = true
         
         // 2번, 3번 방법
-        blueViewConstraintYUp = blueView.topAnchor.constraint(equalTo: moveButton.bottomAnchor, constant: 20)
-        blueViewConstraintYUp.priority = UILayoutPriority(1000)
-        blueViewConstraintYUp.isActive = true
-        
-        blueViewConstraintYDown = blueView.topAnchor.constraint(equalTo: moveButton.bottomAnchor, constant: 320)
-        blueViewConstraintYDown.priority = UILayoutPriority(999)
-        blueViewConstraintYDown.isActive = true
+//        blueViewConstraintYUp = blueView.topAnchor.constraint(equalTo: moveButton.bottomAnchor, constant: 20)
+//        blueViewConstraintYUp.priority = UILayoutPriority(1000)
+//        blueViewConstraintYUp.isActive = true
+//
+//        blueViewConstraintYDown = blueView.topAnchor.constraint(equalTo: moveButton.bottomAnchor, constant: 320)
+//        blueViewConstraintYDown.priority = UILayoutPriority(999)
+//        blueViewConstraintYDown.isActive = true
     }
 }
 
