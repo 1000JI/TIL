@@ -17,6 +17,7 @@ class MyButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
 //        print(#function)
+        self.layer.cornerRadius = self.frame.width / 2
     }
 }
 
@@ -58,9 +59,8 @@ class CalcView: UIView {
         keypadStackView.distribution = .fillEqually
         keypadStackView.spacing = 8
         
-        var stackView = createLineStackView()
-        
         for rowKeypad in keypadGrid {
+            let stackView = createLineStackView()
             for title in rowKeypad {
                 let button = MyButton(type: .system)
                 button.setTitle("\(title)", for: .normal)
@@ -77,7 +77,6 @@ class CalcView: UIView {
                 }
                 button.titleLabel?.font = .boldSystemFont(ofSize: 40)
                 button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-//                delegate?.addTargetSetting(button)
                 
                 button.translatesAutoresizingMaskIntoConstraints = false
                 button.widthAnchor.constraint(equalTo: button.heightAnchor, multiplier: 1).isActive = true
@@ -85,7 +84,6 @@ class CalcView: UIView {
                 stackView.addArrangedSubview(button)
             }
             keypadStackView.addArrangedSubview(stackView)
-            stackView = createLineStackView()
         }
         
         self.addSubview(keypadStackView)
@@ -111,7 +109,6 @@ class CalcView: UIView {
         for rowKeyPad in keypadStackView.arrangedSubviews {
             if let rowStackView = rowKeyPad as? UIStackView {
                 for button in rowStackView.arrangedSubviews {
-//                    print("BUTTON FRAME :", button.frame.size.width)
                     button.layer.cornerRadius = button.frame.size.width / 2
                 }
             }

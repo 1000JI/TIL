@@ -9,7 +9,6 @@
 import Foundation
 
 class CalcClass {
-    
     private var isNumberTyping  : Bool = false // true: 숫자 입력 중, false: 부호, 등호 입력
     private var isInputMode     : Bool = true  // true: 첫번째 수, false: 두번째 수
     private var isNativeNumber  : Bool = false // true: 음수, false: 양수
@@ -48,7 +47,8 @@ class CalcClass {
         
         if secondNumber.isEmpty { secondNumber = firstNumber }
         isResultPrint = true
-        return calculatorMethod(firstNumber, secondNumber, signOperator)
+        firstNumber = calculatorMethod(firstNumber, secondNumber, signOperator)
+        return firstNumber
     }
     
     // MARK: 계산 메소드

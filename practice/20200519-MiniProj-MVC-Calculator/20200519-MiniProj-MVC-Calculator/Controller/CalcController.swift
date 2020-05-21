@@ -35,7 +35,7 @@ class CalcController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        view.layoutIfNeeded()
+        super.viewDidLayoutSubviews()
         calcView.buttonLayoutSetting()
     }
 }
