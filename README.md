@@ -1,4 +1,4 @@
-###### 1000JI [My Notion](https://www.notion.so/jiwooni/)
+###### 1000JI [My Notion](https://www.notion.so/jiwooni/1000JI-s-Home-b267c5c5518c43e99cb667d03440ccc0)
 
 # TIL
 Today I Learned in Fastcampus..
@@ -15,7 +15,7 @@ Today I Learned in Fastcampus..
 | 5      | [Algorithm](#Algorithm)| Algorithm Study(Programmers, etc...)  |
 | 6      | [Etc](#Etc)      | Basic, Etc...                         |
 
-## 이후 날짜의 Study 내용들은 [My Notion](https://www.notion.so/jiwooni/)으로 업로드
+## 이후 날짜의 Study 내용들은 [My Notion](https://www.notion.so/jiwooni/1000JI-s-Home-b267c5c5518c43e99cb667d03440ccc0)으로 업로드
 
 ***
 ***
