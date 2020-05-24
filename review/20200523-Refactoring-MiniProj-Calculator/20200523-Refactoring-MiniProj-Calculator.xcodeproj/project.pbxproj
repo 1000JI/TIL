@@ -18,6 +18,10 @@
 		AF4D487D2478C53700234C2B /* CalcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4D487C2478C53700234C2B /* CalcView.swift */; };
 		AF4D48812478EF9200234C2B /* KeypadStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4D48802478EF9200234C2B /* KeypadStackView.swift */; };
 		AF4D48832478F0E900234C2B /* KeypadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4D48822478F0E900234C2B /* KeypadButton.swift */; };
+		AF514592247959F800B36851 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF514591247959F800B36851 /* Command.swift */; };
+		AF51459424795AF300B36851 /* CalcProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF51459324795AF300B36851 /* CalcProcess.swift */; };
+		AF5B140D247A949300CD8604 /* ReCalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B140C247A949300CD8604 /* ReCalcViewController.swift */; };
+		AF5B1410247A983600CD8604 /* ReCalcProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B140F247A983500CD8604 /* ReCalcProcess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		AF4D487C2478C53700234C2B /* CalcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcView.swift; sourceTree = "<group>"; };
 		AF4D48802478EF9200234C2B /* KeypadStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadStackView.swift; sourceTree = "<group>"; };
 		AF4D48822478F0E900234C2B /* KeypadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadButton.swift; sourceTree = "<group>"; };
+		AF514591247959F800B36851 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		AF51459324795AF300B36851 /* CalcProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcProcess.swift; sourceTree = "<group>"; };
+		AF5B140C247A949300CD8604 /* ReCalcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCalcViewController.swift; sourceTree = "<group>"; };
+		AF5B140F247A983500CD8604 /* ReCalcProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCalcProcess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +115,12 @@
 			children = (
 				AF4D484A2478C3DF00234C2B /* AppDelegate.swift */,
 				AF4D484C2478C3DF00234C2B /* SceneDelegate.swift */,
-				AF4D487F2478C54300234C2B /* Controller */,
 				AF4D487E2478C53C00234C2B /* View */,
+				AF4D487F2478C54300234C2B /* Controller */,
+				AF51459524795B0600B36851 /* Model */,
 				AF4D48502478C3DF00234C2B /* Main.storyboard */,
+				AF5B140E247A949C00CD8604 /* ReController */,
+				AF5B1411247A983A00CD8604 /* ReModel */,
 				AF4D48532478C3E100234C2B /* Assets.xcassets */,
 				AF4D48552478C3E100234C2B /* LaunchScreen.storyboard */,
 				AF4D48582478C3E100234C2B /* Info.plist */,
@@ -149,8 +160,33 @@
 			isa = PBXGroup;
 			children = (
 				AF4D487A2478C4DA00234C2B /* CalcViewController.swift */,
+				AF514591247959F800B36851 /* Command.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		AF51459524795B0600B36851 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF51459324795AF300B36851 /* CalcProcess.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF5B140E247A949C00CD8604 /* ReController */ = {
+			isa = PBXGroup;
+			children = (
+				AF5B140C247A949300CD8604 /* ReCalcViewController.swift */,
+			);
+			path = ReController;
+			sourceTree = "<group>";
+		};
+		AF5B1411247A983A00CD8604 /* ReModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF5B140F247A983500CD8604 /* ReCalcProcess.swift */,
+			);
+			path = ReModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,11 +321,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF4D484B2478C3DF00234C2B /* AppDelegate.swift in Sources */,
+				AF5B140D247A949300CD8604 /* ReCalcViewController.swift in Sources */,
 				AF4D48832478F0E900234C2B /* KeypadButton.swift in Sources */,
 				AF4D487B2478C4DA00234C2B /* CalcViewController.swift in Sources */,
 				AF4D484D2478C3DF00234C2B /* SceneDelegate.swift in Sources */,
+				AF514592247959F800B36851 /* Command.swift in Sources */,
 				AF4D48812478EF9200234C2B /* KeypadStackView.swift in Sources */,
+				AF5B1410247A983600CD8604 /* ReCalcProcess.swift in Sources */,
 				AF4D487D2478C53700234C2B /* CalcView.swift in Sources */,
+				AF51459424795AF300B36851 /* CalcProcess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

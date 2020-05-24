@@ -14,12 +14,16 @@ class KeypadButton: UIButton {
         super.init(frame: frame)
     }
     
-    convenience init(title: String) {
-        self.init()
-        
+    convenience init(title: String, type: ButtonType) {
+        self.init(type: type)
         setTitle(title, for: .normal)
         setTitleColor(.white, for: .normal)
         titleLabel?.font = .boldSystemFont(ofSize: 40)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
@@ -30,7 +34,7 @@ class KeypadButton: UIButton {
         if Int(currentTitle ?? "") != nil {
             backgroundColor = .darkGray
         } else if currentTitle == "AC" {
-            backgroundColor = .gray
+            backgroundColor = .lightGray
         } else {
             backgroundColor = .orange
         }

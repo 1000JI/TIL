@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.frame = UIScreen.main.bounds
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = CalcViewController()
+//        window?.rootViewController = CalcViewController()
+        window?.rootViewController = ReCalcViewController()
         window?.makeKeyAndVisible()
     }
     

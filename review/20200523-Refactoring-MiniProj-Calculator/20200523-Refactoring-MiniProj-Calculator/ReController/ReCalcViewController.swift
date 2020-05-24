@@ -1,29 +1,29 @@
 //
-//  CalcViewController.swift
+//  ReCalcViewController.swift
 //  20200523-Refactoring-MiniProj-Calculator
 //
-//  Created by 천지운 on 2020/05/23.
+//  Created by 천지운 on 2020/05/24.
 //  Copyright © 2020 jwcheon. All rights reserved.
 //
 
 import UIKit
 
-class CalcViewController: UIViewController {
+class ReCalcViewController: UIViewController {
 
-    // MARK: - 필요한 변수들 선언
-    // 계산기 구조를 가지고 있는 View
     private let calcView = CalcView()
-    private var calcProcess = CalcProcess()
+    private var calcProcess = ReCalcProcess()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        calcViewLayoutSetting()
+        calcLayoutSetting()
         calcViewDelegateSetting()
     }
     
-    private func calcViewLayoutSetting() {
+    // MARK: - CalcView Layout Setting
+    private func calcLayoutSetting() {
         view.backgroundColor = .black
+        
         view.addSubview(calcView)
         calcView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -35,7 +35,8 @@ class CalcViewController: UIViewController {
     }
 }
 
-extension CalcViewController: CalcViewDelegate {
+// MARK: - Extension CalcViewDelegate
+extension ReCalcViewController: CalcViewDelegate {
     private func calcViewDelegateSetting() {
         calcView.delegate = self
     }
@@ -44,32 +45,26 @@ extension CalcViewController: CalcViewDelegate {
         var command: Command
         
         switch titleText {
-        case "+", "-", "×", "÷": command = .operation(titleText)
-        case "=": command = .equal
-        case "AC": command = .clear
-        default: command = .addDigit(titleText)
+        case "+", "-", "×", "÷":    command = .operation(titleText)
+        case "=":                   command = .equal
+        case "AC":                  command = .clear
+        default:                    command = .addDigit(titleText)
         }
         
-        let peelText = peelTargetText(to: calcView.resultValue)
-        let returnText = calcProcess.performCommand(command, with: peelText)
-        let displayText = displayTextFomatter(returnText)
-        calcView.resultValue = displayText
+        let displayText = calcView.resultValue.replacingOccurrences(of: ",", with: "")
+        let newStatus = calcProcess.performCalculator(command: command, with: displayText)
+        calcView.resultValue = displayTextFormatter(to: newStatus)
         
         let padStr = "\(command)".padding(toLength: 14, withPad: " ", startingAt: 0)
-        print("command: \(padStr) / display: \(displayText)")
+        print("command: \(padStr) / display: \(calcView.resultValue)")
     }
     
-    private func displayTextFomatter(_ targetText: String) -> String {
-        guard let number = Double(targetText) else { return "0" }
+    private func displayTextFormatter(to changedText: String) -> String {
+        guard let transText = Double(changedText) else { return "0" }
         let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 3
+        formatter.maximum = 3
+        formatter.minimum = 0
         formatter.numberStyle = .decimal
-        
-        return formatter.string(from: number as NSNumber) ?? "0"
-    }
-    
-    private func peelTargetText(to targetText: String) -> String {
-        return targetText.replacingOccurrences(of: ",", with: "")
+        return formatter.string(from: transText as NSNumber) ?? "0"
     }
 }
