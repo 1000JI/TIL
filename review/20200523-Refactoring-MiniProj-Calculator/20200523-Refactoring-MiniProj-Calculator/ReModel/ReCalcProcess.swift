@@ -24,7 +24,7 @@ struct ReCalcProcess{
         }
     }
     
-    private var accumlator      : Double = 0.0
+    private var accumulator      : Double = 0.0
     private var bufferOperator  : CalcOperator?
     private var isResetNumber   : Bool = true
     
@@ -35,7 +35,7 @@ struct ReCalcProcess{
             return addDigit(in: displayText, with: value)
         case .operation(let op):
             let hasChangeOp = isResetNumber && bufferOperator != nil
-            let accu = hasChangeOp ? accumlator : calculatorMethod(for: displayText)
+            let accu = hasChangeOp ? accumulator : calculatorMethod(for: displayText)
             resultValue = hasChangeOp ? Double(displayText) : accu
             changeState(accumlator: accu, op: CalcOperator(rawValue: op))
         case .equal:
@@ -57,11 +57,11 @@ struct ReCalcProcess{
     
     private func calculatorMethod(for value: String) -> Double {
         let operand = Double(value)!
-        return bufferOperator?.calculator(accumlator, operand) ?? operand
+        return bufferOperator?.calculator(accumulator, operand) ?? operand
     }
     
     private mutating func changeState(accumlator: Double, op: CalcOperator? = nil) {
-        self.accumlator = accumlator
+        self.accumulator = accumlator
         bufferOperator = op
     }
 }

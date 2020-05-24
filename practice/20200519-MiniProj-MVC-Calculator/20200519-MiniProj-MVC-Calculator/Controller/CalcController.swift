@@ -19,8 +19,6 @@ class CalcController: UIViewController {
         
         calcView.delegate = self
         controllerLayoutSetting()
-        
-        
     }
     
     private func controllerLayoutSetting() {
