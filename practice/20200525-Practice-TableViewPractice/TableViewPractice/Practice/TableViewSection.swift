@@ -74,12 +74,12 @@ extension TableViewSection: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberCategories[section]!.count
+        return numberCategories[sectionTitles[section]]!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
-        cell.textLabel?.text = "\(numberCategories[indexPath.section]?[indexPath.row] ?? 0)"
+        cell.textLabel?.text = "\(numberCategories[sectionTitles[indexPath.section]]![indexPath.row])"
         return cell
     }
 }

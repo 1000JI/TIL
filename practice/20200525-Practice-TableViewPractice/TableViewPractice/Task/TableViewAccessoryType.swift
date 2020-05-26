@@ -66,13 +66,13 @@ extension TableViewAccessoryType: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
         cell?.tintColor = .red
-        checkAnimals.append(indexPath.row)
+//        checkAnimals.append(indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .none
-        checkAnimals.remove(at: checkAnimals.firstIndex(of: indexPath.row)!)
+//        checkAnimals.remove(at: checkAnimals.firstIndex(of: indexPath.row)!)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

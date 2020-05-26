@@ -25,8 +25,7 @@ class ButtonTableViewController: UIViewController {
         view.addSubview(tableView)
         tableView.frame = view.frame
         tableView.dataSource = self
-        tableView.delegate = self
-        tableView.rowHeight = 50
+        tableView.rowHeight = 60
         
 //        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
         tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: "buttonCustomCell")
@@ -40,31 +39,51 @@ extension ButtonTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "buttonCustomCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "buttonCustomCell", for: indexPath) as! ButtonTableViewCell
         
-//        cell.layer.borderColor = UIColor.black.cgColor
-//        cell.layer.borderWidth = 0.5
         
-//        cell.textLabel?.text = "\(digitArray[indexPath.row])"
-//        cell.imageView?.image = UIImage(named: "bear")
+        // 1) 액션을 통한 처리 방법
+        // 최초 생성 여부 구분
+        if cell.textLabel?.text == nil {
+            cell.button.addTarget(self, action: #selector(clicekdButtonEvent(_:)), for: .touchUpInside)
+        }
         
-        (cell as? ButtonTableViewCell)?.label.text = "\(digitArray[indexPath.row])"
-        (cell as? ButtonTableViewCell)?.button.tag = indexPath.row
-        (cell as? ButtonTableViewCell)?.button.addTarget(self, action: #selector(clicekdButtonEvent(_:)), for: .touchUpInside)
+        cell.label.text = "\(digitArray[indexPath.row])"
+        cell.button.tag = indexPath.row
+        
         return cell
     }
     
     @objc private func clicekdButtonEvent(_ sender: UIButton) {
-        digitArray[sender.tag] += 1
-        tableView.reloadData()
+//        digitArray[sender.tag] += 1
+//        tableView.reloadData()
+        
+        // 1번째 방법 tag 이용하기
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? ButtonTableViewCell {
+            digitArray[sender.tag] += 1
+            cell.label.text = "\(digitArray[sender.tag])"
+        }
+        
+        // 2번째 방법 SuperView로 가져오기
+        // rootView -> tableView -> cell -> contentView -> button
+//        if let cell = sender.superview?.superview as? ButtonTableViewCell,
+//            let row = tableView.indexPath(for: cell)?.row {
+//                digitArray[row] += 1
+//                cell.label.text = "\(digitArray[row])"
+//        }
     }
     
 }
 
-
-extension ButtonTableViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        digitArray[indexPath.row] += 1
-        tableView.reloadData()
+extension ButtonTableViewController: CustomCellDelegate {
+    // 2) Delegate 이용 방법
+    func customCell(_ cell: ButtonTableViewCell, selectedRow row: Int) {
+        // 태그를 사용하지 않았을 때
+//        guard let row = tableView.indexPath(for: cell)?.row else { return }
+        
+        digitArray[row] += 1
+        cell.label.text = "\(digitArray[row])"
     }
 }

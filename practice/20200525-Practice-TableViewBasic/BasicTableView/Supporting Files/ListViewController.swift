@@ -21,6 +21,7 @@ final class ListViewController: UIViewController {
             TableViewCellStyle(),
             TableViewCustomCell(),
             TableViewEditing(),
+            ButtonTableViewController()
         ]
     }
 }

@@ -105,6 +105,10 @@ extension TableViewMultipleSelection: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectDigit = Int((tableView.cellForRow(at: indexPath)?.textLabel?.text)!)!
         includeDigit.append(selectDigit)
+        
+        for indexPathValue in tableView.indexPathsForSelectedRows ?? [] {
+            includeDigit.append(indexPathValue.row)
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
