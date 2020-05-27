@@ -42,7 +42,6 @@ final class ViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tupleArrayProduct.count
@@ -91,9 +90,9 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let customCell = cell as! ItemCell
-        customCell.countButton.addTarget(self, action: #selector(clickedButtonEvent(_:)), for: .touchUpInside)
-        customCell.countButton.tag = indexPath.row
+//        let customCell = cell as! ItemCell
+//        customCell.countButton.addTarget(self, action: #selector(clickedButtonEvent(_:)), for: .touchUpInside)
+//        customCell.countButton.tag = indexPath.row
     }
 }
 

@@ -39,8 +39,8 @@ extension ButtonTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "buttonCustomCell", for: indexPath) as! ButtonTableViewCell
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "buttonCustomCell", for: indexPath) as! ButtonTableViewCell
         
         // 1) 액션을 통한 처리 방법
         // 최초 생성 여부 구분

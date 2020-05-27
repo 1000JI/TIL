@@ -48,7 +48,6 @@ final class TableViewEditing: UIViewController {
     }
     
     @objc func switchToEditing() {
-        //        tableView.isEditing
         tableView.setEditing(!tableView.isEditing, animated: true)
     }
 }
@@ -57,13 +56,12 @@ final class TableViewEditing: UIViewController {
 
 extension TableViewEditing: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(#function)
-        
+        print("numberOfRowsInSection", section)
         return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(#function)
+        print("cellForRowAt", indexPath.row)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellId", for: indexPath)
         cell.textLabel?.text = "\(data[indexPath.row])"
@@ -71,7 +69,7 @@ extension TableViewEditing: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print(#function)
+        print("editingStyle", indexPath.row)
         
         switch editingStyle {
         case .none: print("nono")
@@ -93,8 +91,7 @@ extension TableViewEditing: UITableViewDataSource {
 
 extension TableViewEditing: UITableViewDelegate {
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        print(#function)
-        //        return .delete // 기본 값
+//        return .delete // 기본 값
         
         let row = indexPath.row
         
@@ -117,7 +114,7 @@ extension TableViewEditing: UITableViewDelegate {
         configuration.performsFirstActionWithFullSwipe = false // 눌러야만 실행 가능하게 할 때
         return configuration
     }
-    
+
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addAction = UIContextualAction(style: .normal, title: "ADD") { (action, sourceView, actionPerformed) in
             print("Add Action")

@@ -10,8 +10,13 @@ import UIKit
 
 
 final class ItemCell: UITableViewCell {
-  
     @IBOutlet var countLabel: UILabel!
     @IBOutlet var countButton: UIButton!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        countLabel.text = nil
+        textLabel?.text = nil
+    }
 }

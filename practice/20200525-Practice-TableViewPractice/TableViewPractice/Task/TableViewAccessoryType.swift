@@ -42,7 +42,7 @@ final class TableViewAccessoryType: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 80
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellID")
+        tableView.register(TestCell.self, forCellReuseIdentifier: "CellID")
         tableView.allowsMultipleSelection = true
     }
 }
@@ -57,6 +57,13 @@ extension TableViewAccessoryType: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
         cell.imageView?.image = UIImage(named: "\(animals[indexPath.row])")
         cell.textLabel?.text = animals[indexPath.row]
+        
+        if checkAnimals.contains(indexPath.row) {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        
         return cell
     }
 }
@@ -66,21 +73,28 @@ extension TableViewAccessoryType: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
         cell?.tintColor = .red
-//        checkAnimals.append(indexPath.row)
+        checkAnimals.append(indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .none
-//        checkAnimals.remove(at: checkAnimals.firstIndex(of: indexPath.row)!)
+        checkAnimals.remove(at: checkAnimals.firstIndex(of: indexPath.row)!)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard checkAnimals.contains(indexPath.row) else {
-            cell.accessoryType = .none
-            return
-        }
-        cell.accessoryType = .checkmark
-        cell.tintColor = .red
+//        guard checkAnimals.contains(indexPath.row) else { return }
+//        cell.accessoryType = .checkmark
+//        cell.tintColor = .red
+    }
+}
+
+class TestCell: UITableViewCell {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        textLabel?.text = nil
+        imageView?.image = nil
+        accessoryType = .none
     }
 }
