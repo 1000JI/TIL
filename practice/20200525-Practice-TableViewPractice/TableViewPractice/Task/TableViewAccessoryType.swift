@@ -60,6 +60,7 @@ extension TableViewAccessoryType: UITableViewDataSource {
         
         if checkAnimals.contains(indexPath.row) {
             cell.accessoryType = .checkmark
+            cell.tintColor = .red
         } else {
             cell.accessoryType = .none
         }
