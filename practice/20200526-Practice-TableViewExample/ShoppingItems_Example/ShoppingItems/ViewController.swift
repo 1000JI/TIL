@@ -82,7 +82,6 @@ extension ViewController: UITableViewDataSource {
             }
             return
         }
-        
         tupleArrayProduct[sender.tag].2 += 1
         tableView.reloadData()
     }
