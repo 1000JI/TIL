@@ -110,6 +110,7 @@ extension TableViewEditing: UITableViewDelegate {
             print("Add Action")
             actionPerformed(true)
         }
+        addAction.backgroundColor = .red
         let configuration = UISwipeActionsConfiguration(actions: [addAction])
         configuration.performsFirstActionWithFullSwipe = false // 눌러야만 실행 가능하게 할 때
         return configuration
