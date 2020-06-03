@@ -13,6 +13,7 @@
 		52567F7620EE620600DB52E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52567F7520EE620600DB52E6 /* Assets.xcassets */; };
 		52567F7920EE620600DB52E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52567F7720EE620600DB52E6 /* LaunchScreen.storyboard */; };
 		AFA1330924862DB800429518 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA1330824862DB800429518 /* PracticeViewController.swift */; };
+		AFA1330C2486707500429518 /* BackupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA1330B2486707500429518 /* BackupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		52567F7820EE620600DB52E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52567F7A20EE620600DB52E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFA1330824862DB800429518 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
+		AFA1330B2486707500429518 /* BackupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,10 @@
 		52567F6D20EE620500DB52E6 /* ImagePickerControllerExample */ = {
 			isa = PBXGroup;
 			children = (
+				AFA1330B2486707500429518 /* BackupViewController.swift */,
 				52567F6E20EE620500DB52E6 /* AppDelegate.swift */,
 				52567F7020EE620500DB52E6 /* ViewController.swift */,
+				AFA1330A248658D800429518 /* New Group */,
 				AFA1330824862DB800429518 /* PracticeViewController.swift */,
 				52567F7220EE620500DB52E6 /* Main.storyboard */,
 				52567F7520EE620600DB52E6 /* Assets.xcassets */,
@@ -65,6 +69,13 @@
 				52567F7A20EE620600DB52E6 /* Info.plist */,
 			);
 			path = ImagePickerControllerExample;
+			sourceTree = "<group>";
+		};
+		AFA1330A248658D800429518 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 			files = (
 				AFA1330924862DB800429518 /* PracticeViewController.swift in Sources */,
 				52567F7120EE620500DB52E6 /* ViewController.swift in Sources */,
+				AFA1330C2486707500429518 /* BackupViewController.swift in Sources */,
 				52567F6F20EE620500DB52E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
