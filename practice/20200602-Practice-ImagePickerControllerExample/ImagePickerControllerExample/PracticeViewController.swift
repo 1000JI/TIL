@@ -26,6 +26,7 @@ final class PracticeViewController: UIViewController {
         imageView.contentMode = .scaleToFill
         imageView.layer.borderColor = UIColor.darkGray.cgColor
         imageView.layer.borderWidth = 0.5
+        imageView.image = UIImage()
         return imageView
     }()
     
