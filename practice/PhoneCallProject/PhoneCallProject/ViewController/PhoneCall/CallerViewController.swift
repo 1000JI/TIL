@@ -17,10 +17,17 @@ class CallerViewController: UIViewController {
         super.viewDidLoad()
 
         setupLayout()
-//        setupNavi()
+        setupNavi()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        AppShared.phoneCallMenu["발신자"] = nameTextField.text ?? ""
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
     }
@@ -28,15 +35,17 @@ class CallerViewController: UIViewController {
     // MARK: - Navi Setup
     private func setupNavi() {
         let getAddressItem = UIBarButtonItem(title: "연락처", style: .plain, target: self, action: #selector(getAddressEvent(_:)))
-        self.navigationItem.rightBarButtonItem = getAddressItem
+        let dismissItem = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(dismissEvent))
+        self.navigationItem.rightBarButtonItems = [dismissItem]
     }
     
     @objc private func getAddressEvent(_ sender: UIBarButtonItem) {
         // 주소록에서 얻어온 데이터들을 저장할 배열
         var contacts = [CNContact]()
+        
         // 주소록에서 가져올 데이터들의 타입, 이름, 폰번호
         let keys = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey as CNKeyDescriptor]
-
+        
         // 주소록에서 가져올 데이터들의 옵션을 저장하는 객체
         let request = CNContactFetchRequest(keysToFetch: keys)
         
@@ -77,6 +86,8 @@ class CallerViewController: UIViewController {
             }
         })
     }
+    
+    @objc private func dismissEvent(_ sender: UIBarButtonItem) { navigationController?.popViewController(animated: true) }
     
     // MARK: - Setup Layout
     private func setupLayout() {
@@ -124,7 +135,15 @@ class CallerViewController: UIViewController {
     }
     
     private let profileImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "person.circle.fill"))
+        var profileImage: UIImage = UIImage()
+        
+        if AppShared.phoneCallMenu["사진"] != nil {
+            profileImage = UIImage(data: Data(base64Encoded: AppShared.phoneCallMenu["사진"]!)!)!
+        } else {
+            profileImage = UIImage(systemName: "person.circle.fill")!
+        }
+        
+        let imageView = UIImageView(image: profileImage)
         imageView.tintColor = .lightGray
         imageView.contentMode = .scaleToFill
         return imageView
@@ -159,12 +178,14 @@ class CallerViewController: UIViewController {
     }()
 
     @objc func clickedRemoveButton(_ sender: UIButton) {
+        AppShared.phoneCallMenu["사진"] = nil
         profileImageView.image = UIImage(systemName: "person.circle.fill")
     }
     
     lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "발신자의 이름을 입력하세요."
+        textField.text = AppShared.phoneCallMenu["발신자"] ?? ""
         textField.font = .systemFont(ofSize: 20)
         textField.textAlignment = .center
         textField.textColor = .black
@@ -180,6 +201,7 @@ class CallerViewController: UIViewController {
     }()
 }
 
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension CallerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
@@ -190,6 +212,9 @@ extension CallerViewController: UIImagePickerControllerDelegate, UINavigationCon
             
             let selectedImage = editedImage ?? originalImage
             profileImageView.image = selectedImage
+            
+            let picToDataToString = selectedImage.pngData()!.base64EncodedString()
+            AppShared.phoneCallMenu["사진"] = picToDataToString
         }
         
         picker.presentingViewController?.dismiss(animated: true, completion: nil)

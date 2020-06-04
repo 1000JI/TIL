@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AF5B4D472488C7C500BB2A97 /* iPhoneBellSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AF5B4D462488C7C500BB2A97 /* iPhoneBellSound.mp3 */; };
+		AF5B4D4E248903F100BB2A97 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B4D4B248903F100BB2A97 /* MessageCell.swift */; };
+		AF5B4D4F248903F100BB2A97 /* MessageSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B4D4C248903F100BB2A97 /* MessageSignUpViewController.swift */; };
+		AF5B4D50248903F100BB2A97 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B4D4D248903F100BB2A97 /* UserInfoViewController.swift */; };
 		AF9BB4722487761B0080DD75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9BB4712487761B0080DD75 /* AppDelegate.swift */; };
 		AF9BB4742487761B0080DD75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9BB4732487761B0080DD75 /* SceneDelegate.swift */; };
 		AF9BB4762487761B0080DD75 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9BB4752487761B0080DD75 /* MainViewController.swift */; };
@@ -25,7 +28,10 @@
 
 /* Begin PBXFileReference section */
 		AF5B4D462488C7C500BB2A97 /* iPhoneBellSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iPhoneBellSound.mp3; sourceTree = "<group>"; };
-		AF9BB46E2487761B0080DD75 /* PhoneCallProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneCallProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF5B4D4B248903F100BB2A97 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		AF5B4D4C248903F100BB2A97 /* MessageSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSignUpViewController.swift; sourceTree = "<group>"; };
+		AF5B4D4D248903F100BB2A97 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		AF9BB46E2487761B0080DD75 /* 전화주시조.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "전화주시조.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF9BB4712487761B0080DD75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF9BB4732487761B0080DD75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AF9BB4752487761B0080DD75 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +67,16 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		AF5B4D4A248903D100BB2A97 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				AF5B4D4B248903F100BB2A97 /* MessageCell.swift */,
+				AF5B4D4C248903F100BB2A97 /* MessageSignUpViewController.swift */,
+				AF5B4D4D248903F100BB2A97 /* UserInfoViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
 		AF9BB4652487761B0080DD75 = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +88,7 @@
 		AF9BB46F2487761B0080DD75 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AF9BB46E2487761B0080DD75 /* PhoneCallProject.app */,
+				AF9BB46E2487761B0080DD75 /* 전화주시조.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,6 +114,7 @@
 			children = (
 				AF9BB4752487761B0080DD75 /* MainViewController.swift */,
 				AF9BB4912487AE560080DD75 /* PhoneCall */,
+				AF5B4D4A248903D100BB2A97 /* Message */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -140,7 +157,7 @@
 			);
 			name = PhoneCallProject;
 			productName = PhoneCallProject;
-			productReference = AF9BB46E2487761B0080DD75 /* PhoneCallProject.app */;
+			productReference = AF9BB46E2487761B0080DD75 /* 전화주시조.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -195,10 +212,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5B4D4E248903F100BB2A97 /* MessageCell.swift in Sources */,
 				AF9BB4932487B06C0080DD75 /* CallView.swift in Sources */,
+				AF5B4D4F248903F100BB2A97 /* MessageSignUpViewController.swift in Sources */,
 				AF9BB4762487761B0080DD75 /* MainViewController.swift in Sources */,
 				AF9BB48E24878FF60080DD75 /* CallerViewController.swift in Sources */,
 				AF9BB4952487BEA20080DD75 /* ReceiveCallViewController.swift in Sources */,
+				AF5B4D50248903F100BB2A97 /* UserInfoViewController.swift in Sources */,
 				AF9BB48C248789850080DD75 /* TimeViewController.swift in Sources */,
 				AF9BB4722487761B0080DD75 /* AppDelegate.swift in Sources */,
 				AF9BB487248783BC0080DD75 /* SaveData.swift in Sources */,
@@ -357,7 +377,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JWiOS.PhoneCallProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "전화주시조";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -376,7 +396,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JWiOS.PhoneCallProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "전화주시조";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

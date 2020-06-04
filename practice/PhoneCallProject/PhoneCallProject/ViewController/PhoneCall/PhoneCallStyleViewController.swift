@@ -37,12 +37,18 @@ class PhoneCallStyleViewController: UIViewController {
             dismissButton.widthAnchor.constraint(equalTo: dismissButton.heightAnchor)
         ])
         
-        for index in 1...3 {
+        let styleCount: Int = 3
+        for index in 0..<styleCount {
             let button = UIButton(type: .system)
             button.backgroundColor = .systemFill
             button.layer.cornerRadius = 15
             button.tag = index
-            button.addTarget(self, action: #selector(clickedStyleButton), for: .touchUpInside)
+            button.setBackgroundImage(UIImage(named: "CallStyle\(index)"), for: .normal)
+            button.clipsToBounds = true
+        
+            if button.backgroundImage(for: .normal) != nil {
+                button.addTarget(self, action: #selector(clickedStyleButton), for: .touchUpInside)
+            }
             buttonStackView.addArrangedSubview(button)
         }
         
@@ -57,6 +63,7 @@ class PhoneCallStyleViewController: UIViewController {
     @objc private func clickedStyleButton(_ sender: UIButton) {
         let receiveVC = ReceiveCallViewController()
         receiveVC.modalPresentationStyle = .overFullScreen
+        receiveVC.callerViewStyle = sender.tag
         self.present(receiveVC, animated: true)
     }
     

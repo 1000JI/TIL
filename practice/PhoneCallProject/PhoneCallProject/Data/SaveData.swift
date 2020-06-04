@@ -6,6 +6,7 @@
 //  Copyright © 2020 jwcheon. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 struct AppShared {
@@ -33,4 +34,21 @@ struct AppShared {
         "30 Minutes Later": 60 * 30,
         "1 Hour Later": 60 * 60
     ]
+}
+
+struct MessageData {
+    static let sginInButton = UIButton()
+    static let sginOutButton = UIButton()
+    
+    static var groupTextfield = UITextField()
+    static var nameTextfield = UITextField()
+    static var numberTextfield = UITextField()
+    
+    static var group: [String] = ["그룹 리스트 확인","그룹 추가하기"]
+    static var name: [String] = [""]
+    static var number: [String] = []
+    static var messageText: String = ""
+    static var messageUserList: [String:[String:String]] = [:]
+    
+    static var messageDefault = UserDefaults.standard
 }

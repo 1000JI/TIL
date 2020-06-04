@@ -17,28 +17,35 @@ protocol CallerViewDelegate: class {
 class CallerView: UIView {
     var delegate: CallerViewDelegate?
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.commonInit()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.commonInit()
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        self.commonInit()
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        self.commonInit()
+//    }
+    
+    convenience init(style: Int = 0) {
+        self.init()
+        commonInit(style: style)
     }
 
     // MARK: - Init()
+    private lazy var viewStyleDigit: Int = 0
     private lazy var viewArray = [nameLabel, detailLabel, /*profileImageView,*/ rejectButton, callButton, laterButton, messageButton]
     private lazy var totalViewArray: [UIView] = [backgroundImageView] + viewArray
-    private func commonInit(){
+    private func commonInit(style: Int = 0){
+        viewStyleDigit = style
         
-        for item in viewArray {
+        for item in totalViewArray {
             self.addSubview(item)
             item.translatesAutoresizingMaskIntoConstraints = false
         }
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 64),
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 80),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             nameLabel.heightAnchor.constraint(equalToConstant: 40)
@@ -48,16 +55,6 @@ class CallerView: UIView {
             detailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16),
             detailLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
-        
-        if false {
-            NSLayoutConstraint.activate([
-                profileImageView.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: 44),
-                profileImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                profileImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
-                profileImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
-                profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor)
-            ])
-        }
         
         NSLayoutConstraint.activate([
             rejectButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 80),
@@ -131,6 +128,26 @@ class CallerView: UIView {
         }
     }
 
+    override func updateConstraints() {
+        super.updateConstraints()
+        
+        if viewStyleDigit == 1 {
+            viewArray.append(profileImageView)
+            self.addSubview(profileImageView)
+            profileImageView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                profileImageView.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: 60),
+                profileImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor)
+            ])
+            
+            if frame.size.height > 800 {
+                profileImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+            } else {
+                profileImageView.heightAnchor.constraint(equalToConstant: 250 / 2).isActive = true
+            }
+        }
+    }
     
     // MARK: - Layout Subviews()
     override func layoutSubviews() {
@@ -151,7 +168,9 @@ class CallerView: UIView {
     
     private var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Hong GilDong"
+        
+        let name = AppShared.phoneCallMenu["발신자"] ?? "Hong GilDong"
+        label.text = name
         label.font = .boldSystemFont(ofSize: 35)
         label.textAlignment = .center
         label.textColor = .white
@@ -168,9 +187,16 @@ class CallerView: UIView {
     }()
     
     private let profileImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "person.circle.fill"))
+        var profileImage: UIImage = UIImage()
+        
+        if AppShared.phoneCallMenu["사진"] != nil {
+            profileImage = UIImage(data: Data(base64Encoded: AppShared.phoneCallMenu["사진"]!)!)!
+        } else {
+            profileImage = UIImage(systemName: "person.circle.fill")!
+        }
+        let imageView = UIImageView(image: profileImage)
         imageView.contentMode = .scaleToFill
-        imageView.tintColor = .gray
+        imageView.tintColor = .white
         return imageView
     }()
     
@@ -209,7 +235,9 @@ extension CallerView: BigStackButtonDelegate {
             if isCallReceive {
                 detailLabel.text = "통화 종료"
                 
-                let tempViewArray = [nameLabel, detailLabel, callButton, callerStackView]
+                var tempViewArray = [nameLabel, detailLabel, callButton, callerStackView]
+                if viewStyleDigit == 1 { tempViewArray.append(profileImageView) }
+                
                 for item in tempViewArray {
                     item.alpha = 0.5
                 }
@@ -238,12 +266,27 @@ extension CallerView: BigStackButtonDelegate {
                 let invisibleViewArray = [rejectButton, laterButton, messageButton]
                 for item in invisibleViewArray { item.alpha = 0.0 }
                 
-                let limitRows: Int = 2
-                let limitCols: Int = 3
-                let buttonInfo = [
-                    [("소리 끔", "mic.slash.fill"), ("키패드", "circle.grid.3x3.fill"), ("스피커", "speaker.3.fill")],
-                    [("통화 추가", "plus"), ("FaceTime", "video.fill"), ("연락처", "person.crop.circle")]
-                ]
+                var limitRows: Int = 0
+                var limitCols: Int = 0
+                var buttonInfo: [[(String, String)]] = []
+                
+                switch viewStyleDigit {
+                case 0:
+                    limitRows = 2
+                    limitCols = 3
+                    buttonInfo = [
+                        [("소리 끔", "mic.slash.fill"), ("키패드", "circle.grid.3x3.fill"), ("스피커", "speaker.3.fill")],
+                        [("통화 추가", "plus"), ("FaceTime", "video.fill"), ("연락처", "person.crop.circle")]
+                    ]
+                case 1:
+                    limitRows = 1
+                    limitCols = 3
+                    buttonInfo = [
+                        [("스피커", "speaker.3.fill"), ("FaceTime", "video.fill"), ("소리 끔", "mic.slash.fill")]
+                    ]
+                default:
+                    print("case Error")
+                }
                 
                 for row in 0..<limitRows {
                     let rowStackView: UIStackView = {
@@ -271,8 +314,10 @@ extension CallerView: BigStackButtonDelegate {
                     callerStackView.bottomAnchor.constraint(equalTo: callButton.topAnchor, constant: -40),
                     callerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
                     callerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-                    callerStackView.heightAnchor.constraint(equalToConstant: 250)
                 ])
+                
+                if viewStyleDigit == 0 { callerStackView.heightAnchor.constraint(equalToConstant: 250).isActive = true }
+                else { callerStackView.heightAnchor.constraint(equalToConstant: 250 / 2).isActive = true }
                 layoutIfNeeded()
                 
                 detailLabel.text = "00:00"

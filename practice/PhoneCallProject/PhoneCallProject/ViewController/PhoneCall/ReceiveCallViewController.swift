@@ -13,15 +13,14 @@ class ReceiveCallViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupLayout()
         setupPhoneCallReceive()
     }
     
-    let callerView = CallerView()
-    
+    var callerViewStyle: Int = 0
+    private lazy var callerView = CallerView(style: callerViewStyle)
     private func setupLayout() {
         callerView.frame = view.frame
-        callerView.alpha = 0
+        callerView.alpha = 1
         callerView.delegate = self
         
         view.addSubview(callerView)
@@ -29,8 +28,12 @@ class ReceiveCallViewController: UIViewController {
     
     private func setupPhoneCallReceive() {
         view.backgroundColor = .black
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
-            self.callerView.alpha = 1
+        
+        let waitingTime = AppShared.timesList[AppShared.phoneCallMenu["시각"] ?? "3 Seconds Later"] ?? 3
+        let convertTime = DispatchTime.now() + .seconds(waitingTime)
+        
+        DispatchQueue.main.asyncAfter(deadline: convertTime) {
+            self.setupLayout()
         }
     }
 

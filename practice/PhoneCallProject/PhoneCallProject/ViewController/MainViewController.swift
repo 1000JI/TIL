@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class MainViewController: UIViewController {
 
@@ -80,7 +81,13 @@ class MainViewController: UIViewController {
     }()
 
     @objc func clickedMessageEvent(_ sender: UIButton) {
-        
+        let messageComposer = MFMessageComposeViewController()
+        messageComposer.messageComposeDelegate = self
+        if MFMessageComposeViewController.canSendText(){
+            messageComposer.recipients = /*MessageData.number*/ ["01066982508"]
+            messageComposer.body = "나 지금 너무 급해요 !!! 전화 주세요 !!!"
+            self.present(messageComposer, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Setup Layout
@@ -134,14 +141,14 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: 테이블 뷰 셀 갯수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == phoneCallTableView { return AppShared.phoneCallTitles.count }
-        else { return 0 }
+        else { return MessageData.group.count }
     }
     
     // MARK: 테이블 뷰 Cell Setting
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == phoneCallTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Value1")
-            ?? UITableViewCell(style: .value1, reuseIdentifier: "Value1")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FakeCall")
+            ?? UITableViewCell(style: .value1, reuseIdentifier: "FakeCall")
             
             cell.imageView?.image = UIImage(systemName: "\(AppShared.phoneCallTitles[indexPath.row].1)")
             cell.imageView?.tintColor = .black
@@ -152,15 +159,17 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             cell.backgroundColor = .systemYellow
             return cell
         } else {
-            
+            let messageCell = messageTableView.dequeueReusableCell(withIdentifier: "Message") ?? UITableViewCell(style: .value1, reuseIdentifier: "Message")
+            messageCell.textLabel?.text = MessageData.group[indexPath.row]
+            messageCell.backgroundColor = .systemGreen
+            messageCell.accessoryType = .disclosureIndicator
+            return messageCell
         }
-        return UITableViewCell()
     }
     
     // MARK: Cell Selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == phoneCallTableView {
-            
             if indexPath.row == 0 {
                 let cell = tableView.cellForRow(at: indexPath)
                 if let text = cell?.detailTextLabel?.text {
@@ -176,7 +185,38 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
                 
                 navigationController?.pushViewController(callerVC, animated: true)
             }
+        } else {
+            if MessageData.group[indexPath.row] == "그룹 추가하기" {
+                let signupVC = MessageSignUpViewController()
+                signupVC.view.backgroundColor = .systemBackground
+                navigationController?.pushViewController(signupVC, animated: true)
+            } else if MessageData.group[indexPath.row] == "그룹 리스트 확인" {
+                let userInfoVC = UserInfoViewController()
+                userInfoVC.view.backgroundColor = .systemBackground
+                navigationController?.pushViewController(userInfoVC, animated: true)
+            } else {
+                if MessageData.group[indexPath.row] != "" {
+                    for (_, value) in MessageData.messageUserList[MessageData.group[indexPath.row]]! {
+                        MessageData.number.append(value)
+                    }
+                }
+            }
         }
     }
 }
 
+extension MainViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch result {
+        case MessageComposeResult.sent:
+            break
+        case MessageComposeResult.cancelled:
+            break
+        case MessageComposeResult.failed:
+            break
+        @unknown default:
+            break
+        }
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
