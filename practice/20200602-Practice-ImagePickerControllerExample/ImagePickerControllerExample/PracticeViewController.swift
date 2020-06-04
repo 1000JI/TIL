@@ -8,6 +8,7 @@
 
 import MobileCoreServices
 import UIKit
+import AudioToolbox
 
 final class PracticeViewController: UIViewController {
     
@@ -55,6 +56,11 @@ final class PracticeViewController: UIViewController {
     }()
 
     @objc func prevClickedButton(_ sender: UIButton) {
+//        AudioServicesPlaySystemSound(4095)
+        AudioServicesPlaySystemSound(1315)
+        
+//        AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(kSystemSoundID_Vibrate)) { }
+        
         guard imageIndex > 0 else { return }
         imageIndex -= 1
     }
