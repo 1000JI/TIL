@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import AVFoundation
 
 protocol CallerViewDelegate: class {
     func callerViewDismiss()
@@ -91,6 +92,7 @@ class CallerView: UIView {
         
         // 진동 타이머 생성
         vibrateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(vibrateTimerMethod), userInfo: nil, repeats: true)
+        playAudio()
     }
     // Timer 변수 인스턴스 생성
     private var callingTimer = Timer()
@@ -112,6 +114,25 @@ class CallerView: UIView {
         if vibrateTimeCount.isMultiple(of: 2) { AudioServicesPlayAlertSound(4095) }
     }
     
+    // MARK: - AVAudio Player
+    private var soundEffect: AVAudioPlayer?
+    
+    func playAudio() {
+        let url = Bundle.main.url(forResource: "iPhoneBellSound", withExtension: "mp3")
+        if let url = url{
+            do {
+                soundEffect = try AVAudioPlayer(contentsOf: url)
+                guard let sound = soundEffect else { return }
+                //sound.prepareToPlay()
+                sound.play()
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    
+    // MARK: - Layout Subviews()
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -174,6 +195,7 @@ class CallerView: UIView {
 extension CallerView: BigStackButtonDelegate {
     func clickedEventButton(_ isReceive: Bool, sender: UIButton) {
         vibrateTimer.invalidate()
+        soundEffect?.stop()
         if !isReceive {
             for item in viewArray {
                 detailLabel.text = "전화가 거절됨"
@@ -185,6 +207,8 @@ extension CallerView: BigStackButtonDelegate {
             }
         } else {
             if isCallReceive {
+                detailLabel.text = "통화 종료"
+                
                 let tempViewArray = [nameLabel, detailLabel, callButton, callerStackView]
                 for item in tempViewArray {
                     item.alpha = 0.5

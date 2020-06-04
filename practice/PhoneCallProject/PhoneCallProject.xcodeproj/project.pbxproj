@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF5B4D472488C7C500BB2A97 /* iPhoneBellSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AF5B4D462488C7C500BB2A97 /* iPhoneBellSound.mp3 */; };
 		AF9BB4722487761B0080DD75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9BB4712487761B0080DD75 /* AppDelegate.swift */; };
 		AF9BB4742487761B0080DD75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9BB4732487761B0080DD75 /* SceneDelegate.swift */; };
 		AF9BB4762487761B0080DD75 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9BB4752487761B0080DD75 /* MainViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF5B4D462488C7C500BB2A97 /* iPhoneBellSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iPhoneBellSound.mp3; sourceTree = "<group>"; };
 		AF9BB46E2487761B0080DD75 /* PhoneCallProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneCallProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF9BB4712487761B0080DD75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF9BB4732487761B0080DD75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF5B4D452488C7AD00BB2A97 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				AF5B4D462488C7C500BB2A97 /* iPhoneBellSound.mp3 */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		AF9BB4652487761B0080DD75 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 				AF9BB485248783A30080DD75 /* ViewController */,
 				AF9BB4772487761B0080DD75 /* Main.storyboard */,
 				AF9BB488248783C10080DD75 /* Data */,
+				AF5B4D452488C7AD00BB2A97 /* Resource */,
 				AF9BB47A2487761D0080DD75 /* Assets.xcassets */,
 				AF9BB47C2487761D0080DD75 /* LaunchScreen.storyboard */,
 				AF9BB47F2487761D0080DD75 /* Info.plist */,
@@ -170,6 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5B4D472488C7C500BB2A97 /* iPhoneBellSound.mp3 in Resources */,
 				AF9BB47E2487761D0080DD75 /* LaunchScreen.storyboard in Resources */,
 				AF9BB47B2487761D0080DD75 /* Assets.xcassets in Resources */,
 				AF9BB4792487761B0080DD75 /* Main.storyboard in Resources */,
