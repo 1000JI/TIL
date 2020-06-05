@@ -112,15 +112,17 @@ class CallerView: UIView {
     }
     
     // MARK: - AVAudio Player
-    private var soundEffect: AVAudioPlayer?
+//    private var soundEffect: AVAudioPlayer?
     
-    func playAudio() {
+    private func playAudio() {
+        ShardAudio.shared.audioPlayer = nil
         let url = Bundle.main.url(forResource: "iPhoneBellSound", withExtension: "mp3")
         if let url = url{
             do {
-                soundEffect = try AVAudioPlayer(contentsOf: url)
-                guard let sound = soundEffect else { return }
+                ShardAudio.shared.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                guard let sound = ShardAudio.shared.audioPlayer else { print("nil"); return }
                 //sound.prepareToPlay()
+                try AVAudioSession.sharedInstance().setCategory(.ambient)
                 sound.play()
             } catch let error {
                 print(error.localizedDescription)
@@ -221,7 +223,7 @@ class CallerView: UIView {
 extension CallerView: BigStackButtonDelegate {
     func clickedEventButton(_ isReceive: Bool, sender: UIButton) {
         vibrateTimer.invalidate()
-        soundEffect?.stop()
+        ShardAudio.shared.audioPlayer?.stop()
         if !isReceive {
             for item in viewArray {
                 detailLabel.text = "전화가 거절됨"
@@ -322,6 +324,19 @@ extension CallerView: BigStackButtonDelegate {
                 
                 detailLabel.text = "00:00"
                 callingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerMethod), userInfo: nil, repeats: true)
+                
+                
+                if AppShared.phoneCallMenu["녹음"] != nil {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        do {
+                            try ShardAudio.shared.audioPlayer = AVAudioPlayer(contentsOf: ShardAudio.shared.audioRecorder!.url)
+                            try AVAudioSession.sharedInstance().setCategory(.ambient)
+                            ShardAudio.shared.audioPlayer?.play()
+                        } catch {
+                            print("audioPlayer error: \(error.localizedDescription)")
+                        }
+                    }
+                }
             }
         }
     }

@@ -179,11 +179,16 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
                     
                     navigationController?.pushViewController(timeVC, animated: true)
                 }
-            } else {
+            } else if indexPath.row == 1 {
                 let callerVC = CallerViewController()
                 callerVC.title = "발신자"
                 
                 navigationController?.pushViewController(callerVC, animated: true)
+            } else {
+                let soundVC = SoundRecordViewController()
+                soundVC.title = "사운드"
+                
+                navigationController?.pushViewController(soundVC, animated: true)
             }
         } else {
             if MessageData.group[indexPath.row] == "그룹 추가하기" {
