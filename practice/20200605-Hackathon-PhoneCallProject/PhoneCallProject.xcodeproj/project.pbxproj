@@ -33,7 +33,7 @@
 		AF5B4D4C248903F100BB2A97 /* MessageSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSignUpViewController.swift; sourceTree = "<group>"; };
 		AF5B4D4D248903F100BB2A97 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		AF5F440C2489D1BE00A4B598 /* SoundRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecordViewController.swift; sourceTree = "<group>"; };
-		AF9BB46E2487761B0080DD75 /* 전화주시조.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "전화주시조.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF9BB46E2487761B0080DD75 /* 구해줘콜미.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "구해줘콜미.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF9BB4712487761B0080DD75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF9BB4732487761B0080DD75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AF9BB4752487761B0080DD75 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		AF9BB46F2487761B0080DD75 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AF9BB46E2487761B0080DD75 /* 전화주시조.app */,
+				AF9BB46E2487761B0080DD75 /* 구해줘콜미.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,7 +160,7 @@
 			);
 			name = PhoneCallProject;
 			productName = PhoneCallProject;
-			productReference = AF9BB46E2487761B0080DD75 /* 전화주시조.app */;
+			productReference = AF9BB46E2487761B0080DD75 /* 구해줘콜미.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -381,7 +381,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JWiOS.PhoneCallProject;
-				PRODUCT_NAME = "전화주시조";
+				PRODUCT_NAME = "구해줘콜미";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -400,7 +400,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JWiOS.PhoneCallProject;
-				PRODUCT_NAME = "전화주시조";
+				PRODUCT_NAME = "구해줘콜미";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

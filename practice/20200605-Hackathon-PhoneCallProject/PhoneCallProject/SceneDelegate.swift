@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.backgroundColor = .systemBackground
         
         let mainVC = MainViewController()
-        mainVC.title = "전화주시조"
+        mainVC.title = "구해줘콜미"
         let naviVC = UINavigationController(rootViewController: mainVC)
         
         window?.rootViewController = naviVC

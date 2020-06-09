@@ -84,8 +84,8 @@ class MainViewController: UIViewController {
         let messageComposer = MFMessageComposeViewController()
         messageComposer.messageComposeDelegate = self
         if MFMessageComposeViewController.canSendText(){
-            messageComposer.recipients = /*MessageData.number*/ ["01066982508"]
-            messageComposer.body = "나 지금 너무 급해요 !!! 전화 주세요 !!!"
+            messageComposer.recipients = MessageData.number
+            messageComposer.body = "[입력] 분 뒤 전화주세요 ! \n급해서 그럽니다..ㅠㅠ"
             self.present(messageComposer, animated: true, completion: nil)
         }
     }
@@ -99,30 +99,32 @@ class MainViewController: UIViewController {
             item.translatesAutoresizingMaskIntoConstraints = false
         }
         
+        let defaultPadding: CGFloat = 32
+        
         NSLayoutConstraint.activate([
-            phoneCallTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            phoneCallTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            phoneCallTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+            phoneCallTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: defaultPadding),
+            phoneCallTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: defaultPadding),
+            phoneCallTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -defaultPadding)
         ])
         
         NSLayoutConstraint.activate([
             messageTableView.topAnchor.constraint(equalTo: phoneCallTableView.bottomAnchor, constant: 16),
-            messageTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            messageTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            messageTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: defaultPadding),
+            messageTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -defaultPadding),
             messageTableView.heightAnchor.constraint(equalTo: phoneCallTableView.heightAnchor, multiplier: 1.0)
         ])
         
         NSLayoutConstraint.activate([
             phoneCallButton.topAnchor.constraint(equalTo: messageTableView.bottomAnchor, constant: 16),
-            phoneCallButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            phoneCallButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            phoneCallButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: defaultPadding),
+            phoneCallButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -defaultPadding),
             phoneCallButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
         NSLayoutConstraint.activate([
             messageButton.topAnchor.constraint(equalTo: messageTableView.bottomAnchor, constant: 16),
-            messageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
-            messageButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            messageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -defaultPadding),
+            messageButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -defaultPadding),
             messageButton.leadingAnchor.constraint(equalTo: phoneCallButton.trailingAnchor, constant: 16),
             messageButton.widthAnchor.constraint(equalTo: phoneCallButton.widthAnchor),
             messageButton.heightAnchor.constraint(equalTo: phoneCallButton.heightAnchor)
@@ -201,8 +203,16 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
                 navigationController?.pushViewController(userInfoVC, animated: true)
             } else {
                 if MessageData.group[indexPath.row] != "" {
-                    for (_, value) in MessageData.messageUserList[MessageData.group[indexPath.row]]! {
-                        MessageData.number.append(value)
+                    for index in 0...MessageData.messageUserList.count - 1 {
+                        let check = MessageData.messageUserList[MessageData.group[index + 1]]
+                        for loop in 0...check!.count - 1{
+                            for (key, value) in check![loop] {
+                                MessageData.name.append(key)
+                                if !MessageData.number.contains(value) {
+                                    MessageData.number.append(value)
+                                }
+                            }
+                        }
                     }
                 }
             }
