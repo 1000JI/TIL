@@ -16,9 +16,10 @@ class MessageSignUpViewController: UIViewController {
         super.viewDidLoad()
         setupSignUpView()
     }
+    // MARK: - 레이아웃 생성
     func setupSignUpView() {
         view.backgroundColor = .systemBackground
-        title = "그룹 추가"
+        title = "그룹 등록"
         
         let signUpArr = [MessageData.groupTextfield, MessageData.nameTextfield, MessageData.numberTextfield, sginInButton]
         
@@ -75,38 +76,46 @@ class MessageSignUpViewController: UIViewController {
         sginInButton.addTarget(self, action: #selector(actionButton), for: .touchUpInside)
     }
     
+    // MARK: - actionButton
     @objc func actionButton(_ sender: UIButton) {
-        print ("actionButton 시작")
+        // 모든 텍스트 필드 입력 필요
         if MessageData.groupTextfield.text != "", MessageData.nameTextfield.text != "", MessageData.numberTextfield.text != "" {
+            // 입력 받을 그룹, 이름, 번호 프로퍼티 생성
             let signGroup = MessageData.groupTextfield.text
             let signName = MessageData.nameTextfield.text
             let signNameArr = signName?.components(separatedBy: "/")
             let signNumber = MessageData.numberTextfield.text
             let signNumberArr = signNumber?.components(separatedBy: "/")
+            // 이름, 번호 갯수 확인 후 데이터 값 저장
             if signNameArr?.count == signNumberArr?.count {
+                MessageData.groupList.append(signGroup!)
                 for index in 0...signNumberArr!.count - 1 {
-                    if MessageData.messageUserList[signGroup!] != nil{
-                        MessageData.messageUserList[signGroup!]?.append([signNameArr![index]:signNumberArr![index]])
-                    } else {
-                        MessageData.messageUserList.updateValue([[signNameArr![index]:signNumberArr![index]]], forKey: signGroup!)
-                    }
+                  if MessageData.messageUserList[signGroup!] != nil{
+                      MessageData.messageUserList[signGroup!]?.append([signNameArr![index]:signNumberArr![index]])
+                  } else {
+                      MessageData.messageUserList.updateValue([[signNameArr![index]:signNumberArr![index]]], forKey: signGroup!)
+                  }
                 }
+                // 입력 받은 그룹, 이름, 번호 Alert으로 추가 확인
                 for index in 0...signNameArr!.count - 1 {
-                    MessageData.numberText += "\n(\(index+1)) \(signNameArr![index]) : \(signNumberArr![index])"
+                    MessageData.userText += "\n(\(index+1)) \(signNameArr![index]) : \(signNumberArr![index])"
                 }
-                let resultAlert = UIAlertController (title: "추가하시겠습니까?", message: "그룹명 : \(signGroup!) \n [ 이름 : 전화번호 ] \(MessageData.numberText)", preferredStyle: .alert)
+                let resultAlert = UIAlertController (title: "그룹 등록 하시겠습니까 ?", message: "그룹명 : \(signGroup!) \n [ 이름 : 전화번호 ] \(MessageData.userText)", preferredStyle: .alert)
+                // 확인 버튼 누를 시 그룹 추가 후 Text 초기화
                 let resultAlertOk = UIAlertAction (title: "확인", style: .default) {_ in
                     self.navigationController?.popViewController(animated: true)
-                    MessageData.group.insert(signGroup!, at: 1)
+                    MessageData.frontGroup.append(signGroup!)
                     MessageData.groupTextfield.text = ""
                     MessageData.nameTextfield.text = ""
                     MessageData.numberTextfield.text = ""
-                    MessageData.numberText = ""
+                    MessageData.userText = ""
                 }
+                //취소 버튼 생성
                 let resultAlertCancel = UIAlertAction (title: "취소", style: .cancel)
                 resultAlert.addAction(resultAlertOk)
                 resultAlert.addAction(resultAlertCancel)
                 present(resultAlert, animated: true)
+              // 이름, 번호 갯수 카운팅 후 맞지 않을 시 경고 Alert 발생
             } else {
                 let checkCountAlert = UIAlertController (title: "경고", message: "이름과 번호 갯수가 맞지 않습니다.", preferredStyle: .alert)
                 let checkCountAlertOk = UIAlertAction (title: "재입력", style: .default)
@@ -114,6 +123,7 @@ class MessageSignUpViewController: UIViewController {
                 present(checkCountAlert, animated: true)
                 
             }
+          // 그룹, 이름, 번호 중 하나라도 입력이 되지 않으면 경고 Alert 발생
         } else {
             let checkAlert = UIAlertController (title: "경고", message: "모두 입력하시오.", preferredStyle: .alert)
             let checkAlertOk = UIAlertAction (title: "재입력", style: .default)

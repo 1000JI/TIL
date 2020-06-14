@@ -42,12 +42,14 @@ struct MessageData {
     static var nameTextfield = UITextField()
     static var numberTextfield = UITextField()
     
-    static var group: [String] = ["그룹 리스트 확인","그룹 추가하기"]
+    static var frontGroup: [String] = ["그룹 설정"]
+    static var groupSetList: [String] = ["그룹 등록","그룹 삭제","그룹 세부정보"]
+    static var groupList: [String] = []
     static var name: [String] = []
     static var number: [String] = []
-    static var numberText: String = ""
+    static var userText: String = ""
     static var resultText: String = ""
-    static var messageUserList: [String:[[String:String]]] = [:] //["TEST": [["천지운" : "01066982508"]]]
+    static var messageUserList: [String:[[String:String]]] = [:]
     
     static var gropuLabel = UILabel()
     static var nameLabel = UILabel()
@@ -56,8 +58,19 @@ struct MessageData {
     static var CGcount: CGFloat = 0
     static var count = 1
     static var padding: CGFloat = 20
+  
+    static var userInfoName: String = ""
+    static var userInfoNumber: String = ""
+    static var groupCheck = ""
     
-    static var messageDefault = UserDefaults.standard
+    static var messageUserdefault = UserDefaults.standard
+}
+struct MessageImage {
+    static let groupCheckList = "person.crop.circle.badge.checkmark"
+    static let groupAdd = "person.crop.circle.badge.plus"
+    static let groupRemove = "person.crop.circle.badge.minus"
+    static let groupSetUp = "rectangle.stack.person.crop"
+    static let group = "person.3"
 }
 
 

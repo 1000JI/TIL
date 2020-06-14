@@ -112,8 +112,6 @@ class CallerView: UIView {
     }
     
     // MARK: - AVAudio Player
-//    private var soundEffect: AVAudioPlayer?
-    
     private func playAudio() {
         ShardAudio.shared.audioPlayer = nil
         let url = Bundle.main.url(forResource: "iPhoneBellSound", withExtension: "mp3")

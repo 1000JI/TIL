@@ -84,8 +84,8 @@ class MainViewController: UIViewController {
         let messageComposer = MFMessageComposeViewController()
         messageComposer.messageComposeDelegate = self
         if MFMessageComposeViewController.canSendText(){
-            messageComposer.recipients = MessageData.number
-            messageComposer.body = "[입력] 분 뒤 전화주세요 ! \n급해서 그럽니다..ㅠㅠ"
+          messageComposer.recipients = MessageData.number
+            messageComposer.body = "[입력] 분 뒤 전화주세요 !"
             self.present(messageComposer, animated: true, completion: nil)
         }
     }
@@ -143,7 +143,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: 테이블 뷰 셀 갯수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == phoneCallTableView { return AppShared.phoneCallTitles.count }
-        else { return MessageData.group.count }
+        else { return MessageData.frontGroup.count }
     }
     
     // MARK: 테이블 뷰 Cell Setting
@@ -161,10 +161,16 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             cell.backgroundColor = .systemYellow
             return cell
         } else {
-            let messageCell = messageTableView.dequeueReusableCell(withIdentifier: "Message") ?? UITableViewCell(style: .value1, reuseIdentifier: "Message")
-            messageCell.textLabel?.text = MessageData.group[indexPath.row]
+            let messageCell = messageTableView.dequeueReusableCell(withIdentifier: "Message") ?? UITableViewCell(style: .default, reuseIdentifier: "Message")
+            messageCell.textLabel?.text = MessageData.frontGroup[indexPath.row]
             messageCell.backgroundColor = .systemGreen
             messageCell.accessoryType = .disclosureIndicator
+            messageCell.imageView?.tintColor = .black
+          if MessageData.frontGroup[indexPath.row] == "그룹 설정" {
+            messageCell.imageView?.image = UIImage(systemName: MessageImage.groupSetUp)
+          } else {
+            messageCell.imageView?.image = UIImage(systemName: MessageImage.group)
+          }
             return messageCell
         }
     }
@@ -193,26 +199,15 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
                 navigationController?.pushViewController(soundVC, animated: true)
             }
         } else {
-            if MessageData.group[indexPath.row] == "그룹 추가하기" {
-                let signupVC = MessageSignUpViewController()
-                signupVC.view.backgroundColor = .systemBackground
-                navigationController?.pushViewController(signupVC, animated: true)
-            } else if MessageData.group[indexPath.row] == "그룹 리스트 확인" {
-                let userInfoVC = UserInfoViewController()
-                userInfoVC.view.backgroundColor = .systemBackground
-                navigationController?.pushViewController(userInfoVC, animated: true)
+            if MessageData.frontGroup[indexPath.row] == "그룹 설정" {
+                let groupSetUpVC = GroupSetUpViewController()
+                groupSetUpVC.view.backgroundColor = .systemBackground
+                navigationController?.pushViewController(groupSetUpVC, animated: true)
             } else {
-                if MessageData.group[indexPath.row] != "" {
-                    for index in 0...MessageData.messageUserList.count - 1 {
-                        let check = MessageData.messageUserList[MessageData.group[index + 1]]
-                        for loop in 0...check!.count - 1{
-                            for (key, value) in check![loop] {
-                                MessageData.name.append(key)
-                                if !MessageData.number.contains(value) {
-                                    MessageData.number.append(value)
-                                }
-                            }
-                        }
+              MessageData.groupCheck = MessageData.frontGroup[indexPath.row]
+              for index in 0..<MessageData.messageUserList[MessageData.groupCheck]!.count {
+                for (_,value) in MessageData.messageUserList[MessageData.groupCheck]![index] {
+                      MessageData.number.append(value)
                     }
                 }
             }
@@ -224,10 +219,13 @@ extension MainViewController: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         switch result {
         case MessageComposeResult.sent:
+          MessageData.number.removeAll()
             break
         case MessageComposeResult.cancelled:
+          MessageData.number.removeAll()
             break
         case MessageComposeResult.failed:
+          MessageData.number.removeAll()
             break
         @unknown default:
             break
