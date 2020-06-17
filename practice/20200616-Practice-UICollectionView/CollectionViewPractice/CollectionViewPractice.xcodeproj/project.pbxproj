@@ -13,6 +13,8 @@
 		529CBA0023DF6B3400A333AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529CB9FE23DF6B3400A333AB /* Main.storyboard */; };
 		529CBA0223DF6B3700A333AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 529CBA0123DF6B3700A333AB /* Assets.xcassets */; };
 		529CBA0523DF6B3700A333AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529CBA0323DF6B3700A333AB /* LaunchScreen.storyboard */; };
+		AF1210AD2498BD33009F0D96 /* CatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1210AC2498BD33009F0D96 /* CatsCollectionViewCell.swift */; };
+		AF1210B02498CF62009F0D96 /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1210AF2498CF62009F0D96 /* CatModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		529CBA0123DF6B3700A333AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		529CBA0423DF6B3700A333AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		529CBA0623DF6B3700A333AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF1210AC2498BD33009F0D96 /* CatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF1210AF2498CF62009F0D96 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +71,30 @@
 		529CB9F723DF6B3400A333AB /* CollectionViewPractice */ = {
 			isa = PBXGroup;
 			children = (
-				529CB9FC23DF6B3400A333AB /* ViewController.swift */,
+				AF1210A92498B8F7009F0D96 /* Controller */,
 				529CB9FE23DF6B3400A333AB /* Main.storyboard */,
+				AF1210AE2498C03A009F0D96 /* View */,
 				529CBA0123DF6B3700A333AB /* Assets.xcassets */,
+				AF1210AF2498CF62009F0D96 /* CatModel.swift */,
 				5270271F2496AD3B0091F681 /* Supporting Files */,
 			);
 			path = CollectionViewPractice;
+			sourceTree = "<group>";
+		};
+		AF1210A92498B8F7009F0D96 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				529CB9FC23DF6B3400A333AB /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AF1210AE2498C03A009F0D96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF1210AC2498BD33009F0D96 /* CatsCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +171,8 @@
 				529CB9FD23DF6B3400A333AB /* ViewController.swift in Sources */,
 				529CB9F923DF6B3400A333AB /* AppDelegate.swift in Sources */,
 				529CB9FB23DF6B3400A333AB /* SceneDelegate.swift in Sources */,
+				AF1210B02498CF62009F0D96 /* CatModel.swift in Sources */,
+				AF1210AD2498BD33009F0D96 /* CatsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +317,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZLCDRXJTXW;
 				INFOPLIST_FILE = "$(SRCROOT)/CollectionViewPractice/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -311,6 +336,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZLCDRXJTXW;
 				INFOPLIST_FILE = "$(SRCROOT)/CollectionViewPractice/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (

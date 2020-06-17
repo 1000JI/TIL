@@ -72,7 +72,6 @@ extension BasicViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath)
         
-//        cell.backgroundColor = dataSource[indexPath.row].color
         cell.contentView.backgroundColor = dataSource[indexPath.row].color
         
         return cell

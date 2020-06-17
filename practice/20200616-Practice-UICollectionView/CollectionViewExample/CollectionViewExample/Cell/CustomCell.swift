@@ -68,6 +68,4 @@ final class CustomCell: UICollectionViewCell {
             titleLabel.heightAnchor.constraint(equalToConstant: 25)
         ])
     }
-    
-    
 }
