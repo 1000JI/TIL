@@ -43,13 +43,12 @@ final class ViewController: UIViewController {
     let spacingSize = CGFloat(8)
     let itemCount = CGFloat(2)
     
-    let catsCount = 20
-    let catsPicCount = 10
-    
     var deleteMode = false
     
     var checkIndexPathArray: [IndexPath] = []
     var deleteIndexPathArray: [IndexPath] = []
+    
+    var catsList: [String] = []
     
     // MARK: - LifeCycle
     
@@ -58,10 +57,17 @@ final class ViewController: UIViewController {
         
         configureUI()
         configureCollectionView()
+        fetchCatsList()
     }
     
     
     // MARK: - Helpers
+    
+    func fetchCatsList() {
+        Service.fetchCats { cats in
+            self.catsList = cats
+        }
+    }
     
     func configureUI() {
         configureNavi()
@@ -148,23 +154,17 @@ final class ViewController: UIViewController {
         if deleteMode { allowCollectionViewSelected(true) }
         else {
             allowCollectionViewSelected(false)
-            
-            checkIndexPathArray.sort()
-            checkIndexPathArray.reverse()
-            
-            checkIndexPathArray.forEach {
-                CatsList.shared.removeIndex(index: $0.item)
+
+            checkIndexPathArray.sorted(by: >).forEach {
+                catsList.remove(at: $0.item)
             }
-            
             collectionView.deleteItems(at: checkIndexPathArray)
             deleteIndexPathArray.append(contentsOf: checkIndexPathArray)
             checkIndexPathArray.removeAll()
             
-            if CatsList.shared.changeCatsList.count == 0 {
-                collectionView.performBatchUpdates({
-                    CatsList.shared.resetList()
-                    collectionView.insertItems(at: deleteIndexPathArray)
-                }, completion: nil)
+            if catsList.isEmpty {
+                fetchCatsList()
+                collectionView.insertItems(at: deleteIndexPathArray)
                 deleteIndexPathArray.removeAll()
             }
         }
@@ -184,13 +184,13 @@ final class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CatsList.shared.changeCatsList.count
+        return catsList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CatsCollectionViewCell.cellIdentifier, for: indexPath) as! CatsCollectionViewCell
         
-        let catImageName = CatsList.shared.changeCatsList[indexPath.item]
+        let catImageName = catsList[indexPath.item]
         cell.catImageView.image = UIImage(named: catImageName)
         
         if cell.isSelected { cell.isCheckMarkHidden = false }

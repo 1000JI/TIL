@@ -44,6 +44,8 @@
 		5270271F2496AD3B0091F681 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				529CBA0123DF6B3700A333AB /* Assets.xcassets */,
+				529CB9FE23DF6B3400A333AB /* Main.storyboard */,
 				529CB9F823DF6B3400A333AB /* AppDelegate.swift */,
 				529CB9FA23DF6B3400A333AB /* SceneDelegate.swift */,
 				529CBA0323DF6B3700A333AB /* LaunchScreen.storyboard */,
@@ -72,10 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				AF1210A92498B8F7009F0D96 /* Controller */,
-				529CB9FE23DF6B3400A333AB /* Main.storyboard */,
 				AF1210AE2498C03A009F0D96 /* View */,
-				529CBA0123DF6B3700A333AB /* Assets.xcassets */,
-				AF1210AF2498CF62009F0D96 /* CatModel.swift */,
+				AF7C32292499AD1800230921 /* Model */,
 				5270271F2496AD3B0091F681 /* Supporting Files */,
 			);
 			path = CollectionViewPractice;
@@ -95,6 +95,14 @@
 				AF1210AC2498BD33009F0D96 /* CatsCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AF7C32292499AD1800230921 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF1210AF2498CF62009F0D96 /* CatModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

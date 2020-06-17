@@ -55,6 +55,7 @@ class CatsCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         
         checkImageView.isHidden = true
+        catImageView.image = nil
     }
     
     override func layoutSubviews() {
