@@ -8,11 +8,11 @@
 import Foundation
 
 enum PhotoType: String {
-  case cat, dog
+    case cat, dog
 }
 
 struct Photo {
-  let imageName: String
-  let photoType: PhotoType
+    let imageName: String
+    let photoType: PhotoType
 }
 
