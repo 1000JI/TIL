@@ -55,9 +55,10 @@ final class PhotoCollectionViewLayout: UICollectionViewLayout {
         let totalItemSpacing = CGFloat(columnsCount - 1) * layout.interItemSpacing
         let cellWidth = (contentWidth - totalItemSpacing) / CGFloat(columnsCount)
         
-        var xOffset: [CGFloat] = []
         // item이 추가 될 때 마다 columns offset을 변경
+        var xOffset: [CGFloat] = []
         var yOffset: [CGFloat] = Array(repeating: 0, count: columnsCount)
+        print("DEBUG: yOffset \(yOffset.min())")
         
         for column in 0..<columnsCount {
             let startOffset = CGFloat(column) * (cellWidth + layout.interItemSpacing)
@@ -75,6 +76,8 @@ final class PhotoCollectionViewLayout: UICollectionViewLayout {
             
             let minYOffset = yOffset.min() ?? 0
             columnIndex = yOffset.firstIndex(of: minYOffset) ?? 0
+            print("DEBUG: cellWidth \(cellWidth), cellHeight \(cellHeight)")
+            print("DEBUG: minYOffset \(minYOffset), columnIndex \(columnIndex)\n")
             
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = CGRect(

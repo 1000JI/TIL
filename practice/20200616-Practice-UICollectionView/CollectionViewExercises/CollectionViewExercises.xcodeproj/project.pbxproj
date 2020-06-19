@@ -18,6 +18,8 @@
 		529CBA4623DFC50100A333AB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CBA4523DFC50100A333AB /* Card.swift */; };
 		529CBA4823DFCC2E00A333AB /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CBA4723DFCC2E00A333AB /* Section.swift */; };
 		529CBA4A23DFCE5F00A333AB /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CBA4923DFCE5F00A333AB /* SectionHeaderView.swift */; };
+		AF580256249B9DCF00D79DC2 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF580255249B9DCF00D79DC2 /* SectionCell.swift */; };
+		AF580258249BA30400D79DC2 /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF580257249BA30400D79DC2 /* SectionFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		529CBA4523DFC50100A333AB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		529CBA4723DFCC2E00A333AB /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		529CBA4923DFCE5F00A333AB /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		AF580255249B9DCF00D79DC2 /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
+		AF580257249BA30400D79DC2 /* SectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +86,9 @@
 			children = (
 				529CBA3823DFB58600A333AB /* BasicViewController.swift */,
 				529CBA3A23DFB5B100A333AB /* SupplementaryViewController.swift */,
+				AF580255249B9DCF00D79DC2 /* SectionCell.swift */,
 				529CBA4923DFCE5F00A333AB /* SectionHeaderView.swift */,
+				AF580257249BA30400D79DC2 /* SectionFooterView.swift */,
 				529CBA4223DFC2CD00A333AB /* Card */,
 				5270270C2496752A0091F681 /* Supporting Files */,
 			);
@@ -169,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF580256249B9DCF00D79DC2 /* SectionCell.swift in Sources */,
 				529CBA2323DFB49700A333AB /* AppDelegate.swift in Sources */,
 				529CBA3923DFB58600A333AB /* BasicViewController.swift in Sources */,
 				529CBA3B23DFB5B100A333AB /* SupplementaryViewController.swift in Sources */,
@@ -177,6 +184,7 @@
 				529CBA2523DFB49700A333AB /* SceneDelegate.swift in Sources */,
 				529CBA4623DFC50100A333AB /* Card.swift in Sources */,
 				529CBA4A23DFCE5F00A333AB /* SectionHeaderView.swift in Sources */,
+				AF580258249BA30400D79DC2 /* SectionFooterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

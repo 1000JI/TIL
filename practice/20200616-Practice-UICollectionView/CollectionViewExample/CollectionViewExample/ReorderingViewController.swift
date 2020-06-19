@@ -71,14 +71,14 @@ final class ReorderingViewController: UIViewController {
         case .began:
             guard let indexPath = collectionView.indexPathForItem(at: location) else { break }
             collectionView.beginInteractiveMovementForItem(at: indexPath)
-            UIView.setAnimationsEnabled(false)
+//            UIView.setAnimationsEnabled(false)
         case .changed:
             collectionView.updateInteractiveMovementTargetPosition(location)
         case .cancelled:
             collectionView.cancelInteractiveMovement()
         case .ended:
             collectionView.endInteractiveMovement()
-            UIView.setAnimationsEnabled(true)
+//            UIView.setAnimationsEnabled(true)
         default:
             break
         }

@@ -70,17 +70,17 @@ extension ViewController: UICollectionViewDelegate {
             cell.transform = .identity
         }
         
-//        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.45, delay: 0, options: [], animations: {
-//            cell.layer.opacity = 1
-//        }, completion: nil)
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.45, delay: 0, options: [], animations: {
+            cell.layer.opacity = 1
+        }, completion: nil)
         
-//        let animation = UIViewPropertyAnimator(duration: 0.45, curve: .easeInOut) {
-//            cell.layer.opacity = 1
-//        }
-//        animation.addAnimations {
-//            cell.transform = .identity
-//        }
-//        animation.startAnimation()
+        let animation = UIViewPropertyAnimator(duration: 0.45, curve: .easeInOut) {
+            cell.layer.opacity = 1
+        }
+        animation.addAnimations {
+            cell.transform = .identity
+        }
+        animation.startAnimation()
         
     }
 }
