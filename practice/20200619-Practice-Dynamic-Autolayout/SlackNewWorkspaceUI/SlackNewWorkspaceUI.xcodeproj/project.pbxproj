@@ -59,9 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				523A13412286CB8100B11C25 /* AppDelegate.swift */,
-				523A13432286CB8100B11C25 /* CreateNewWSViewController.swift */,
-				523A13532287218100B11C25 /* NameWSViewController.swift */,
-				523A135722874C6300B11C25 /* UrlWSViewController.swift */,
+				AF5B6E61249C7751001A450C /* Controller */,
 				52702709249670A90091F681 /* Supporting Files */,
 			);
 			path = SlackNewWorkspaceUI;
@@ -76,6 +74,16 @@
 				523A134D2286CB8100B11C25 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF5B6E61249C7751001A450C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				523A13432286CB8100B11C25 /* CreateNewWSViewController.swift */,
+				523A13532287218100B11C25 /* NameWSViewController.swift */,
+				523A135722874C6300B11C25 /* UrlWSViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
