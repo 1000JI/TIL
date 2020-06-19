@@ -11,6 +11,8 @@ final class NameWSViewController: UIViewController {
     
     // MARK: - Properties
     
+    let inputTextFieldView = InputTextFieldView()
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -23,6 +25,17 @@ final class NameWSViewController: UIViewController {
     
     func configureUI() {
         view.backgroundColor = .white
+        
+        inputTextFieldView.delegate = self
+        view.addSubview(inputTextFieldView)
+        inputTextFieldView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            inputTextFieldView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            inputTextFieldView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            inputTextFieldView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200)
+        ])
+        
         
         configureNavi()
     }
@@ -62,5 +75,11 @@ final class NameWSViewController: UIViewController {
     
     @objc func handleNext() {
         
+    }
+}
+
+extension NameWSViewController: InputTextFieldViewDelegate {
+    func editingTextField(_ isEmpty: Bool) {
+        navigationItem.rightBarButtonItem?.isEnabled = !isEmpty
     }
 }
