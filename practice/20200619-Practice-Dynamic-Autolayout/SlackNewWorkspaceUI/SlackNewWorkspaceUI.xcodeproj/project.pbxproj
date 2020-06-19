@@ -15,6 +15,7 @@
 		523A13542287218100B11C25 /* NameWSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A13532287218100B11C25 /* NameWSViewController.swift */; };
 		523A135822874C6300B11C25 /* UrlWSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A135722874C6300B11C25 /* UrlWSViewController.swift */; };
 		AF5B6E63249C782C001A450C /* InputTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B6E62249C782C001A450C /* InputTextFieldView.swift */; };
+		AF5B6E65249C9003001A450C /* InputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B6E64249C9003001A450C /* InputModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		523A13532287218100B11C25 /* NameWSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameWSViewController.swift; sourceTree = "<group>"; };
 		523A135722874C6300B11C25 /* UrlWSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlWSViewController.swift; sourceTree = "<group>"; };
 		AF5B6E62249C782C001A450C /* InputTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFieldView.swift; sourceTree = "<group>"; };
+		AF5B6E64249C9003001A450C /* InputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				AF5B6E61249C7751001A450C /* Controller */,
 				52702709249670A90091F681 /* Supporting Files */,
 				AF5B6E62249C782C001A450C /* InputTextFieldView.swift */,
+				AF5B6E64249C9003001A450C /* InputModel.swift */,
 			);
 			path = SlackNewWorkspaceUI;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5B6E65249C9003001A450C /* InputModel.swift in Sources */,
 				523A135822874C6300B11C25 /* UrlWSViewController.swift in Sources */,
 				523A13442286CB8100B11C25 /* CreateNewWSViewController.swift in Sources */,
 				AF5B6E63249C782C001A450C /* InputTextFieldView.swift in Sources */,
