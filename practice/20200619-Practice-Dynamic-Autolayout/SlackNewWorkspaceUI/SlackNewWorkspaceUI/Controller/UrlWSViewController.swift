@@ -41,10 +41,11 @@ final class UrlWSViewController: UIViewController {
         view.backgroundColor = .white
         
         inputTextFieldView.delegate = self
+        urlText = delegate?.getNameText() ?? ""
         inputTextFieldView.model = InputModel(
             noticeText: "Get a URL (Letters, numbers, and dashes only)",
             errorText: "This URL is not available. Sorry!",
-            inputText: delegate?.getNameText() ?? "",
+            inputText: urlText,
             placeHolderText: "URL your workspace",
             inputType: .urlType
         )
@@ -83,12 +84,15 @@ final class UrlWSViewController: UIViewController {
             target: self,
             action: #selector(handleNext)
         )
-        nextButton.isEnabled = false
+        
+        if urlText.isEmpty { nextButton.isEnabled = true }
+        else { nextButton.isEnabled = false }
+        
         navigationItem.rightBarButtonItem = nextButton
         
-        navigationController?.navigationBar.barTintColor = .white
         
         // Navigationbar under line remove
+        navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.layoutIfNeeded()
@@ -107,6 +111,10 @@ final class UrlWSViewController: UIViewController {
 }
 
 extension UrlWSViewController: InputTextFieldViewDelegate {
+    func clickedReturn() {
+        handleNext()
+    }
+    
     func editingTextField(_ isEmpty: Bool, _ inputText: String) {
         navigationItem.rightBarButtonItem?.isEnabled = !isEmpty
         urlText = inputText

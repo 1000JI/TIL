@@ -94,6 +94,10 @@ final class NameWSViewController: UIViewController {
 // MARK: - InputTextFieldViewDelegate
 
 extension NameWSViewController: InputTextFieldViewDelegate {
+    func clickedReturn() {
+        handleNext()
+    }
+    
     func editingTextField(_ isEmpty: Bool, _ inputText: String) {
         navigationItem.rightBarButtonItem?.isEnabled = !isEmpty
         inputName = inputText

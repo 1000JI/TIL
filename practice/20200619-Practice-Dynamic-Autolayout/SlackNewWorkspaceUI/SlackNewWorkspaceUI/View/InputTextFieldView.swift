@@ -10,6 +10,7 @@ import UIKit
 
 protocol InputTextFieldViewDelegate: class {
     func editingTextField(_ isEmpty: Bool, _ inputText: String)
+    func clickedReturn()
 }
 
 class InputTextFieldView: UIView {
@@ -40,6 +41,18 @@ class InputTextFieldView: UIView {
             }
         }
     }
+    
+    var textSize: CGFloat? {
+        didSet {
+            switch inputType {
+            case .nameType:
+                activityIndicatorView.frame.origin = CGPoint(x: textSize! + 15, y: textField.center.y)
+            case .urlType:
+                urlLabel.frame.origin = CGPoint(x: textSize! + 3, y: textField.frame.minY)
+            }
+        }
+    }
+    
     var model: InputModel? {
         didSet {
             configure()
@@ -58,6 +71,7 @@ class InputTextFieldView: UIView {
     lazy var textField: UITextField = {
         let tf = UITextField()
         tf.font = .systemFont(ofSize: 22)
+        tf.returnKeyType = .go
         tf.delegate = self
         tf.addTarget(self, action: #selector(textEditingChange), for: .editingChanged)
         return tf
@@ -106,10 +120,11 @@ class InputTextFieldView: UIView {
     // MARK: - Helpers
     
     func configureUI() {
-        [noticeLabel, textField, errorLabel, placeHolderLabel, activityIndicatorView, urlLabel].forEach {
+        [noticeLabel, textField, errorLabel, placeHolderLabel, urlLabel].forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        addSubview(activityIndicatorView)
         
         NSLayoutConstraint.activate([
             noticeLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -120,23 +135,14 @@ class InputTextFieldView: UIView {
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: noticeLabel.bottomAnchor),
             textField.leadingAnchor.constraint(equalTo: leadingAnchor),
-            textField.bottomAnchor.constraint(equalTo: errorLabel.topAnchor)
+            textField.bottomAnchor.constraint(equalTo: errorLabel.topAnchor),
+            textField.widthAnchor.constraint(equalTo: widthAnchor)
         ])
         
         NSLayoutConstraint.activate([
             errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             errorLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             errorLabel.widthAnchor.constraint(equalTo: widthAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            activityIndicatorView.leadingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 8),
-            activityIndicatorView.centerYAnchor.constraint(equalTo: textField.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            urlLabel.leadingAnchor.constraint(equalTo: textField.trailingAnchor),
-            urlLabel.centerYAnchor.constraint(equalTo: textField.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -165,6 +171,13 @@ class InputTextFieldView: UIView {
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let enterText = (textField.text ?? "") as NSString
+        textSize = enterText.size(withAttributes: [NSAttributedString.Key.font: textField.font!]).width
+    }
+    
     // MARK: - Actions
     
     func startActivity() { activityIndicatorView.startAnimating() }
@@ -177,10 +190,13 @@ class InputTextFieldView: UIView {
 extension InputTextFieldView: UITextFieldDelegate {
     @objc func textEditingChange(_ sender: UITextField) {
         
-        if sender.text?.count ?? 0 > 15 {
+        if sender.text?.count ?? 0 > 20 {
             sender.text?.removeLast(1)
             return
         }
+        
+        let enterText = (sender.text ?? "") as NSString
+        textSize = enterText.size(withAttributes: [NSAttributedString.Key.font: sender.font!]).width
         
         switch inputType {
         case .nameType:
@@ -193,13 +209,18 @@ extension InputTextFieldView: UITextFieldDelegate {
                 placeHolderLabel.isHidden = true
             }
         case .urlType:
+            errorLabel.alpha = 0
             if sender.text?.isEmpty ?? true {
                 delegate?.editingTextField(true, sender.text ?? "")
             } else {
                 delegate?.editingTextField(false, sender.text ?? "")
             }
         }
-        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        delegate?.clickedReturn()
+        return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

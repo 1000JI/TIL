@@ -14,7 +14,7 @@ final class CreateNewWSViewController: UIViewController {
     let moveButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Create New Workspace", for: .normal)
-        button.titleLabel?.font = .preferredFont(forTextStyle: .title1)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .title2)
         button.addTarget(self, action: #selector(handleButton), for: .touchUpInside)
         return button
     }()
