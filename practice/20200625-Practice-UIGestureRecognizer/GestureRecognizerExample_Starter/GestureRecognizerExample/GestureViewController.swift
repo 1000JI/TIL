@@ -39,7 +39,6 @@ final class GestureViewController: UIViewController {
     guard sender.state == .began || sender.state == .changed else { return }
     
     imageView.transform = imageView.transform.rotated(by: sender.rotation)
-    print(sender.rotation)
     sender.rotation = 0
   }
   
@@ -47,8 +46,8 @@ final class GestureViewController: UIViewController {
   // MARK: Swipe
   
   @IBAction private func handleSwipeGesture(_ sender: UISwipeGestureRecognizer) {
-    print(sender)
     guard sender.state == .ended else { return }
+    
     if sender.direction == .right {
       imageView.image = UIImage(named: "cat1")
       sender.direction = .left

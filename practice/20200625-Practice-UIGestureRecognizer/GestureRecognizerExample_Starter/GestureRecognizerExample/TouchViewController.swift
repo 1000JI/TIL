@@ -24,16 +24,6 @@ final class TouchViewController: UIViewController {
     let touchPoint = touch.location(in: touch.view)
     print("DEBUG: touchesBegan TouchPoint => \(touchPoint)")
     
-//    let startX = imageView.frame.origin.x
-//    let endX = imageView.frame.origin.x + imageView.frame.width
-//    let startY = imageView.frame.origin.y
-//    let endY = imageView.frame.origin.y + imageView.frame.height
-//
-//    if touchPoint.x > startX && touchPoint.x < endX &&
-//      touchPoint.y > startY && touchPoint.y < endY {
-//      imageView.image = UIImage(named: "cat2")
-//    }
-    
     if imageView.frame.contains(touchPoint) {
       imageView.image = UIImage(named: "cat2")
       isHoldingImage = true
@@ -45,11 +35,11 @@ final class TouchViewController: UIViewController {
     super.touchesMoved(touches, with: event)
     guard let touch = touches.first else { return }
     let touchPoint = touch.location(in: touch.view)
-//    print("DEBUG: touchesMoved TouchPoint => \(touchPoint)")
+    //    print("DEBUG: touchesMoved TouchPoint => \(touchPoint)")
     
-//    if imageView.frame.contains(touchPoint) {
-//      imageView.center = touchPoint
-//    }
+    //    if imageView.frame.contains(touchPoint) {
+    //      imageView.center = touchPoint
+    //    }
     
     let prevTouchPoint = touch.previousLocation(in: touch.view)
     imageView.center.x = imageView.center.x + (touchPoint.x - prevTouchPoint.x)
@@ -95,7 +85,7 @@ final class TouchViewController: UIViewController {
       imageView.image = UIImage(named: "cat1")
     }
   }
-
+  
   override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
     super.motionCancelled(motion, with: event)
     if motion == .motionShake {

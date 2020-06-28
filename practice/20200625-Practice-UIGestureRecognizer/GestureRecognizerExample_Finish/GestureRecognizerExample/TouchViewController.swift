@@ -27,6 +27,7 @@ final class TouchViewController: UIViewController {
     
     guard let touch = touches.first else { return }
     let touchPoint = touch.location(in: touch.view)
+    print(touchPoint)
     
     if imageView.frame.contains(touchPoint) {
       imageView.image = UIImage(named: "cat2")
@@ -40,13 +41,11 @@ final class TouchViewController: UIViewController {
     guard isHoldingImage, let touch = touches.first else { return }
     let touchPoint = touch.location(in: touch.view)
     
-//    imageView.center.x = imageView.center.x + (touchPoint.x - lastTouchPoint.x)
-//    imageView.center.y = imageView.center.y + (touchPoint.y - lastTouchPoint.y)
-//    lastTouchPoint = touchPoint
-    
     let prevTouchPoint = touch.previousLocation(in: touch.view)
     imageView.center.x = imageView.center.x + (touchPoint.x - prevTouchPoint.x)
     imageView.center.y = imageView.center.y + (touchPoint.y - prevTouchPoint.y)
+    
+    print("DEBUG: touchPoint \(touchPoint), prevTouchPoint \(prevTouchPoint)")
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
