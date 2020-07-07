@@ -1,6 +1,7 @@
 //: [Previous](@previous)
 
 import Foundation
+import MapKit
 
 /*
  [ 실습1 ]
@@ -20,6 +21,12 @@ func practice1() {
                 
                 print("----- [ 국제 정거장 위치 ] -----")
                 print(longitude, latitude)
+                
+                let location = CLLocation(latitude: latitude, longitude: longitude)
+                let geocoder = CLGeocoder()
+                geocoder.reverseGeocodeLocation(location) { (placeMark, error) in
+                    print(placeMark?.first) // 주소 가져오기
+                }
             }
         }
     }
