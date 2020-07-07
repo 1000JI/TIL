@@ -108,27 +108,27 @@ let jsonMovie = """
 struct Person: Decodable {
     let name: String
     let favoriteMovies: [Movie]
-    
+
     private enum PersonKeys: String, CodingKey {
         case name
         case favoriteMovies = "favorite_movies"
     }
-    
+
     init(from decoder: Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: PersonKeys.self)
         name = try keyedContainer.decode(String.self, forKey: .name)
         favoriteMovies = try keyedContainer.decode([Movie].self, forKey: .favoriteMovies)
     }
-    
+
     struct Movie: Decodable {
         let title: String
         let releaseYear: Int
-        
+
         private enum MovieKeys: String, CodingKey {
             case title
             case releaseYear = "release_year"
         }
-        
+
         init(from decoder: Decoder) throws {
             let keyedContainer = try decoder.container(keyedBy: MovieKeys.self)
             title = try keyedContainer.decode(String.self, forKey: .title)
