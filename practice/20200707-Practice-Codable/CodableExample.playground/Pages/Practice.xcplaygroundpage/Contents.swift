@@ -27,7 +27,17 @@ let jsonFruits = """
 """.data(using: .utf8)!
 
 
-struct Fruit {
+struct Fruit: Decodable {
+    let name: String
+    let cost: Int
+    let description: String?
+}
+
+do {
+    let fruits = try decoder.decode([Fruit].self, from: jsonFruits)
+    fruits.forEach { print("fruit => \($0)") }
+} catch {
+    print(error.localizedDescription)
 }
 
 
@@ -46,7 +56,33 @@ let jsonReport = """
 }
 """.data(using: .utf8)!
 
-struct Report {
+struct Report: Decodable {
+    let name: String
+    let reportID: String
+    let readCount: String
+    let reportDate: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case reportID = "report_id"
+        case readCount = "read_count"
+        case reportDate = "report_date"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
+        name = try keyedContainer.decode(String.self, forKey: .name)
+        reportID = try keyedContainer.decode(String.self, forKey: .reportID)
+        readCount = try keyedContainer.decode(String.self, forKey: .readCount)
+        reportDate = try keyedContainer.decode(String.self, forKey: .reportDate)
+    }
+}
+
+do {
+    let report = try decoder.decode(Report.self, from: jsonReport)
+    print(report)
+} catch {
+    print(error.localizedDescription)
 }
 
 
@@ -69,13 +105,49 @@ let jsonMovie = """
 ]
 """.data(using: .utf8)!
 
-struct Person {
-  struct Movie {
+struct Person: Decodable {
+    let name: String
+    let favoriteMovies: [Movie]
     
-  }
+    private enum PersonKeys: String, CodingKey {
+        case name
+        case favoriteMovies = "favorite_movies"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let keyedContainer = try decoder.container(keyedBy: PersonKeys.self)
+        name = try keyedContainer.decode(String.self, forKey: .name)
+        favoriteMovies = try keyedContainer.decode([Movie].self, forKey: .favoriteMovies)
+    }
+    
+    struct Movie: Decodable {
+        let title: String
+        let releaseYear: Int
+        
+        private enum MovieKeys: String, CodingKey {
+            case title
+            case releaseYear = "release_year"
+        }
+        
+        init(from decoder: Decoder) throws {
+            let keyedContainer = try decoder.container(keyedBy: MovieKeys.self)
+            title = try keyedContainer.decode(String.self, forKey: .title)
+            releaseYear = try keyedContainer.decode(Int.self, forKey: .releaseYear)
+        }
+    }
 }
 
 
+do {
+    let edwardMoives = try decoder.decode([Person].self, from: jsonMovie)
+    print(edwardMoives[0].name)
+    
+    for movie in edwardMoives[0].favoriteMovies {
+        print(movie)
+    }
+} catch {
+    print(error.localizedDescription)
+}
 
 
 

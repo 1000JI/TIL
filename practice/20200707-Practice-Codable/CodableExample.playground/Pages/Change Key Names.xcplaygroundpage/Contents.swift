@@ -11,21 +11,34 @@ let jsonData = """
 
 
 struct User: Decodable {
-  let name: String
-  let email: String
-  let gender: String
-  
-  private enum CodingKeys: String, CodingKey {
-    case name = "user_name"
-    case email = "user_email"
-    case gender
-  }
+    let name: String
+    let email: String
+    let gender: String
+//    let myEmail: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case name = "user_name"
+        case email = "user_email"
+        case gender
+//        case myEmail = "my_email"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
+        name = try keyedContainer.decode(String.self, forKey: .name)
+        email = try keyedContainer.decode(String.self, forKey: .email)
+        gender = try keyedContainer.decode(String.self, forKey: .gender)
+    }
 }
 
 
 let decoder = JSONDecoder()
-let user = try decoder.decode(User.self, from: jsonData)
-print(user)
+do {
+    let user = try decoder.decode(User.self, from: jsonData)
+    print(user)
+} catch {
+    print(error)
+}
 
 
 //: [Table of Contents](Contents) | [Previous](@previous) | [Next](@next)

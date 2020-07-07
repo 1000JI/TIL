@@ -28,9 +28,9 @@ let jsonFruits = """
 
 
 struct Fruit: Codable {
-  var name: String
-  var cost: Int
-  var description: String?
+    var name: String
+    var cost: Int
+    var description: String?
 }
 
 let fruits = try decoder.decode([Fruit].self, from: jsonFruits)
@@ -52,29 +52,29 @@ let jsonReport = """
 """.data(using: .utf8)!
 
 struct Report: Codable {
-  let name: String
-  let reportId: String
-  let readCount: String
-  let reportDate: String
-  
-  private enum CodingKeys: String, CodingKey {
-    case name
-    case reportId = "report_id"
-    case readCount = "read_count"
-    case reportDate = "report_date"
-  }
-  
-  init(from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-    name = try container.decode(String.self, forKey: .name)
-    reportId = try container.decode(String.self, forKey: .reportId)
-    readCount = try container.decode(String.self, forKey: .readCount)
-    reportDate = try container.decode(String.self, forKey: .reportDate)
-  }
+    let name: String
+    let reportId: String
+    let readCount: String
+    let reportDate: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case reportId = "report_id"
+        case readCount = "read_count"
+        case reportDate = "report_date"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        reportId = try container.decode(String.self, forKey: .reportId)
+        readCount = try container.decode(String.self, forKey: .readCount)
+        reportDate = try container.decode(String.self, forKey: .reportDate)
+    }
 }
 
 if let report = try? decoder.decode(Report.self, from: jsonReport) {
-  print(report)
+    print(report)
 }
 
 
@@ -97,40 +97,40 @@ let jsonMovie = """
 """.data(using: .utf8)!
 
 struct Person: Decodable {
-  let name: String
-  let favoriteMovies: [Movie]
-  
-  private enum CodingKeys: String, CodingKey {
-    case name
-    case favoriteMovies = "favorite_movies"
-  }
-  
-  init(from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-    name = try container.decode(String.self, forKey: .name)
-    favoriteMovies = try container.decode([Movie].self, forKey: .favoriteMovies)
-  }
-  
-  struct Movie: Decodable {
-    let title: String
-    let releaseYear: Int
+    let name: String
+    let favoriteMovies: [Movie]
     
     private enum CodingKeys: String, CodingKey {
-      case title
-      case releaseYear = "release_year"
+        case name
+        case favoriteMovies = "favorite_movies"
     }
     
     init(from decoder: Decoder) throws {
-      let container = try decoder.container(keyedBy: CodingKeys.self)
-      title = try container.decode(String.self, forKey: .title)
-      releaseYear = try container.decode(Int.self, forKey: .releaseYear)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        favoriteMovies = try container.decode([Movie].self, forKey: .favoriteMovies)
     }
-  }
+    
+    struct Movie: Decodable {
+        let title: String
+        let releaseYear: Int
+        
+        private enum CodingKeys: String, CodingKey {
+            case title
+            case releaseYear = "release_year"
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            title = try container.decode(String.self, forKey: .title)
+            releaseYear = try container.decode(Int.self, forKey: .releaseYear)
+        }
+    }
 }
 
 if let report = try? decoder.decode([Person].self, from: jsonMovie) {
-  print("Name :", report[0].name)
-  report[0].favoriteMovies.forEach { print($0) }
+    print("Name :", report[0].name)
+    report[0].favoriteMovies.forEach { print($0) }
 }
 
 

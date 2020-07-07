@@ -24,56 +24,56 @@ let jsonData = """
 
 
 struct Coordinate {
-  var latitude: Double
-  var longitude: Double
-  var elevation: Double
-
-  enum CodingKeys: String, CodingKey {
-    case latitude
-    case longitude
-    case additionalInfo
-  }
-  enum AdditionalInfoKeys: String, CodingKey {
-    case elevation
-  }
+    var latitude: Double
+    var longitude: Double
+    var elevation: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case latitude
+        case longitude
+        case additionalInfo
+    }
+    enum AdditionalInfoKeys: String, CodingKey {
+        case elevation
+    }
 }
 
 
 extension Coordinate: Decodable {
-  init(from decoder: Decoder) throws {
-    let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
-    latitude = try keyedContainer.decode(Double.self, forKey: .latitude)
-    longitude = try keyedContainer.decode(Double.self, forKey: .longitude)
-    
-    let additionalInfo = try keyedContainer.nestedContainer(
-      keyedBy: AdditionalInfoKeys.self,
-      forKey: .additionalInfo
-    )
-    elevation = try additionalInfo.decode(Double.self, forKey: .elevation)
-  }
+    init(from decoder: Decoder) throws {
+        let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
+        latitude = try keyedContainer.decode(Double.self, forKey: .latitude)
+        longitude = try keyedContainer.decode(Double.self, forKey: .longitude)
+        
+        let additionalInfo = try keyedContainer.nestedContainer(
+            keyedBy: AdditionalInfoKeys.self,
+            forKey: .additionalInfo
+        )
+        elevation = try additionalInfo.decode(Double.self, forKey: .elevation)
+    }
 }
 
 
 extension Coordinate: Encodable {
-  func encode(to encoder: Encoder) throws {
-    var container = encoder.container(keyedBy: CodingKeys.self)
-    try container.encode(latitude, forKey: .latitude)
-    try container.encode(longitude, forKey: .longitude)
-
-    var additionalInfo = container.nestedContainer(
-      keyedBy: AdditionalInfoKeys.self,
-      forKey: .additionalInfo
-    )
-    try additionalInfo.encode(elevation, forKey: .elevation)
-  }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(latitude, forKey: .latitude)
+        try container.encode(longitude, forKey: .longitude)
+        
+        var additionalInfo = container.nestedContainer(
+            keyedBy: AdditionalInfoKeys.self,
+            forKey: .additionalInfo
+        )
+        try additionalInfo.encode(elevation, forKey: .elevation)
+    }
 }
 
 
 do {
-  let coordinates = try JSONDecoder().decode([Coordinate].self, from: jsonData)
-  coordinates.forEach { print($0) }
+    let coordinates = try JSONDecoder().decode([Coordinate].self, from: jsonData)
+    coordinates.forEach { print($0) }
 } catch {
-  print(error.localizedDescription)
+    print(error.localizedDescription)
 }
 
 
