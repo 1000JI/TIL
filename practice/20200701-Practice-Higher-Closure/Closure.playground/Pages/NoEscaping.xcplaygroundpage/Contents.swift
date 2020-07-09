@@ -9,30 +9,32 @@ import Foundation
  ---
  */
 class Callee {
-  deinit { print("Callee has deinitialized") }
-  
-  func doSomething(closure: () -> Void) { closure() }
+    deinit { print("Callee has deinitialized") }
+    
+    func doSomething(closure: () -> Void) { closure() }
 }
 
 class Caller {
-  deinit { print("Caller has deinitialized") }
-  
-  let callee = Callee()
-  var name = "James"
-  
-  func doSomething() {
-    callee.doSomething {
-//      self.name = "Giftbot"
-      name = "Giftbot"
+    deinit { print("Caller has deinitialized") }
+    
+    let callee = Callee()
+    var name = "James"
+    
+    func doSomething() {
+        callee.doSomething {
+//            self.name = "Giftbot"
+            name = "Giftbot" // @noescaping에서는 self 안적어도 됨
+        }
     }
-  }
 }
 
 
 print("---------- [ NoEscaping ] ----------\n")
 
 var caller: Caller? = Caller()
+print(caller?.name) // James
 caller?.doSomething()
+print(caller?.name) // Giftbot
 
 print("caller = nil")
 caller = nil

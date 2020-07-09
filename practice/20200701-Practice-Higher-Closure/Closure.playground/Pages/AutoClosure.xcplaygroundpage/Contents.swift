@@ -13,8 +13,8 @@
 // 일반적인 클로저 사용 방식
 
 func someFunc(_ str: String, _ closure: () -> ()) {
-  let _ = str
-  closure()
+    let _ = str
+    closure()
 }
 
 someFunc("arg1") { let _ = 1 + 1 }
@@ -34,8 +34,8 @@ someFunc("arg1", myFunction)
  */
 
 func anotherFunction(_ str: String, _ closure: @autoclosure () -> ()) {
-  let _ = str
-  closure()
+    let _ = str
+    closure()
 }
 
 anotherFunction("arg1", print("Autoclosure"))

@@ -14,8 +14,8 @@ var result = 0
 
 
 let valueCapture1 = {
-  result = a + b + c
-  print("내부 값 :", a, b, c, result)
+    result = a + b + c
+    print("내부 값 :", a, b, c, result)
 }
 
 (a, b, c) = (1, 2, 3)
@@ -30,9 +30,9 @@ print()
 
 // Capture List : [a, b]
 
-let valueCapture2 = { [a, b] in
-  result = a + b + c
-  print("내부 값 :", a, b, c, result)
+let valueCapture2 = { [a, b] in // a: 1, b: 2 이것을 "Capture"
+    result = a + b + c
+    print("내부 값 :", a, b, c, result)
 }
 
 (a, b, c) = (7, 8, 9)
@@ -53,14 +53,14 @@ print("최종 값 :", a, b, c, result)  // 7,8,9,12
 print("\n---------- [ Reference Type ] ----------\n")
 
 final class RefType {
-  var number = 0
+    var number = 0
 }
 var x = RefType()
 var y = RefType()
 print("초기 값 :", x.number, y.number)  // 0, 0
 
 let refCapture = { [x] in
-  print("내부 값 :", x.number, y.number)
+    print("내부 값 :", x.number, y.number)
 }
 x.number = 5
 y.number = 7
@@ -77,18 +77,18 @@ print("최종 값 :", x.number, y.number)  // 5, 7
  */
 print("\n---------- [ binding ] ----------\n")
 let captureBinding = { [z = x] in
-  print(z.number)
+    print(z.number)
 }
 let captureWeakBinding = { [weak z = x] in
-  print(z?.number ?? 0)
+    print(z?.number ?? 0)
 }
 let captureUnownedBinding = { [unowned z = x] in
-  print(z.number)
+    print(z.number)
 }
 
-captureBinding()
-captureWeakBinding()
-captureUnownedBinding()
+captureBinding() // 5
+captureWeakBinding() // 5
+captureUnownedBinding() // 5
 
 
 
