@@ -24,7 +24,16 @@ class MainTabBarController: UITabBarController {
     func configureTabBar() {
         view.backgroundColor = .systemBackground
         
-        let navHomeController = UINavigationController(rootViewController: HomeViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+        let controller = HomeViewController(collectionViewLayout: HomeViewCustomLayout())
+
+        controller.collectionView.contentInset = .init(top: 12, left: 12, bottom: 12, right: 12)
+        let layout = controller.collectionView.collectionViewLayout
+        if let layout = layout as? HomeViewCustomLayout {
+            layout.delegate = controller
+        }
+//        let controller = HomeViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        
+        let navHomeController = UINavigationController(rootViewController: controller)
         navHomeController.tabBarItem = UITabBarItem(
             title: "홈",
             image: UIImage(systemName: "house"),

@@ -17,6 +17,7 @@
 		529469B724AD13980067C66C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529469B524AD13980067C66C /* LaunchScreen.storyboard */; };
 		AF47850824BACAF60090D6FB /* CafeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF47850724BACAF60090D6FB /* CafeService.swift */; };
 		AF47850B24BAEDE70090D6FB /* CafeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF47850A24BAEDE70090D6FB /* CafeListCell.swift */; };
+		AF47850D24BB74A00090D6FB /* HomeViewCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF47850C24BB74A00090D6FB /* HomeViewCustomLayout.swift */; };
 		AF57A52024B8D9D700769C17 /* DetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57A51F24B8D9D700769C17 /* DetailMapCell.swift */; };
 		AF57A52224B8DD4F00769C17 /* DetailMoreInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57A52124B8DD4F00769C17 /* DetailMoreInfoCell.swift */; };
 		AF6EBE1424B8250700178DB2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EBE1324B8250700178DB2 /* MainTabBarController.swift */; };
@@ -42,6 +43,7 @@
 		529469B824AD13980067C66C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF47850724BACAF60090D6FB /* CafeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeService.swift; sourceTree = "<group>"; };
 		AF47850A24BAEDE70090D6FB /* CafeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeListCell.swift; sourceTree = "<group>"; };
+		AF47850C24BB74A00090D6FB /* HomeViewCustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCustomLayout.swift; sourceTree = "<group>"; };
 		AF57A51F24B8D9D700769C17 /* DetailMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapCell.swift; sourceTree = "<group>"; };
 		AF57A52124B8DD4F00769C17 /* DetailMoreInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMoreInfoCell.swift; sourceTree = "<group>"; };
 		AF6EBE1324B8250700178DB2 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				AF57A51F24B8D9D700769C17 /* DetailMapCell.swift */,
 				AF57A52124B8DD4F00769C17 /* DetailMoreInfoCell.swift */,
 				AF47850A24BAEDE70090D6FB /* CafeListCell.swift */,
+				AF47850C24BB74A00090D6FB /* HomeViewCustomLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			files = (
 				AF47850B24BAEDE70090D6FB /* CafeListCell.swift in Sources */,
 				AF6EBE2124B84E7400178DB2 /* CafeDetailController.swift in Sources */,
+				AF47850D24BB74A00090D6FB /* HomeViewCustomLayout.swift in Sources */,
 				AF57A52224B8DD4F00769C17 /* DetailMoreInfoCell.swift in Sources */,
 				AF6EBE2324B8511800178DB2 /* CafeDetailModel.swift in Sources */,
 				AF6EBE1624B828D600178DB2 /* SearchViewController.swift in Sources */,

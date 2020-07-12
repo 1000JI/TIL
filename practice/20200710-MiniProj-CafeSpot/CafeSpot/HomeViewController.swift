@@ -163,3 +163,12 @@ extension HomeViewController: HomeCustomCellDelegate {
         }
     }
 }
+
+// MARK: -
+
+extension HomeViewController: HomeViewCustomLayoutDelegate {
+    func homeCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: HomeViewCustomLayout, sizeForPhotoAt indexPath: IndexPath) -> CGSize {
+        guard let image = UIImage(named: cafeList[indexPath.item].title) else { return .zero }
+        return image.size
+    }
+}

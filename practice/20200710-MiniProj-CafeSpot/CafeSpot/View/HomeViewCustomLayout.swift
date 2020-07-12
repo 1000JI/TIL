@@ -1,17 +1,20 @@
 //
-//  PhotoCollectionViewLayout.swift
-//  CollectionViewExample
+//  HomeViewCustomLayout.swift
+//  CafeSpot
 //
-//  Copyright © 2020년 Giftbot. All rights reserved.
+//  Created by 천지운 on 2020/07/13.
+//  Copyright © 2020 Giftbot. All rights reserved.
 //
 
 import UIKit
 
-protocol PhotoCollectionViewLayoutDelegate: class {
-    func photoCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: PhotoCollectionViewLayout, sizeForPhotoAt indexPath: IndexPath) -> CGSize
+protocol HomeViewCustomLayoutDelegate: class {
+    func homeCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: HomeViewCustomLayout, sizeForPhotoAt indexPath: IndexPath) -> CGSize
 }
 
-final class PhotoCollectionViewLayout: UICollectionViewLayout {
+class HomeViewCustomLayout: UICollectionViewLayout {
+    
+    // MARK: - Properties
     
     struct Layout {
         let numberOfColumns: Int
@@ -22,13 +25,12 @@ final class PhotoCollectionViewLayout: UICollectionViewLayout {
         static let `default` = Layout(
             numberOfColumns: 2,
             itemSize: CGSize(width: 160, height: 120),
-            lineSpacing: 10,
+            lineSpacing: 12,
             interItemSpacing: 10
         )
     }
-    
-    weak var delegate: PhotoCollectionViewLayoutDelegate!
     var layout: Layout = .default
+    weak var delegate: HomeViewCustomLayoutDelegate!
     
     private var layoutAttributes: [UICollectionViewLayoutAttributes] = []
     private var contentHeight: CGFloat = 0
@@ -38,13 +40,14 @@ final class PhotoCollectionViewLayout: UICollectionViewLayout {
         return cv.bounds.width - horizontalContentInset
     }
     
-    // 아이템 재배치나 이런 것들이 필요할 때
+    // MARK: - Helpers
+    
     override func invalidateLayout() {
         layoutAttributes.removeAll()
         super.invalidateLayout()
     }
     
-    // 1단계 - Prepare
+    // MARK: - 1단계 - Prepare
     
     override func prepare() {
         guard let collectionView = collectionView,
@@ -69,14 +72,14 @@ final class PhotoCollectionViewLayout: UICollectionViewLayout {
         
         for item in 0..<numberOfItem {
             let indexPath = IndexPath(item: item, section: 0)
-            let photoSize = delegate.photoCollectionView(collectionView, layout: self, sizeForPhotoAt: indexPath)
+            let photoSize = delegate.homeCollectionView(collectionView, layout: self, sizeForPhotoAt: indexPath)
+            
+            // ratio 알아보기!!!
             let ratio = photoSize.width / cellWidth
-            let cellHeight = (photoSize.height) / ratio
+            let cellHeight = ((photoSize.height) / ratio) + 80
             
             let minYOffset = yOffset.min() ?? 0
             columnIndex = yOffset.firstIndex(of: minYOffset) ?? 0
-            print("DEBUG: cellWidth \(cellWidth), cellHeight \(cellHeight)")
-            print("DEBUG: minYOffset \(minYOffset), columnIndex \(columnIndex)\n")
             
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = CGRect(
