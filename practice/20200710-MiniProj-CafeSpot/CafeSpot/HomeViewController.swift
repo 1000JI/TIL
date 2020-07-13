@@ -19,6 +19,7 @@
    > 커스텀 레이아웃을 이용한 카페 정보 출력. 어려우면 일단 FlowLayout을 이용해 구현해도 무방
      * (카페 이미지, 카페명, 설명, 관심 버튼)
    > SearchController를 이용한 카페 검색 기능
+   > 내비게이션 타이틀 변경 방법.  navigationItem.titleView = UILabel~~~~
 
  - 카페 상세 정보 화면
    > 카페 추가 이미지와 설명
@@ -56,6 +57,14 @@ final class HomeViewController: UICollectionViewController {
             !searchController.searchBar.text!.isEmpty
     }
     
+    private let naviLabel: UILabel = {
+        let label = UILabel()
+        label.text = "C a f e S p o t"
+        label.font = UIFont(name: "Zapfino", size: 18)
+        label.textAlignment = .center
+        return label
+    }()
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -78,7 +87,8 @@ final class HomeViewController: UICollectionViewController {
     // MARK: - Helpers
     
     func configureUI() {
-        navigationItem.title = "CafeSpot"
+//        navigationItem.title = "CafeSpot"
+        navigationItem.titleView = naviLabel
         navigationController?.navigationBar.barTintColor = .systemBackground
         navigationController?.navigationBar.isTranslucent = false
     }
@@ -117,17 +127,17 @@ extension HomeViewController {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = (view.frame.width / 2) - 10
-        let height: CGFloat = 300
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-    }
-}
+//extension HomeViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width: CGFloat = (view.frame.width / 2) - 10
+//        let height: CGFloat = 300
+//        return CGSize(width: width, height: height)
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+//    }
+//}
 
 // MARK: - UISearchResultsUpdating
 
@@ -164,7 +174,7 @@ extension HomeViewController: HomeCustomCellDelegate {
     }
 }
 
-// MARK: -
+// MARK: - HomeViewCustomLayoutDelegate
 
 extension HomeViewController: HomeViewCustomLayoutDelegate {
     func homeCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: HomeViewCustomLayout, sizeForPhotoAt indexPath: IndexPath) -> CGSize {

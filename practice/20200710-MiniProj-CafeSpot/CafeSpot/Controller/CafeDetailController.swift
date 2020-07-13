@@ -106,7 +106,10 @@ extension CafeDetailController {
 
 extension CafeDetailController: DetailMoreInfoCellDelegate {
     func handleInstagram() {
-        let url = URL(string: "instagram://")
+        guard let cafe = cafe else { return }
+        let encodeTitle = cafe.title.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        
+        let url = URL(string: "instagram://tag?name=\(encodeTitle!)")
         
         if let appUrl = url {
             if UIApplication.shared.canOpenURL(appUrl) {

@@ -200,12 +200,22 @@ extension SearchViewController: MKMapViewDelegate {
         let topPoint = MKMapPoint(x: mRect.minX, y: mRect.minY)
         let bottomPoint = MKMapPoint(x: mRect.maxX, y: mRect.maxY)
         
+        let minLatitude = topPoint.coordinate.latitude < bottomPoint.coordinate.latitude ?
+            topPoint.coordinate.latitude : bottomPoint.coordinate.latitude
+        let maxLatitude = topPoint.coordinate.latitude > bottomPoint.coordinate.latitude ?
+            topPoint.coordinate.latitude : bottomPoint.coordinate.latitude
+        
+        let minLongitude = topPoint.coordinate.longitude < bottomPoint.coordinate.longitude ?
+            topPoint.coordinate.longitude : bottomPoint.coordinate.longitude
+        let maxLongitude = topPoint.coordinate.longitude > bottomPoint.coordinate.longitude ?
+            topPoint.coordinate.longitude : bottomPoint.coordinate.longitude
+        
         viewCafeList.removeAll()
         allCafeList.forEach {
-            if $0.location.lat > bottomPoint.coordinate.latitude
-                && $0.location.lat < topPoint.coordinate.latitude
-                && $0.location.lng > topPoint.coordinate.longitude
-                && $0.location.lng < bottomPoint.coordinate.longitude {
+            if $0.location.lat > minLatitude
+                && $0.location.lat < maxLatitude
+                && $0.location.lng > minLongitude
+                && $0.location.lng < maxLongitude {
                 viewCafeList.append($0)
             }
         }
