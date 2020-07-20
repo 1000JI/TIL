@@ -31,7 +31,6 @@ class MainTabBarController: UITabBarController {
         if let layout = layout as? HomeViewCustomLayout {
             layout.delegate = controller
         }
-//        let controller = HomeViewController(collectionViewLayout: UICollectionViewFlowLayout())
         
         let navHomeController = UINavigationController(rootViewController: controller)
         navHomeController.tabBarItem = UITabBarItem(

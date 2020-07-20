@@ -87,7 +87,6 @@ final class HomeViewController: UICollectionViewController {
     // MARK: - Helpers
     
     func configureUI() {
-//        navigationItem.title = "CafeSpot"
         navigationItem.titleView = naviLabel
         navigationController?.navigationBar.barTintColor = .systemBackground
         navigationController?.navigationBar.isTranslucent = false
@@ -98,10 +97,17 @@ final class HomeViewController: UICollectionViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = true
         searchController.searchBar.placeholder = "검색..."
+//        searchController.searchBar.showsBookmarkButton = true
+//        searchController.searchBar.showsSearchResultsButton = true
+//        searchController.searchBar.showsScopeBar = true
+//        searchController.searchBar.showsLargeContentViewer = true
+//        searchController.searchBar.showsCancelButton = true
+//        searchController.searchBar.setImage(UIImage(named: "instagram"), for: .bookmark, state: .normal)
+//        searchController.searchBar.barStyle = .black
+//        searchController.searchBar.setValue(UIImage(systemName: "pencil"), forKey: "cancelButtonText")
         
         navigationItem.searchController = searchController
         definesPresentationContext = false
-        searchController.isActive = true
     }
     
     func configureCollectionView() {
@@ -124,20 +130,6 @@ extension HomeViewController {
         return cell
     }
 }
-
-// MARK: - UICollectionViewDelegateFlowLayout
-
-//extension HomeViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width: CGFloat = (view.frame.width / 2) - 10
-//        let height: CGFloat = 300
-//        return CGSize(width: width, height: height)
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-//    }
-//}
 
 // MARK: - UISearchResultsUpdating
 
@@ -182,3 +174,17 @@ extension HomeViewController: HomeViewCustomLayoutDelegate {
         return image.size
     }
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+//extension HomeViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width: CGFloat = (view.frame.width / 2) - 10
+//        let height: CGFloat = 300
+//        return CGSize(width: width, height: height)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+//    }
+//}

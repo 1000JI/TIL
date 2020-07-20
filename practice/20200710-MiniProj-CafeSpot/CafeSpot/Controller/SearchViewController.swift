@@ -196,6 +196,8 @@ extension SearchViewController: MKMapViewDelegate {
     }
     
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+//        let annotations = mapView.annotations(in: mapView.visibleMapRect) // 나중에 참고
+        
         let mRect = mapView.visibleMapRect
         let topPoint = MKMapPoint(x: mRect.minX, y: mRect.minY)
         let bottomPoint = MKMapPoint(x: mRect.maxX, y: mRect.maxY)

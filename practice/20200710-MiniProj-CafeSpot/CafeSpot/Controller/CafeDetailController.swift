@@ -143,7 +143,3 @@ extension CafeDetailController: DetailMoreInfoCellDelegate {
         }
     }
 }
-
-extension CafeDetailController: CLLocationManagerDelegate {
-    
-}

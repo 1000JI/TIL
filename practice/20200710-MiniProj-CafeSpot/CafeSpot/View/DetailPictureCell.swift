@@ -15,12 +15,6 @@ class DetailPictureCell: UITableViewCell {
     static let identifier = "DetailPictureCell"
     var cafe: Cafe? { didSet { configure() } }
     
-    private let imagePageController: UIPageViewController = {
-        let pv = UIPageViewController()
-        pv.view.backgroundColor = .green
-        return pv
-    }()
-    
     private lazy var pictureScrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.backgroundColor = .systemBackground
