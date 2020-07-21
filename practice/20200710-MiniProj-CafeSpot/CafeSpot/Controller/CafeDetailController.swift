@@ -15,8 +15,6 @@ class CafeDetailController: UITableViewController {
     
     var cafe: Cafe?
     
-    var locationManager: CLLocationManager!
-    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {

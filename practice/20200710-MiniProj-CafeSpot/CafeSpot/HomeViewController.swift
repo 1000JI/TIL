@@ -97,14 +97,6 @@ final class HomeViewController: UICollectionViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = true
         searchController.searchBar.placeholder = "검색..."
-//        searchController.searchBar.showsBookmarkButton = true
-//        searchController.searchBar.showsSearchResultsButton = true
-//        searchController.searchBar.showsScopeBar = true
-//        searchController.searchBar.showsLargeContentViewer = true
-//        searchController.searchBar.showsCancelButton = true
-//        searchController.searchBar.setImage(UIImage(named: "instagram"), for: .bookmark, state: .normal)
-//        searchController.searchBar.barStyle = .black
-//        searchController.searchBar.setValue(UIImage(systemName: "pencil"), forKey: "cancelButtonText")
         
         navigationItem.searchController = searchController
         definesPresentationContext = false
