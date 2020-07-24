@@ -38,6 +38,8 @@ struct WeatherService {
         
         guard let weatherURL = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=\(cityName)&appid=\(PrivateFile.weatherAppKey)&lang=kr&units=metric") else { return }
         
+        print(weatherURL)
+        
         let dataTask = URLSession.shared.dataTask(with: weatherURL) { (data, response, err) in
             guard err == nil else { return print(err!.localizedDescription)}
             guard let response = response as? HTTPURLResponse,
