@@ -134,8 +134,10 @@ class WeatherCasterViewController: UIViewController {
     
     func fetchWeather() {
         WeatherService.shared.fetchCurrentWeather { weather in
-            self.presentWeatherData = weather
-            self.headerView.weatherInfo = weather
+            DispatchQueue.main.async {
+                self.presentWeatherData = weather
+                self.headerView.weatherInfo = weather
+            }
         }
         
         WeatherService.shared.fetchFiveDayThreeHourWeather { weatherData in

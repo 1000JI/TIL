@@ -44,12 +44,13 @@ struct WeatherList: Decodable {
     let dt: TimeInterval
     let main: WeatherMain
     let weather: [WeatherInfo]
+
+    struct WeatherMain: Decodable {
+        let temp: Double
+    }
+    
+    struct WeatherInfo: Decodable {
+        let icon: String
+    }
 }
 
-struct WeatherMain: Decodable {
-    let temp: Double
-}
-
-struct WeatherInfo: Decodable {
-    let icon: String
-}

@@ -95,12 +95,12 @@ class HeaderView: UIView {
         guard let weatherInfo = weatherInfo else { return }
         let viewModel = HeaderViewModel(presentWeather: weatherInfo)
         
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             self.weatherImageView.image = UIImage(named: weatherInfo.weather[0].icon)
             self.weatherLabel.text = weatherInfo.weather[0].description
             self.lowestTempratureLabel.text = viewModel.tempMinText
             self.highestTempratureLabel.text = viewModel.tempMaxText
             self.presentTemperatureLabel.text = viewModel.tempPresentText
-        }
+//        }
     }
 }
