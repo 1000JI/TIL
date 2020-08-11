@@ -212,6 +212,7 @@ extension ViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
+        print(#function, deleteMode)
         if deleteMode {
             return true
         } else {
