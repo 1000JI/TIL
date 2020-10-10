@@ -28,7 +28,18 @@
 		AF6EBE2124B84E7400178DB2 /* CafeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EBE2024B84E7400178DB2 /* CafeDetailController.swift */; };
 		AF6EBE2324B8511800178DB2 /* CafeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EBE2224B8511800178DB2 /* CafeDetailModel.swift */; };
 		AF6EBE2524B853F400178DB2 /* DetailPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EBE2424B853F400178DB2 /* DetailPictureCell.swift */; };
+		AF8932F524E3BFE300221AA6 /* CafeSpotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8932F424E3BFE300221AA6 /* CafeSpotUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF8932F724E3BFE300221AA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5294699F24AD13960067C66C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 529469A624AD13960067C66C;
+			remoteInfo = CafeSpot;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		521813F024B1072600CEFEFB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -54,6 +65,9 @@
 		AF6EBE2024B84E7400178DB2 /* CafeDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailController.swift; sourceTree = "<group>"; };
 		AF6EBE2224B8511800178DB2 /* CafeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailModel.swift; sourceTree = "<group>"; };
 		AF6EBE2424B853F400178DB2 /* DetailPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPictureCell.swift; sourceTree = "<group>"; };
+		AF8932F224E3BFE300221AA6 /* CafeSpotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CafeSpotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF8932F424E3BFE300221AA6 /* CafeSpotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeSpotUITests.swift; sourceTree = "<group>"; };
+		AF8932F624E3BFE300221AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				521813F124B1072600CEFEFB /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF8932EF24E3BFE300221AA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				529469A924AD13960067C66C /* CafeSpot */,
+				AF8932F324E3BFE300221AA6 /* CafeSpotUITests */,
 				529469A824AD13960067C66C /* Products */,
 				521813EF24B1072600CEFEFB /* Frameworks */,
 			);
@@ -107,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				529469A724AD13960067C66C /* CafeSpot.app */,
+				AF8932F224E3BFE300221AA6 /* CafeSpotUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +200,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AF8932F324E3BFE300221AA6 /* CafeSpotUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AF8932F424E3BFE300221AA6 /* CafeSpotUITests.swift */,
+				AF8932F624E3BFE300221AA6 /* Info.plist */,
+			);
+			path = CafeSpotUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,18 +231,40 @@
 			productReference = 529469A724AD13960067C66C /* CafeSpot.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AF8932F124E3BFE300221AA6 /* CafeSpotUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF8932FB24E3BFE300221AA6 /* Build configuration list for PBXNativeTarget "CafeSpotUITests" */;
+			buildPhases = (
+				AF8932EE24E3BFE300221AA6 /* Sources */,
+				AF8932EF24E3BFE300221AA6 /* Frameworks */,
+				AF8932F024E3BFE300221AA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF8932F824E3BFE300221AA6 /* PBXTargetDependency */,
+			);
+			name = CafeSpotUITests;
+			productName = CafeSpotUITests;
+			productReference = AF8932F224E3BFE300221AA6 /* CafeSpotUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		5294699F24AD13960067C66C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Giftbot;
 				TargetAttributes = {
 					529469A624AD13960067C66C = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					AF8932F124E3BFE300221AA6 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = 529469A624AD13960067C66C;
 					};
 				};
 			};
@@ -230,6 +284,7 @@
 			projectRoot = "";
 			targets = (
 				529469A624AD13960067C66C /* CafeSpot */,
+				AF8932F124E3BFE300221AA6 /* CafeSpotUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -243,6 +298,13 @@
 				529469B424AD13980067C66C /* Assets.xcassets in Resources */,
 				5218140E24B23AAE00CEFEFB /* CafeList.json in Resources */,
 				529469B224AD13960067C66C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF8932F024E3BFE300221AA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +334,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AF8932EE24E3BFE300221AA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF8932F524E3BFE300221AA6 /* CafeSpotUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF8932F824E3BFE300221AA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 529469A624AD13960067C66C /* CafeSpot */;
+			targetProxy = AF8932F724E3BFE300221AA6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		529469B024AD13960067C66C /* Main.storyboard */ = {
@@ -344,7 +422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -398,7 +476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -415,7 +493,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZLCDRXJTXW;
 				INFOPLIST_FILE = "CafeSpot/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -434,7 +512,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZLCDRXJTXW;
 				INFOPLIST_FILE = "CafeSpot/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,6 +521,44 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AF8932F924E3BFE300221AA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CafeSpotUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamsloth.CafeSpotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CafeSpot;
+			};
+			name = Debug;
+		};
+		AF8932FA24E3BFE300221AA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CafeSpotUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamsloth.CafeSpotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CafeSpot;
 			};
 			name = Release;
 		};
@@ -463,6 +579,15 @@
 			buildConfigurations = (
 				529469BC24AD13980067C66C /* Debug */,
 				529469BD24AD13980067C66C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF8932FB24E3BFE300221AA6 /* Build configuration list for PBXNativeTarget "CafeSpotUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF8932F924E3BFE300221AA6 /* Debug */,
+				AF8932FA24E3BFE300221AA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
